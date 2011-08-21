@@ -177,8 +177,11 @@ Bundle 'cocoa.vim'
 Bundle 'git://github.com/altercation/vim-colors-solarized.git'
 "Bundle 'git://github.com/pangloss/vim-javascript.git'
 "Bundle 'jslint.vim'
+Bundle 'https://github.com/Raimondi/delimitMate'
 
 let g:syntastic_enable_signs=1
+let delimitMate_expand_cr = 1
+let delimitMate_expand_space = 1
 let Tlist_Ctags_Cmd='/opt/local/var/macports/software/ctags/5.8_0/opt/local/bin/ctags' 
 
 " If the filetype is obj-c, :A should use the alternate functionality provided
