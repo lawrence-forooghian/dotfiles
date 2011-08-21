@@ -197,7 +197,7 @@ if has("gui_running")
     colorscheme molokai
 endif
 
-if &t_Co > 2 
+if &t_Co > 2 || has("gui_running")
     " Highlight hard tabs.
     " Needs to come after molokai is loaded, else it will override the
     " highlighting rule.
