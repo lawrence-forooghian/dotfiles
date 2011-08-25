@@ -172,12 +172,13 @@ Bundle 'Command-T'
 
 " not sure about whether i like these ones.
 Bundle 'https://github.com/scrooloose/syntastic/'
-Bundle 'cocoa.vim'
+Bundle 'git://github.com/lawrence-forooghian/cocoa.vim.git'
 "Bundle 'taglist.vim'
 Bundle 'git://github.com/altercation/vim-colors-solarized.git'
 "Bundle 'git://github.com/pangloss/vim-javascript.git'
 "Bundle 'jslint.vim'
 Bundle 'https://github.com/Raimondi/delimitMate'
+Bundle 'fugitive.vim'
 
 let g:syntastic_enable_signs=1
 let delimitMate_expand_cr = 1
