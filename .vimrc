@@ -46,6 +46,15 @@ else
 endif " has("autocmd")
 
 "
+" ---- Copied settings ----
+"
+
+" Complete options (disable preview scratch window)
+set completeopt=menu,menuone,longest
+" Limit popup menu height
+set pumheight=15
+
+"
 " ---- Personal settings ----
 "
 
@@ -139,7 +148,9 @@ if has('mouse')
 end
 
 " Edit .vimrc easily
-command Vrc e ~/.vimrc
+if !exists(':Vrc')
+    command Vrc e ~/.vimrc
+end
 
 " TODO: command for generating ctags
 
@@ -179,12 +190,36 @@ Bundle 'git://github.com/altercation/vim-colors-solarized.git'
 "Bundle 'jslint.vim'
 Bundle 'https://github.com/Raimondi/delimitMate'
 Bundle 'fugitive.vim'
-Bundle 'nerdtree.vim'
+Bundle 'nerdtree.vim' 
+Bundle 'https://github.com/Rip-Rip/clang_complete'
+Bundle 'https://github.com/ervandew/supertab'
+Bundle 'https://github.com/msanders/snipmate.vim' 
+Bundle 'https://github.com/scrooloose/nerdcommenter'
 
 let g:syntastic_enable_signs=1
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 let Tlist_Ctags_Cmd='/opt/local/var/macports/software/ctags/5.8_0/opt/local/bin/ctags' 
+
+let g:clang_complete_auto=0
+let g:clang_complete_copen=1
+let g:clang_snippets_engine="snipmate"
+let g:clang_snippets=1
+let g:clang_complete_macros=1
+" Find the snippet required to make SnipMate not go crazy with a dot
+
+if has("python")
+    let g:clang_use_library=1
+    let g:clang_library_path="/Users/lawrence/build/Release+Asserts/lib"
+endif
+
+let g:clang_user_options="-fblocks -nostdinc -nobuiltininc -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/usr/include -F/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/System/Library/Frameworks -I/usr/lib/clang/3.0/include"
+"let g:clang_user_options="-fblocks -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk -DTARGET_OS_IPHONE=1 -DTARGET_IPHONE_SIMULATOR=1"
+
+" This works well for clang_complete but I have a suspicion it might break
+" other stuff. Should probably set <c-x><c-p> as a backup (or do it based on
+" filetype)
+let g:SuperTabDefaultCompletionType="<c-x><c-u>"
 
 " If the filetype is obj-c, :A should use the alternate functionality provided
 " by cocoa.vim. Not really sure if this is the 'right' way to go about this
