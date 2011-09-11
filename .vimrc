@@ -179,6 +179,7 @@ Bundle 'git://github.com/altercation/vim-colors-solarized.git'
 "Bundle 'jslint.vim'
 Bundle 'https://github.com/Raimondi/delimitMate'
 Bundle 'fugitive.vim'
+Bundle 'nerdtree.vim'
 
 let g:syntastic_enable_signs=1
 let delimitMate_expand_cr = 1
