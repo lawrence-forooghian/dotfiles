@@ -210,7 +210,7 @@ let g:clang_complete_macros=1
 
 if has("python")
     let g:clang_use_library=1
-    let g:clang_library_path="/Users/lawrence/build/Release+Asserts/lib"
+    let g:clang_library_path="<%= clang_library_path %>"
 endif
 
 let g:clang_user_options="-fblocks -nostdinc -nobuiltininc -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/usr/include -F/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/System/Library/Frameworks -I/usr/lib/clang/3.0/include"

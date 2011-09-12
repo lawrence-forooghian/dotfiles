@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require 'erb'
+
+renderer = ERB.new(File.read ".vimrc.erb")
+
+clang_library_path = (ENV['LOCALE'] == "home") ? "/Users/lawrence/build/Release+Asserts/lib" : "/Developer/usr/clang-ide/lib"
+
+result = renderer.result(binding) 
+
+outpath = File.join(Dir.pwd, '.vimrc')
+File.open('.vimrc', 'w') do |f|
+  f << result 
+  puts "created #{outpath}"
+end
+  
