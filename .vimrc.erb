@@ -213,8 +213,7 @@ if has("python")
     let g:clang_library_path="<%= clang_library_path %>"
 endif
 
-let g:clang_user_options="-fblocks -nostdinc -nobuiltininc -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/usr/include -F/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/System/Library/Frameworks -I/usr/lib/clang/3.0/include"
-"let g:clang_user_options="-fblocks -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk -DTARGET_OS_IPHONE=1 -DTARGET_IPHONE_SIMULATOR=1"
+let g:clang_user_options="<%= clang_user_options %>"
 
 " This works well for clang_complete but I have a suspicion it might break
 " other stuff. Should probably set <c-x><c-p> as a backup (or do it based on
