@@ -165,6 +165,10 @@ map <leader>a :on<CR>:AV<CR><C-w><C-x>
 map <leader>n :NERDTree<CR>
 map <leader>l :TlistToggle<CR>
 
+" These need to come before a.vim is loaded
+let g:alternateExtensions_h = "c,cpp,cxx,cc,CC,m"
+let g:alternateExtensions_m = "h"
+
 "-- Vundle stuff --
 
 set rtp+=~/.vim/bundle/vundle/
@@ -227,15 +231,6 @@ let g:clang_user_options="<%= clang_user_options %>"
 " other stuff. Should probably set <c-x><c-p> as a backup (or do it based on
 " filetype)
 let g:SuperTabDefaultCompletionType="<c-x><c-u>"
-
-" If the filetype is obj-c, :A should use the alternate functionality provided
-" by cocoa.vim. Not really sure if this is the 'right' way to go about this
-" but it seems to do the job.
-" (The bang means 'redefine if it already exists'; else we get warnings upon
-" switching back to a buffer, and the '-buffer' means 'make the command local
-" to this buffer')
-" It's worth seeing if we can get a.vim to do this for us.
-autocmd FileType objc command! -buffer A norm <leader>A
 
 if has("gui_running")
     colorscheme molokai
