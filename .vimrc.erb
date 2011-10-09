@@ -167,6 +167,15 @@ autocmd FileType objc map <buffer> <leader>l :ListMethods<CR>
 " Open current file in Xcode
 map <leader>xc :call g:OpenInXcode()<CR> 
 
+" Align current Objective-C line using objc_align
+" I'm sure there's a way to do this without the use of exec, but I don't know
+" what it is
+let s:objcAlignCommand = $HOME . '/code/objc_align/cmdline.rb'
+if filereadable(s:objcAlignCommand)
+    let s:objcAlignMapping = 'autocmd FileType objc map <buffer> <silent> <leader>al !!' . s:objcAlignCommand . '<CR>'
+    exec s:objcAlignMapping
+endif
+
 " These need to come before a.vim is loaded
 let g:alternateExtensions_h = "c,cpp,cxx,cc,CC,m"
 let g:alternateExtensions_m = "h"
