@@ -142,13 +142,6 @@ if has("gui_running")
     set guifont=Monaco:h12
 end
 
-" Disable mouse (including wheel)
-if has('mouse')
-    set mouse=""
-    map <ScrollWheelUp> <Nop>
-    map <ScrollWheelDown> <Nop>
-end
-
 " Edit .vimrc easily
 if !exists(':Vrc')
     command Vrc e ~/.vimrc
