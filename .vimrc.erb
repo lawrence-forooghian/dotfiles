@@ -163,7 +163,10 @@ map <leader>a :on<CR>:AV<CR><C-w><C-x>
 "  Should put guards around these to check whether the things are defined.
 
 map <leader>n :NERDTree<CR>
-map <leader>l :TlistToggle<CR>
+" Make it easy to close the window
+map <leader>c <C-w>c
+" :ListMethods comes with cocoa.vim
+autocmd FileType objc map <buffer> <leader>l :ListMethods<CR> 
 
 " These need to come before a.vim is loaded
 let g:alternateExtensions_h = "c,cpp,cxx,cc,CC,m"
@@ -199,8 +202,8 @@ Bundle 'git://github.com/altercation/vim-colors-solarized.git'
 "Bundle 'jslint.vim'
 Bundle 'https://github.com/Raimondi/delimitMate'
 Bundle 'fugitive.vim'
-Bundle 'nerdtree.vim' 
-Bundle 'https://github.com/Rip-Rip/clang_complete'
+Bundle 'https://github.com/scrooloose/nerdtree' 
+Bundle '--branch objc_snippets git://github.com/lawrence-forooghian/clang_complete.git'
 Bundle 'https://github.com/ervandew/supertab'
 Bundle 'https://github.com/msanders/snipmate.vim' 
 Bundle 'https://github.com/scrooloose/nerdcommenter'
