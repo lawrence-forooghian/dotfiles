@@ -162,11 +162,17 @@ map <leader>a :on<CR>:AV<CR><C-w><C-x>
 " --- External options ---
 "  Should put guards around these to check whether the things are defined.
 
+function! g:OpenInXcode()
+   call system("open -a Xcode ". expand('%'))
+endfunction
+
 map <leader>n :NERDTree<CR>
 " Make it easy to close the window
 map <leader>c <C-w>c
 " :ListMethods comes with cocoa.vim
 autocmd FileType objc map <buffer> <leader>l :ListMethods<CR> 
+" Open current file in Xcode
+map <leader>xc :call g:OpenInXcode()<CR> 
 
 " These need to come before a.vim is loaded
 let g:alternateExtensions_h = "c,cpp,cxx,cc,CC,m"
