@@ -215,9 +215,9 @@ Bundle 'git://github.com/altercation/vim-colors-solarized.git'
 Bundle 'https://github.com/Raimondi/delimitMate'
 Bundle 'fugitive.vim'
 Bundle 'https://github.com/scrooloose/nerdtree' 
-Bundle '--branch objc_snippets git://github.com/lawrence-forooghian/clang_complete.git'
+Bundle '--branch snips https://github.com/Rip-Rip/clang_complete'
 Bundle 'https://github.com/ervandew/supertab'
-Bundle 'https://github.com/msanders/snipmate.vim' 
+"Bundle 'https://github.com/msanders/snipmate.vim' 
 Bundle 'https://github.com/scrooloose/nerdcommenter'
 
 let g:syntastic_enable_signs=1
@@ -227,7 +227,7 @@ let Tlist_Ctags_Cmd='/opt/local/var/macports/software/ctags/5.8_0/opt/local/bin/
 
 let g:clang_complete_auto=0
 let g:clang_complete_copen=1
-let g:clang_snippets_engine="snipmate"
+let g:clang_snippets_engine="clang_complete"
 let g:clang_snippets=1
 let g:clang_complete_macros=1
 
