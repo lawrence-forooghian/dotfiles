@@ -156,7 +156,7 @@ map <leader>a :on<CR>:AV<CR><C-w><C-x>
 "  Should put guards around these to check whether the things are defined.
 
 function! g:OpenInXcode()
-   call system("open -a Xcode ". expand('%'))
+   call system("open -a Xcode ". shellescape(expand('%')))
 endfunction
 
 map <leader>n :NERDTree<CR>
