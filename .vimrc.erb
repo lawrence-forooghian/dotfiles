@@ -180,6 +180,8 @@ endif
 " put errors in quickfix window (v. useful!)
 autocmd FileType objc map <buffer> <leader>q :call g:ClangUpdateQuickFix()<CR> 
 
+map <leader>ctf :CommandTFlush<CR>
+
 " These need to come before a.vim is loaded
 let g:alternateExtensions_h = "c,cpp,cxx,cc,CC,m"
 let g:alternateExtensions_m = "h"
