@@ -186,6 +186,8 @@ map <leader>ctf :CommandTFlush<CR>
 let g:alternateExtensions_h = "c,cpp,cxx,cc,CC,m"
 let g:alternateExtensions_m = "h"
 
+let g:clang_user_options="<%= clang_user_options %>"
+
 "-- Vundle stuff --
 
 set rtp+=~/.vim/bundle/vundle/
@@ -221,6 +223,7 @@ Bundle '--branch snips https://github.com/Rip-Rip/clang_complete'
 Bundle 'https://github.com/ervandew/supertab'
 "Bundle 'https://github.com/msanders/snipmate.vim' 
 Bundle 'https://github.com/scrooloose/nerdcommenter'
+Bundle 'https://github.com/lawrence-forooghian/inccomplete.git'
 
 let g:syntastic_enable_signs=1
 let delimitMate_expand_cr = 1
@@ -242,12 +245,14 @@ if has("python")
     let g:clang_library_path="<%= clang_library_path %>"
 endif
 
-let g:clang_user_options="<%= clang_user_options %>"
 
 " This works well for clang_complete but I have a suspicion it might break
 " other stuff. Should probably set <c-x><c-p> as a backup (or do it based on
 " filetype)
 let g:SuperTabDefaultCompletionType="<c-x><c-u>"
+
+let g:inccomplete_showdirs = 1
+let g:inccomplete_addclosebracket = ""
 
 if has("gui_running")
     colorscheme molokai
