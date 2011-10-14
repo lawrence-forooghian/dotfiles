@@ -253,6 +253,12 @@ let g:SuperTabDefaultCompletionType="<c-x><c-u>"
 
 let g:inccomplete_showdirs = 1
 let g:inccomplete_addclosebracket = ""
+let g:inccomplete_frameworks = 1
+
+" Until I integrate it properly into inccomplete, use this to normalise
+" framework include/imports; e.g. AVFoundation.framework/Headers/AVAsset.h ->
+" AVFoundation/AVAsset.h
+map <leader>ni :.s/\v\.framework\/Headers//<CR>
 
 if has("gui_running")
     colorscheme molokai
@@ -266,4 +272,4 @@ if &t_Co > 2 || has("gui_running")
     match ExtraWhitespace /\t/
 endif
 
- vim:ft=vim
+" vim:ft=vim
