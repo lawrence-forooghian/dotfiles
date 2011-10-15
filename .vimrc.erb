@@ -147,6 +147,14 @@ if !exists(':Vrc')
     command Vrc e ~/.vimrc
 end
 
+" Set up path so we can find header files
+" clang -v is good for seeing the default search paths
+if has ('macunix')
+    autocmd FileType c,cpp,objc setlocal path+=/System/Library/Frameworks,/Library/Frameworks
+endif
+
+autocmd FileType cpp setlocal path+=/usr/include/c++/4.2.1
+
 " --- Keyboard mappings ---
 
 " TODO: mapping for generating ctags
@@ -161,7 +169,9 @@ map <leader>c <C-w>c
 " :ListMethods comes with cocoa.vim
 autocmd FileType objc map <buffer> <leader>l :ListMethods<CR> 
 " Open current file in Xcode
-map <leader>xc :call g:OpenInXcode()<CR> 
+if has('macunix')
+    map <leader>xc :call g:OpenInXcode()<CR> 
+endif
 
 " Align current Objective-C line using objc_align
 " I'm sure there's a way to do this without the use of exec, but I don't know
@@ -174,14 +184,16 @@ endif
 
 " g:ClangUpdateQuickFix() comes with clang_complete - makes it parse file and
 " put errors in quickfix window (v. useful!)
-autocmd FileType objc map <buffer> <leader>q :call g:ClangUpdateQuickFix()<CR> 
+autocmd FileType c,cpp,objc map <buffer> <leader>q :call g:ClangUpdateQuickFix()<CR> 
 
 map <leader>ctf :CommandTFlush<CR>
 
 " Until I integrate it properly into inccomplete, use this to normalise
 " framework include/imports; e.g. AVFoundation.framework/Headers/AVAsset.h ->
 " AVFoundation/AVAsset.h
-map <leader>ni :.s/\v\.framework\/Headers//<CR>
+if has('macunix')
+    autocmd FileType c,cpp,objc map <buffer> <leader>ni :.s/\v\.framework\/Headers//<CR>
+endif
 
 " Handy for alternates.
 map <leader>a :on<CR>:AV<CR><C-w><C-x> 
@@ -193,9 +205,13 @@ map <leader>a :on<CR>:AV<CR><C-w><C-x>
 let g:alternateExtensions_h = "c,cpp,cxx,cc,CC,m"
 let g:alternateExtensions_m = "h"
 
+" TODO: this is currently a right old mess. Hard-coded paths to iOS project
+" and hard-coded compiler flags (-fblocks, -x objective-c-header, -nostdinc,
+" -nobuiltininc) that will completely screw with any 'normal' C/C++ editing.
+"  Need to get around these. Try to figure out how to use a .clang_complete
+"  file.
 let g:clang_user_options="<%= clang_user_options %>"
 
-let g:syntastic_enable_signs=1
 let delimitMate_expand_cr = 1
 let delimitMate_excluded_ft = "vim"
 let Tlist_Ctags_Cmd='/opt/local/var/macports/software/ctags/5.8_0/opt/local/bin/ctags' 
@@ -205,10 +221,6 @@ let g:clang_complete_copen=1
 let g:clang_snippets_engine="clang_complete"
 let g:clang_snippets=1
 let g:clang_complete_macros=1
-
-" The default snippets are a bit irritating, but I want plugins to be allowed
-" to make snippets.
-let g:snippets_dir=""
 
 if has("python")
     let g:clang_use_library=1
