@@ -147,13 +147,9 @@ if !exists(':Vrc')
     command Vrc e ~/.vimrc
 end
 
-" Handy for alternates.
-map <leader>a :on<CR>:AV<CR><C-w><C-x>
+" --- Keyboard mappings ---
 
-" TODO: command for generating ctags
-
-" --- External options ---
-"  Should put guards around these to check whether the things are defined.
+" TODO: mapping for generating ctags
 
 function! g:OpenInXcode()
    call system("open -a Xcode ". shellescape(expand('%')))
@@ -182,48 +178,22 @@ autocmd FileType objc map <buffer> <leader>q :call g:ClangUpdateQuickFix()<CR>
 
 map <leader>ctf :CommandTFlush<CR>
 
+" Until I integrate it properly into inccomplete, use this to normalise
+" framework include/imports; e.g. AVFoundation.framework/Headers/AVAsset.h ->
+" AVFoundation/AVAsset.h
+map <leader>ni :.s/\v\.framework\/Headers//<CR>
+
+" Handy for alternates.
+map <leader>a :on<CR>:AV<CR><C-w><C-x> 
+
+" --- External options ---
+"  Should put guards around these to check whether the things are defined.
+
 " These need to come before a.vim is loaded
 let g:alternateExtensions_h = "c,cpp,cxx,cc,CC,m"
 let g:alternateExtensions_m = "h"
 
 let g:clang_user_options="<%= clang_user_options %>"
-
-"-- Vundle stuff --
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-Bundle 'gmarik/vundle'
-
-" Allow plugins to use .
-Bundle 'repeat.vim' 
-" % on acid
-Bundle 'matchit.zip' 
-" Includes molokai
-Bundle 'Color-Sampler-Pack' 
-Bundle 'surround.vim'
-Bundle 'rails.vim'
-Bundle 'ack.vim'
-" :A alternates
-Bundle 'a.vim' 
-Bundle 'Command-T'
-
-" not sure about whether i like these ones.
-Bundle 'https://github.com/scrooloose/syntastic/'
-Bundle 'git://github.com/lawrence-forooghian/cocoa.vim.git'
-"Bundle 'taglist.vim'
-Bundle 'git://github.com/altercation/vim-colors-solarized.git'
-"Bundle 'git://github.com/pangloss/vim-javascript.git'
-"Bundle 'jslint.vim'
-Bundle 'https://github.com/Raimondi/delimitMate'
-Bundle 'fugitive.vim'
-Bundle 'https://github.com/scrooloose/nerdtree' 
-Bundle '--branch snips https://github.com/Rip-Rip/clang_complete'
-Bundle 'https://github.com/ervandew/supertab'
-"Bundle 'https://github.com/msanders/snipmate.vim' 
-Bundle 'https://github.com/scrooloose/nerdcommenter'
-Bundle 'https://github.com/lawrence-forooghian/inccomplete.git'
 
 let g:syntastic_enable_signs=1
 let delimitMate_expand_cr = 1
@@ -245,7 +215,6 @@ if has("python")
     let g:clang_library_path="<%= clang_library_path %>"
 endif
 
-
 " This works well for clang_complete but I have a suspicion it might break
 " other stuff. Should probably set <c-x><c-p> as a backup (or do it based on
 " filetype)
@@ -255,10 +224,38 @@ let g:inccomplete_showdirs = 1
 let g:inccomplete_addclosebracket = ""
 let g:inccomplete_frameworks = 1
 
-" Until I integrate it properly into inccomplete, use this to normalise
-" framework include/imports; e.g. AVFoundation.framework/Headers/AVAsset.h ->
-" AVFoundation/AVAsset.h
-map <leader>ni :.s/\v\.framework\/Headers//<CR>
+"-- Vundle stuff --
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+" Allow plugins to use .
+Bundle 'repeat.vim' 
+" % on acid
+Bundle 'matchit.zip' 
+" Includes molokai
+Bundle 'Color-Sampler-Pack' 
+Bundle 'surround.vim'
+Bundle 'https://github.com/tpope/vim-rails'
+Bundle 'ack.vim'
+" :A alternates
+Bundle 'a.vim' 
+Bundle 'Command-T'
+
+" not sure about whether i like these ones.
+Bundle 'https://github.com/scrooloose/syntastic/'
+Bundle 'git://github.com/lawrence-forooghian/cocoa.vim.git'
+Bundle 'git://github.com/altercation/vim-colors-solarized.git'
+Bundle 'https://github.com/Raimondi/delimitMate'
+Bundle 'fugitive.vim'
+Bundle 'https://github.com/scrooloose/nerdtree' 
+Bundle '--branch snips https://github.com/Rip-Rip/clang_complete'
+Bundle 'https://github.com/ervandew/supertab'
+Bundle 'https://github.com/scrooloose/nerdcommenter'
+Bundle 'https://github.com/lawrence-forooghian/inccomplete.git'
 
 if has("gui_running")
     colorscheme molokai
