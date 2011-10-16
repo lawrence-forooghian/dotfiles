@@ -205,13 +205,6 @@ map <leader>a :on<CR>:AV<CR><C-w><C-x>
 let g:alternateExtensions_h = "c,cpp,cxx,cc,CC,m"
 let g:alternateExtensions_m = "h"
 
-" TODO: this is currently a right old mess. Hard-coded paths to iOS project
-" and hard-coded compiler flags (-fblocks, -x objective-c-header, -nostdinc,
-" -nobuiltininc) that will completely screw with any 'normal' C/C++ editing.
-"  Need to get around these. Try to figure out how to use a .clang_complete
-"  file.
-let g:clang_user_options="<%= clang_user_options %>"
-
 let delimitMate_expand_cr = 1
 let delimitMate_excluded_ft = "vim"
 let Tlist_Ctags_Cmd='/opt/local/var/macports/software/ctags/5.8_0/opt/local/bin/ctags' 
@@ -264,7 +257,7 @@ Bundle 'git://github.com/altercation/vim-colors-solarized.git'
 Bundle 'https://github.com/Raimondi/delimitMate'
 Bundle 'fugitive.vim'
 Bundle 'https://github.com/scrooloose/nerdtree' 
-Bundle '--branch snips https://github.com/Rip-Rip/clang_complete'
+Bundle '--branch personal https://github.com/lawrence-forooghian/clang_complete'
 Bundle 'https://github.com/ervandew/supertab'
 Bundle 'https://github.com/scrooloose/nerdcommenter'
 Bundle 'https://github.com/lawrence-forooghian/inccomplete.git'
