@@ -119,6 +119,9 @@ set wildmenu
 " Highlight current line
 set cursorline 
 
+" Allow switching out of a buffer with unsaved changes
+set hidden
+
 " Somewhat strangely, it seems that vim 7.3 has internal version number 703. 
 " Look into using exists(":relativenumber") instead.
 if version >= 703
