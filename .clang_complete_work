@@ -11,4 +11,3 @@
 -I/Users/lawrence/code/i118/KIF.framework/Classes
 -I/Users/lawrence/code/i118/KIF.framework/Additions
 -I/Users/lawrence/code/i118/i118
--include netinet/in.h
