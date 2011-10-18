@@ -97,7 +97,7 @@ autocmd FileType ruby setlocal expandtab softtabstop=2 shiftwidth=2
 
 " Make it easy to see when a file is using hard tabs.
 set listchars=tab:>!
-set list
+"set list
 
 " -- Miscellaneous options --
 
@@ -269,12 +269,14 @@ if has("gui_running")
     colorscheme molokai
 endif
 
-if &t_Co > 2 || has("gui_running")
-    " Highlight hard tabs.
-    " Needs to come after molokai is loaded, else it will override the
-    " highlighting rule.
-    highlight ExtraWhitespace ctermbg=red guibg=red
-    match ExtraWhitespace /\t/
-endif
+" This is getting annoying so comment it out for now, and try to find a less
+" obnoxious way of being made aware of hard tab usage.
+"if &t_Co > 2 || has("gui_running")
+    "" Highlight hard tabs.
+    "" Needs to come after molokai is loaded, else it will override the
+    "" highlighting rule.
+    "highlight ExtraWhitespace ctermbg=red guibg=red
+    "match ExtraWhitespace /\t/
+"endif
 
 " vim:ft=vim
