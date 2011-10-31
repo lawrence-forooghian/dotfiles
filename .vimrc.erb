@@ -158,6 +158,10 @@ endif
 
 autocmd FileType cpp setlocal path+=/usr/include/c++/4.2.1
 
+" I had a look to see if this can be done recursively by specifying a directory
+" name, but didn't find anything. Have another look sometime.
+set tags+=~/tagsfiles/ios_system_framework_tags,~/tagsfiles/library_framework_tags,~/tagsfiles/system_framework_tags,~/tagsfiles/usr_include_tags
+
 " --- Keyboard mappings ---
 
 " TODO: mapping for generating ctags
