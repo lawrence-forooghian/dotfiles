@@ -8,7 +8,7 @@ RECOGNIZED_LOCALES = ['home', 'work']
 raise "Unrecognized locale #{LOCALE}" unless RECOGNIZED_LOCALES.include? LOCALE
 
 renderer = ERB.new(File.read ".vimrc.erb")
-clang_library_path = (LOCALE == "home") ? "/Users/lawrence/build/Release+Asserts/lib" : "/Developer/usr/clang-ide/lib"
+clang_library_path = (LOCALE == "home") ? "/Users/lawrence/build/Release+Asserts/lib" : "/Users/lawrence/bin/llvm/build/Release+Asserts/lib"
 clang_user_options = (LOCALE == "home") ? "-fblocks -nostdinc -nobuiltininc -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/usr/include -F/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/System/Library/Frameworks -I/usr/lib/clang/3.0/include -D__IPHONE_OS_VERSION_MIN_REQUIRED=050000" : "-fblocks -nostdinc -nobuiltininc -include /Users/lawrence/code/i118/i118/118118-Prefix.pch -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/usr/include -F/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks -I/usr/lib/clang/2.1/include -D__IPHONE_OS_VERSION_MIN_REQUIRED=040100 -F/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/Developer/Library/Frameworks -x objective-c-header -I/Users/lawrence/code/i118/KIF.framework/Classes -I/Users/lawrence/code/i118/KIF.framework/Additions -I/Users/lawrence/code/i118/i118 -include netinet/in.h"
 
 result = renderer.result(binding) 
