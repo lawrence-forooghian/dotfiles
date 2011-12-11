@@ -265,7 +265,7 @@ Bundle 'https://github.com/ervandew/supertab'
 Bundle 'https://github.com/scrooloose/nerdcommenter'
 Bundle 'https://github.com/lawrence-forooghian/inccomplete.git'
 
-if has("gui_running")
+if has("gui_running") || &t_Co >= 256
     colorscheme molokai
 endif
 
