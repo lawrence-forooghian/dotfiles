@@ -170,7 +170,6 @@ function! g:OpenInXcode()
    call system("open -a Xcode ". shellescape(expand('%')))
 endfunction
 
-map <leader>n :NERDTree<CR>
 " Make it easy to close the window
 map <leader>c <C-w>c
 " :ListMethods comes with cocoa.vim
@@ -258,18 +257,16 @@ Bundle 'a.vim'
 Bundle 'Command-T'
 
 " not sure about whether i like these ones.
-Bundle 'https://github.com/scrooloose/syntastic/'
-Bundle 'git://github.com/lawrence-forooghian/cocoa.vim.git'
-Bundle 'git://github.com/altercation/vim-colors-solarized.git'
 Bundle 'https://github.com/Raimondi/delimitMate'
 Bundle 'fugitive.vim'
-Bundle 'https://github.com/scrooloose/nerdtree' 
-Bundle '--branch personal https://github.com/lawrence-forooghian/clang_complete'
 Bundle 'https://github.com/ervandew/supertab'
 Bundle 'https://github.com/scrooloose/nerdcommenter'
+
+Bundle '--branch personal https://github.com/lawrence-forooghian/clang_complete'
+Bundle 'git://github.com/lawrence-forooghian/cocoa.vim.git'
 Bundle 'https://github.com/lawrence-forooghian/inccomplete.git'
 
-if has("gui_running")
+if has("gui_running") || &t_Co >= 256
     colorscheme molokai
 endif
 
