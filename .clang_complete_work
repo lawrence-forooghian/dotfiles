@@ -1,6 +1,5 @@
 -fblocks
 -nostdinc
--nobuiltininc
 -include /Users/lawrence/code/i118/i118/118118-Prefix.pch
 -I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/usr/include
 -F/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks
@@ -11,3 +10,5 @@
 -I/Users/lawrence/code/i118/KIF.framework/Classes
 -I/Users/lawrence/code/i118/KIF.framework/Additions
 -I/Users/lawrence/code/i118/i118
+-I/Users/lawrence/code/i118/Facebook.framework/src/
+-I/Users/lawrence/code/i118/Facebook.framework/src/JSON
