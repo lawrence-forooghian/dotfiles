@@ -12,3 +12,5 @@
 -I/Users/lawrence/code/i118/i118
 -I/Users/lawrence/code/i118/Facebook.framework/src/
 -I/Users/lawrence/code/i118/Facebook.framework/src/JSON
+-I/Users/lawrence/code/i118/OCMock.framework
+-I/Users/lawrence/code/i118/OCMock.framework/OCMock
