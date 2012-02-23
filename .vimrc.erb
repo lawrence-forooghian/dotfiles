@@ -142,7 +142,7 @@ endif
 if has("gui_running")
     set guioptions-=T
     set visualbell
-    set guifont=Monaco:h12
+    set guifont=Monaco:h10
 end
 
 " Edit .vimrc easily
@@ -158,13 +158,7 @@ endif
 
 autocmd FileType cpp setlocal path+=/usr/include/c++/4.2.1
 
-" I had a look to see if this can be done recursively by specifying a directory
-" name, but didn't find anything. Have another look sometime.
-set tags+=~/tagsfiles/ios_system_framework_tags,~/tagsfiles/library_framework_tags,~/tagsfiles/system_framework_tags,~/tagsfiles/usr_include_tags
-
 " --- Keyboard mappings ---
-
-" TODO: mapping for generating ctags
 
 function! g:OpenInXcode()
    call system("open -a Xcode ". shellescape(expand('%')))
@@ -213,11 +207,9 @@ let g:alternateExtensions_m = "h"
 
 let delimitMate_expand_cr = 1
 let delimitMate_excluded_ft = "vim"
-let Tlist_Ctags_Cmd='/opt/local/var/macports/software/ctags/5.8_0/opt/local/bin/ctags' 
 
 let g:clang_complete_auto=0
 let g:clang_complete_copen=1
-let g:clang_snippets_engine="clang_complete"
 let g:clang_snippets=1
 let g:clang_complete_macros=1
 
@@ -225,11 +217,6 @@ if has("python")
     let g:clang_use_library=1
     let g:clang_library_path="<%= clang_library_path %>"
 endif
-
-" This works well for clang_complete but I have a suspicion it might break
-" other stuff. Should probably set <c-x><c-p> as a backup (or do it based on
-" filetype)
-let g:SuperTabDefaultCompletionType="<c-x><c-u>"
 
 let g:inccomplete_showdirs = 1
 let g:inccomplete_addclosebracket = ""
@@ -243,8 +230,6 @@ call vundle#rc()
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
-" Allow plugins to use .
-Bundle 'repeat.vim' 
 " % on acid
 Bundle 'matchit.zip' 
 " Includes molokai
@@ -258,11 +243,10 @@ Bundle 'Command-T'
 
 " not sure about whether i like these ones.
 Bundle 'https://github.com/Raimondi/delimitMate'
-Bundle 'fugitive.vim'
-Bundle 'https://github.com/ervandew/supertab'
 Bundle 'https://github.com/scrooloose/nerdcommenter'
 
-Bundle '--branch personal https://github.com/lawrence-forooghian/clang_complete'
+"Bundle '--branch personal https://github.com/lawrence-forooghian/clang_complete'
+Bundle 'https://github.com/Rip-Rip/clang_complete'
 Bundle 'git://github.com/lawrence-forooghian/cocoa.vim.git'
 Bundle 'https://github.com/lawrence-forooghian/inccomplete.git'
 Bundle 'https://github.com/b4winckler/vim-objc'
