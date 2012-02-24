@@ -3,6 +3,8 @@ alias grep='grep --color=auto'
 alias rm='rm -i'
 alias lsa='ls -alh'
 
+alias genclaco='ruby ~/dotfiles/generate_clang_complete.rb > .clang_complete'
+
 # Work aliases
 alias ssh2='ssh tm50-us-utility-2'
 alias ssh2db="ssh tm50-us-utility-2 \"/data/texpert/current/script/dbconsole slave\""
