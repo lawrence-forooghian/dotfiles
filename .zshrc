@@ -35,7 +35,7 @@ function svnall {
 
 # Exports
 PATH=$HOME/bin:/opt/local/bin:/usr/local/mysql/bin:$HOME/android-sdk-mac_x86/tools:$HOME/android-sdk-mac_x86/platform-tools:/usr/local/sphinx/bin:$PATH
-export SVN_EDITOR="/usr/bin/vim"
+export EDITOR=vim
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export DOTFILES_LOCALE=work
