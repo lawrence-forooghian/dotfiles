@@ -1,0 +1,15 @@
+.idea/
+doc/
+.bundle/
+.DS_Store
+tmp/
+log
+soap.xml
+soap_xml
+*.swp
+*~
+tags
+*.vim
+*.swo
+.clang_complete
+generate_tags*
