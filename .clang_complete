@@ -1,7 +1,0 @@
--fblocks
--nostdinc
--nobuiltininc
--I/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/usr/include
--F/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/System/Library/Frameworks
--I/usr/lib/clang/3.0/include
--D__IPHONE_OS_VERSION_MIN_REQUIRED=050000
