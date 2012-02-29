@@ -227,6 +227,13 @@ let g:inccomplete_showdirs = 1
 let g:inccomplete_addclosebracket = ""
 let g:inccomplete_frameworks = 1
 
+" Testing - want console vim to warn me like MacVim does when an open file
+" changes externally
+" TODO: Decide whether this is overkill in terms of disk access - InsertEnter
+" and InsertLeave may suffice
+set autoread
+au CursorHold,CursorHoldI,CursorMoved,InsertEnter,InsertLeave * checktime
+
 "-- Vundle stuff --
 
 set rtp+=~/.vim/bundle/vundle/
