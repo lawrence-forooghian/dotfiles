@@ -52,7 +52,7 @@ endif " has("autocmd")
 " Complete options (disable preview scratch window)
 set completeopt=menu,menuone,longest
 " Limit popup menu height
-set pumheight=15
+set pumheight=30
 
 "
 " ---- Personal settings ----
@@ -205,11 +205,6 @@ map <leader>a :on<CR>:AV<CR><C-w><C-x>
 let g:alternateExtensions_h = "c,cpp,cxx,cc,CC,m"
 let g:alternateExtensions_m = "h"
 
-let delimitMate_expand_cr = 1
-let delimitMate_excluded_ft = "vim"
-" Otherwise it seems to interfere with the objc matchbracket
-au FileType objc let b:delimitMate_matchPairs = "(:),{:}"
-
 let g:clang_complete_auto=0
 let g:clang_complete_copen=1
 let g:clang_snippets=1
@@ -256,7 +251,6 @@ Bundle 'a.vim'
 Bundle 'Command-T'
 
 " not sure about whether i like these ones.
-Bundle 'https://github.com/Raimondi/delimitMate'
 Bundle 'https://github.com/scrooloose/nerdcommenter'
 Bundle 'https://github.com/ervandew/supertab'
 
