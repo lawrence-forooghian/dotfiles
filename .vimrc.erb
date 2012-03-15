@@ -207,6 +207,8 @@ let g:alternateExtensions_m = "h"
 
 let delimitMate_expand_cr = 1
 let delimitMate_excluded_ft = "vim"
+" Otherwise it seems to interfere with the objc matchbracket
+au FileType objc let b:delimitMate_matchPairs = "(:),{:}"
 
 let g:clang_complete_auto=0
 let g:clang_complete_copen=1
@@ -263,6 +265,8 @@ Bundle 'https://github.com/Rip-Rip/clang_complete'
 Bundle 'git://github.com/lawrence-forooghian/cocoa.vim.git'
 Bundle 'https://github.com/lawrence-forooghian/inccomplete.git'
 Bundle 'https://github.com/b4winckler/vim-objc'
+
+Bundle 'https://github.com/qqshfox/objc_matchbracket'
 
 if has("gui_running") || &t_Co >= 256
     colorscheme molokai
