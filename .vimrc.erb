@@ -158,6 +158,11 @@ endif
 
 autocmd FileType cpp setlocal path+=/usr/include/c++/4.2.1
 
+let g:rubycomplete_buffer_loading=1
+let g:rubycomplete_classes_in_global=1
+" make <c-x><c-u> do omnicompletion for ruby
+autocmd FileType ruby set completefunc=rubycomplete#Complete
+
 " --- Keyboard mappings ---
 
 function! g:OpenInXcode()
@@ -262,7 +267,9 @@ Bundle 'https://github.com/b4winckler/vim-objc'
 
 Bundle 'https://github.com/qqshfox/objc_matchbracket'
 
-Bundle 'https://github.com/vim-ruby/vim-ruby' " the one that came with my vim is out of date - ran into an issue with indentation when there was a class definition below a constant regexp
+" the one that came with my vim is out of date - ran into an issue with
+" indentation when there was a class definition below a constant regexp
+Bundle 'https://github.com/vim-ruby/vim-ruby' 
 
 if has("gui_running") || &t_Co >= 256
     colorscheme molokai
