@@ -153,7 +153,7 @@ end
 " Set up path so we can find header files
 " clang -v is good for seeing the default search paths
 if has ('macunix')
-    autocmd FileType c,cpp,objc setlocal path+=/System/Library/Frameworks,/Library/Frameworks
+    autocmd FileType c,cpp,objc,objcpp setlocal path+=/System/Library/Frameworks,/Library/Frameworks
 endif
 
 autocmd FileType cpp setlocal path+=/usr/include/c++/4.2.1
@@ -172,7 +172,7 @@ endfunction
 " Make it easy to close the window
 map <leader>c <C-w>c
 " :ListMethods comes with cocoa.vim
-autocmd FileType objc map <buffer> <leader>l :ListMethods<CR> 
+autocmd FileType objc,objcpp map <buffer> <leader>l :ListMethods<CR> 
 " Open current file in Xcode
 if has('macunix')
     map <leader>xc :call g:OpenInXcode()<CR> 
@@ -189,7 +189,7 @@ endif
 
 " g:ClangUpdateQuickFix() comes with clang_complete - makes it parse file and
 " put errors in quickfix window (v. useful!)
-autocmd FileType c,cpp,objc map <buffer> <leader>q :call g:ClangUpdateQuickFix()<CR> 
+autocmd FileType c,cpp,objc,objcpp map <buffer> <leader>q :call g:ClangUpdateQuickFix()<CR> 
 
 map <leader>ctf :CommandTFlush<CR>
 
@@ -197,7 +197,7 @@ map <leader>ctf :CommandTFlush<CR>
 " framework include/imports; e.g. AVFoundation.framework/Headers/AVAsset.h ->
 " AVFoundation/AVAsset.h
 if has('macunix')
-    autocmd FileType c,cpp,objc map <buffer> <leader>ni :.s/\v\.framework\/Headers//<CR>
+    autocmd FileType c,cpp,objc,objcpp map <buffer> <leader>ni :.s/\v\.framework\/Headers//<CR>
 endif
 
 " Handy for alternates.
@@ -207,7 +207,7 @@ map <leader>a :on<CR>:AV<CR><C-w><C-x>
 "  Should put guards around these to check whether the things are defined.
 
 " These need to come before a.vim is loaded
-let g:alternateExtensions_h = "c,cpp,cxx,cc,CC,m"
+let g:alternateExtensions_h = "c,cpp,cxx,cc,CC,m,mm"
 let g:alternateExtensions_m = "h"
 
 let g:clang_complete_auto=0
