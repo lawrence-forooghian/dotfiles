@@ -36,7 +36,7 @@ function svnall {
 }
 
 # Exports
-PATH=$HOME/bin:/opt/local/bin:/usr/local/mysql/bin:$HOME/android-sdk-mac_x86/tools:$HOME/android-sdk-mac_x86/platform-tools:/usr/local/sphinx/bin:$PATH
+PATH=$HOME/bin:/opt/local/bin:/usr/local/mysql/bin:$HOME/android-sdk-mac_x86/tools:$HOME/android-sdk-mac_x86/platform-tools:/usr/local/sphinx/bin:$HOME/.rvm/bin:$PATH
 export EDITOR=vim
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
