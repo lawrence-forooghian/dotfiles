@@ -214,6 +214,7 @@ let g:clang_complete_auto=0
 let g:clang_complete_copen=1
 let g:clang_snippets=1
 let g:clang_complete_macros=1
+let g:clang_case_insensitive=1
 
 " This is an unfortunate compromise - I don't want to use the path or clang
 " options when doing iOS development, because it completely screws things up.
@@ -267,8 +268,8 @@ Bundle 'Command-T'
 Bundle 'https://github.com/scrooloose/nerdcommenter'
 Bundle 'https://github.com/ervandew/supertab'
 
-"Bundle '--branch personal https://github.com/lawrence-forooghian/clang_complete'
-Bundle 'https://github.com/Rip-Rip/clang_complete'
+Bundle '--branch personal https://github.com/lawrence-forooghian/clang_complete'
+"Bundle 'https://github.com/Rip-Rip/clang_complete'
 Bundle 'git://github.com/lawrence-forooghian/cocoa.vim.git'
 Bundle 'https://github.com/lawrence-forooghian/inccomplete.git'
 Bundle 'https://github.com/b4winckler/vim-objc'
