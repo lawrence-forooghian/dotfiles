@@ -2,18 +2,24 @@ require 'pathname'
 
 # This should be automated at some point
 STANDARD_PREAMBLE = <<PREAMBLE_
--fblocks
--nostdinc
--x objective-c-header
--I/usr/lib/clang/3.1/include
-
--I/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/usr/include
--F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/System/Library/Frameworks
--F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.0.sdk/Developer/Library/Frameworks
-
--D__IPHONE_OS_VERSION_MIN_REQUIRED=050100
-
+-fmessage-length=0
+-std=gnu99 
+-fobjc-arc 
+-fpascal-strings 
+-DDEBUG=1 
+-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk 
+-fexceptions 
+-fasm-blocks 
+-fobjc-abi-version=2 
+-fobjc-legacy-dispatch 
+-miphoneos-version-min=5.1
+-D__IPHONE_OS_VERSION_MIN_REQUIRED=50100
 PREAMBLE_
+
+# These come from copy and pasting from Xcode build output
+
+# The IBOutlet defines from Xcode in the above seem to break things so had to
+# take them out
 
 def quoted_if_contains_space(str)
   str.index(' ') ? '"' + str + '"' : str

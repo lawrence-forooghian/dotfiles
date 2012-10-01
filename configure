@@ -8,7 +8,7 @@ RECOGNIZED_LOCALES = ['home', 'work']
 raise "Unrecognized locale #{LOCALE}" unless RECOGNIZED_LOCALES.include? LOCALE
 
 renderer = ERB.new(File.read ".vimrc.erb")
-clang_library_path = "/usr/lib"
+clang_library_path = "/usr/lib" # This requires the machine to have the Xcode command line tools installed
 
 result = renderer.result(binding) 
 

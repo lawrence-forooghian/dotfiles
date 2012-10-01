@@ -215,6 +215,14 @@ let g:clang_complete_copen=1
 let g:clang_snippets=1
 let g:clang_complete_macros=1
 
+" This is an unfortunate compromise - I don't want to use the path or clang
+" options when doing iOS development, because it completely screws things up.
+" However, it would be nice to be able to alter this on a per-buffer basis,
+" since I've now effectively broken standard C/C++ development.  Might
+" investigate getopts#{anything}#getopts as mentioned in docs for doing
+" something like this.
+let g:clang_auto_user_options='.clang_complete'
+
 if has("python")
     let g:clang_use_library=1
     let g:clang_library_path="<%= clang_library_path %>"
