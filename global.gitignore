@@ -6,10 +6,9 @@ tmp/
 log
 soap.xml
 soap_xml
-*.swp
+*.sw*
 *~
 tags
 *.vim
-*.swo
 .clang_complete
 generate_tags*
