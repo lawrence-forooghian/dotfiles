@@ -116,8 +116,10 @@ set smartcase
 " Cool tab completion for commands
 set wildmenu 
 
-" Highlight current line
-set cursorline 
+" Highlight current line (only in GUI - it slows down OS X terminal)
+if has("gui_running")
+    set cursorline 
+end
 
 " Allow switching out of a buffer with unsaved changes
 set hidden
@@ -125,7 +127,9 @@ set hidden
 " Somewhat strangely, it seems that vim 7.3 has internal version number 703. 
 " Look into using exists(":relativenumber") instead.
 if version >= 703
-    set relativenumber "displayed line numbering will be relative to the current line
+    if has("gui_running") " really slows down OS X terminal
+        set relativenumber "displayed line numbering will be relative to the current line
+    end
 else
     set number " show line numbers
 end
