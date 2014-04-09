@@ -7,7 +7,7 @@ STANDARD_PREAMBLE = <<PREAMBLE_
 -fobjc-arc 
 -fpascal-strings 
 -DDEBUG=1 
--isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk 
+-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk 
 -fexceptions 
 -fasm-blocks 
 -fobjc-abi-version=2 
