@@ -51,3 +51,6 @@ bindkey -v
 # Set prompts - nabbed from http://www.edsel.nu/?p=203 until I get round to making one
 autoload colors; colors
 export PS1="%B[%{$fg[white]%}%n%{$reset_color%}%b@%B%{$fg[white]%}%m%b%{$reset_color%}:%~%B]%b "
+
+# This apparently gives me git completion... erm.
+autoload -U compinit && compinit
