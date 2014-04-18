@@ -230,7 +230,7 @@ let g:clang_auto_user_options='.clang_complete'
 
 if has("python")
     let g:clang_use_library=1
-    let g:clang_library_path="<%= clang_library_path %>"
+    let g:clang_library_path= "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/"
 endif
 
 " This works well for clang_complete but I have a suspicion it might break
@@ -285,6 +285,7 @@ Bundle 'https://github.com/qqshfox/objc_matchbracket'
 Bundle 'https://github.com/vim-ruby/vim-ruby' 
 
 if has("gui_running") || &t_Co >= 256
+    set background=dark
     colorscheme solarized
 endif
 
