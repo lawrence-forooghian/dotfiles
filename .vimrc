@@ -251,38 +251,40 @@ au CursorHold,CursorHoldI,CursorMoved,InsertEnter,InsertLeave * checktime
 
 "-- Vundle stuff --
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " % on acid
-Bundle 'matchit.zip' 
+Plugin 'matchit.zip' 
 " Includes molokai
-Bundle 'Colour-Sampler-Pack' 
-Bundle 'surround.vim'
-Bundle 'https://github.com/tpope/vim-rails'
-Bundle 'ack.vim'
+Plugin 'Colour-Sampler-Pack' 
+Plugin 'surround.vim'
+Plugin 'https://github.com/tpope/vim-rails'
+Plugin 'ack.vim'
 " :A alternates
-Bundle 'a.vim' 
-Bundle 'Command-T'
+Plugin 'a.vim' 
+Plugin 'Command-T'
 
 " not sure about whether i like these ones.
-Bundle 'https://github.com/scrooloose/nerdcommenter'
-Bundle 'https://github.com/ervandew/supertab'
+Plugin 'https://github.com/scrooloose/nerdcommenter'
+Plugin 'https://github.com/ervandew/supertab'
 
-Bundle '--branch personal https://github.com/lawrence-forooghian/clang_complete'
-"Bundle 'https://github.com/Rip-Rip/clang_complete'
-Bundle 'git://github.com/lawrence-forooghian/cocoa.vim.git'
-Bundle 'https://github.com/lawrence-forooghian/inccomplete.git'
-Bundle 'https://github.com/b4winckler/vim-objc'
+Plugin 'https://github.com/lawrence-forooghian/clang_complete.git', {'rev': 'personal'}
+"Plugin 'https://github.com/Rip-Rip/clang_complete'
+Plugin 'git://github.com/lawrence-forooghian/cocoa.vim.git'
+Plugin 'https://github.com/lawrence-forooghian/inccomplete.git'
+Plugin 'https://github.com/b4winckler/vim-objc'
 
-Bundle 'https://github.com/qqshfox/objc_matchbracket'
+Plugin 'https://github.com/qqshfox/objc_matchbracket'
 
 " the one that came with my vim is out of date - ran into an issue with
 " indentation when there was a class definition below a constant regexp
-Bundle 'https://github.com/vim-ruby/vim-ruby' 
+Plugin 'https://github.com/vim-ruby/vim-ruby' 
+
+call vundle#end()
 
 if has("gui_running") || &t_Co >= 256
     set background=dark
