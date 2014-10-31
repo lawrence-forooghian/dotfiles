@@ -3,37 +3,7 @@ alias grep='grep --color=auto'
 alias rm='rm -i'
 alias lsa='ls -alh'
 
-alias genclaco='ruby ~/dotfiles/generate_clang_complete.rb > .clang_complete'
-
-# Work aliases
-alias ssh2='ssh tm50-us-utility-2'
-alias ssh2db="ssh tm50-us-utility-2 \"/data/texpert/current/script/dbconsole slave\""
-alias ssh1='ssh tm50-us-utility-1'
-alias ssh1db="ssh tm50-us-utility-1 \"/data/texpert/current/script/dbconsole slave\""
-alias fsdiff="svn diff --diff-cmd=fmdiff"
-
-# Work functions (from Simon)
-function rakeall {
-   pushd .
-   for i in ~/deploy/current/*; do
-       echo -e "\033[1;37m$i\033[0m"
-	cd $i        
-	if [ -e Rakefile ]; then
-           rake "$@"
-       fi
-   done
-   popd
-}
-
-function svnall {
-   pushd .
-   for i in ~/deploy/current/*; do
-       echo -e "\033[1;37m$i\033[0m"
-       cd $i
-       svn "$@"
-   done
-   popd
-}
+alias genclaco='ruby ~/dotfiles/generate_clang_complete.rb'
 
 # Exports
 PATH=$HOME/bin:/opt/local/bin:/usr/local/mysql/bin:$HOME/android-sdk-mac_x86/tools:$HOME/android-sdk-mac_x86/platform-tools:/usr/local/sphinx/bin:$HOME/.rvm/bin:$PATH
