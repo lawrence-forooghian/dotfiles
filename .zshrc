@@ -10,7 +10,6 @@ PATH=$HOME/bin:/opt/local/bin:/usr/local/mysql/bin:$HOME/android-sdk-mac_x86/too
 export EDITOR=vim
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
-export DOTFILES_LOCALE=work
 
 # RVM (standard)
 [[ -s "/Users/lawrence/.rvm/scripts/rvm" ]] && source "/Users/lawrence/.rvm/scripts/rvm"  # This loads RVM into a shell session.
