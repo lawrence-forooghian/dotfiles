@@ -95,6 +95,8 @@ set shiftwidth=4
 " ~/.vim/after/ftplugin, but for now I like having everything in one file.
 autocmd FileType ruby setlocal expandtab softtabstop=2 shiftwidth=2
 
+autocmd FileType java setlocal noexpandtab
+
 " Make it easy to see when a file is using hard tabs.
 set listchars=tab:>!
 "set list
