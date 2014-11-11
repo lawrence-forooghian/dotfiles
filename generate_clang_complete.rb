@@ -1,5 +1,6 @@
 require 'xcodeproj'
 require 'shellwords'
+require 'set'
 
 class Runner
 
@@ -30,21 +31,22 @@ class Runner
       project = Xcodeproj::Project.open(@project_dir_path)
       pbxproject = project.root_object
 
-      args = []
+      args = Set.new
 
       args << "-isysroot #{Shellwords.escape(@sdkroot)}"
-      args << "-fobjc-arc"
       args << "-std=gnu99"
+      args << "-fobjc-arc"
+      args << "-miphoneos-version-min=7.0"
+      # TODO pull preprocessor macros out of Xcode
+      args << "-DDEBUG=1"
 
       project_args = extract_args_from_build_configuration_list(pbxproject.build_configuration_list)
-      args.concat(project_args)
+      args.merge(project_args)
 
       pbxproject.targets.each do |target|
         target_args = extract_args_from_build_configuration_list(target.build_configuration_list, target.name)
-        args.concat(target_args)
+        args.merge(target_args)
       end
-
-      args.sort!.uniq!
 
       clang_complete_filename = File.join(@srcroot, '.clang_complete')
       File.open(clang_complete_filename, 'w') do |f|
@@ -64,9 +66,16 @@ class Runner
         args.concat(extract_args_from_array(build_settings["FRAMEWORK_SEARCH_PATHS"], "-F", target_name))
         args.concat(extract_args_from_array(build_settings["HEADER_SEARCH_PATHS"], "-I", target_name))
 
+        # TODO figure out exactly what Xcode is doing with its
+        # -I~/Library/Developer/Xcode/DerivedData/{blah}/Build/Intermediates/{blah}/Debug-iphoneos/{blah}.build/{blah}-all-target-headers.hmap,
+        # but seems to basically include as header search paths all of the
+        # locations of the target's headers (whatever exactly that means)
+        header_directories = Dir.glob(File.join(@srcroot, "**", "*.h")).inject(Set.new) { |set, header_path| set << File.dirname(header_path); set }
+        args.concat(extract_args_from_array(header_directories, "-I", target_name))
+
         prefix_header_path = build_settings["GCC_PREFIX_HEADER"]
         if (prefix_header_path)
-          args << "-include #{Shellwords.escape(self.resolve(prefix_header_path, target_name))}"
+          args.concat(extract_args_from_array([prefix_header_path], "-include", target_name))
         end
       end
 
@@ -80,7 +89,10 @@ class Runner
 
       array_or_nil.each do |value|
         if (value != "$(inherited)")
-          args << "#{flag} #{Shellwords.escape(self.resolve(value, target_name))}"
+          resolved_args = self.resolve(value, target_name).collect do |resolved_value|
+            "#{flag} #{Shellwords.escape(resolved_value)}"
+          end
+          args.concat(resolved_args)
         end
       end
 
@@ -97,20 +109,29 @@ class Runner
                             "LOCAL_LIBRARY_DIR" =>  "/Library",
                             "TARGET_NAME" => target_name,
                           }
-      result = value.gsub(/\$\((\w+)\)/) do |match|
+      resolved_value = value.gsub(/\$\((\w+)\)/) do |match|
         key = $1
         value = build_environment[key]
         raise "Could not resolve environment key #{key}" if !value
         value
       end
 
-      result = result.gsub('"', '')
+      resolved_value = resolved_value.gsub('"', '')
 
-      if !result.start_with?(File::SEPARATOR)
-        result = File.expand_path(File.join(@srcroot, result))
+      if !resolved_value.start_with?(File::SEPARATOR)
+        resolved_value = File.expand_path(File.join(@srcroot, resolved_value))
       end
 
-      return result
+      # TODO looks like Xcode checks and only passes clang the directories that
+      # actually contain headers or frameworks
+      glob_expanded_resolved_values = nil
+      if resolved_value.include?("**")
+        glob_expanded_resolved_values = Dir.glob(resolved_value + File::SEPARATOR)
+      else
+        glob_expanded_resolved_values = [resolved_value]
+      end
+
+      return glob_expanded_resolved_values
     end
 
   end
