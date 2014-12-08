@@ -63,31 +63,31 @@ class Runner
       build_configuration_list.build_configurations.each do |configuration|
         build_settings = configuration.build_settings
 
-        args.concat(extract_args_from_array(build_settings["FRAMEWORK_SEARCH_PATHS"], "-F", target_name))
-        args.concat(extract_args_from_array(build_settings["HEADER_SEARCH_PATHS"], "-I", target_name))
+        args.concat(extract_args_from_enumerable(build_settings["FRAMEWORK_SEARCH_PATHS"], "-F", target_name))
+        args.concat(extract_args_from_enumerable(build_settings["HEADER_SEARCH_PATHS"], "-I", target_name))
 
         # TODO figure out exactly what Xcode is doing with its
         # -I~/Library/Developer/Xcode/DerivedData/{blah}/Build/Intermediates/{blah}/Debug-iphoneos/{blah}.build/{blah}-all-target-headers.hmap,
         # but seems to basically include as header search paths all of the
         # locations of the target's headers (whatever exactly that means)
         header_directories = Dir.glob(File.join(@srcroot, "**", "*.h")).inject(Set.new) { |set, header_path| set << File.dirname(header_path); set }
-        args.concat(extract_args_from_array(header_directories, "-I", target_name))
+        args.concat(extract_args_from_enumerable(header_directories, "-I", target_name))
 
         prefix_header_path = build_settings["GCC_PREFIX_HEADER"]
         if (prefix_header_path)
-          args.concat(extract_args_from_array([prefix_header_path], "-include", target_name))
+          args.concat(extract_args_from_enumerable([prefix_header_path], "-include", target_name))
         end
       end
 
       return args
     end
 
-    def extract_args_from_array(array_or_nil, flag, target_name)
+    def extract_args_from_enumerable(enumerable_or_nil, flag, target_name)
       args = []
-      return args if !array_or_nil
-      return args if !array_or_nil.is_a? Array
+      return args if !enumerable_or_nil
+      return args if !enumerable_or_nil.is_a? Enumerable
 
-      array_or_nil.each do |value|
+      enumerable_or_nil.each do |value|
         if (value != "$(inherited)")
           resolved_args = self.resolve(value, target_name).collect do |resolved_value|
             "#{flag} #{Shellwords.escape(resolved_value)}"
