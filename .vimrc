@@ -282,6 +282,8 @@ Plugin 'https://github.com/b4winckler/vim-objc'
 
 Plugin 'https://github.com/qqshfox/objc_matchbracket'
 
+Plugin 'https://github.com/tpope/vim-fugitive'
+
 " the one that came with my vim is out of date - ran into an issue with
 " indentation when there was a class definition below a constant regexp
 Plugin 'https://github.com/vim-ruby/vim-ruby' 
