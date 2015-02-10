@@ -23,3 +23,8 @@ export PS1="%B[%{$fg[white]%}%n%{$reset_color%}%b@%B%{$fg[white]%}%m%b%{$reset_c
 
 # This apparently gives me git completion... erm.
 autoload -U compinit && compinit
+
+# Set up history.
+export HISTSIZE=10000
+export SAVEHIST=10000
+export HISTFILE=~/.zsh_history
