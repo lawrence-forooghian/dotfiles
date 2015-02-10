@@ -273,6 +273,7 @@ Plugin 'Command-T'
 " not sure about whether i like these ones.
 Plugin 'https://github.com/scrooloose/nerdcommenter'
 Plugin 'https://github.com/ervandew/supertab'
+Plugin 'https://github.com/scrooloose/nerdtree'
 
 Plugin 'https://github.com/lawrence-forooghian/clang_complete.git', {'rev': 'personal'}
 "Plugin 'https://github.com/Rip-Rip/clang_complete'
