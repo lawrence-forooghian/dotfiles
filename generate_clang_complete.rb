@@ -40,6 +40,9 @@ class Runner
       # TODO pull preprocessor macros out of Xcode
       args << "-DDEBUG=1"
 
+      # TODO do this in a better way; this is to make sure that we can see XCTest. Not sure why it wasn't already picked up
+      args << "-F /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks"
+
       project_args = extract_args_from_build_configuration_list(pbxproject.build_configuration_list)
       args.merge(project_args)
 
@@ -108,6 +111,7 @@ class Runner
                             "PROJECT_DIR" => @srcroot,
                             "LOCAL_LIBRARY_DIR" =>  "/Library",
                             "TARGET_NAME" => target_name,
+                            "SD_KITT_DIR"=>"/Users/lawrence.forooghian/code/storefront/BMW/Library/KITTInCarCommunication/com.saffrondigital.BMW"
                           }
       resolved_value = value.gsub(/\$\((\w+)\)/) do |match|
         key = $1
