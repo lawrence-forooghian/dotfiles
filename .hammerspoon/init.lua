@@ -1,5 +1,6 @@
+-- Everything in here is pretty much from the tutorial: http://www.hammerspoon.org/go/
+
 -- First, reproduce the SizeUp commands:
--- http://www.hammerspoon.org/go/
 
 local sizeMash = { "ctrl", "alt" }
 
@@ -54,3 +55,23 @@ hs.hotkey.bind("ctrl", "Space", function()
         end
     end
 end)
+
+-- And now, replace Caffeine:
+
+local caffeine = hs.menubar.new()
+function setCaffeineDisplay(state)
+    if state then
+        caffeine:setTitle(hs.utf8.codepointToUTF8("U+2615"))
+    else
+        caffeine:setTitle(hs.utf8.codepointToUTF8("U+1F31A"))
+    end
+end
+
+function caffeineClicked()
+    setCaffeineDisplay(hs.caffeinate.toggle("displayIdle"))
+end
+
+if caffeine then
+    caffeine:setClickCallback(caffeineClicked)
+    setCaffeineDisplay(hs.caffeinate.get("displayIdle"))
+end
