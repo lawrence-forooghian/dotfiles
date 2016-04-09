@@ -88,3 +88,49 @@ if caffeine then
     hs.caffeinate.set(SLEEP_TYPE, hs.settings.get(CAFFEINATE_SETTINGS_KEY))
     setCaffeineDisplay(hs.caffeinate.get(SLEEP_TYPE))
 end
+
+--- Automatically switch to most appropriate layout for connected keyboard.
+
+local logger = hs.logger.new("keyboard-layout-switcher", "debug")
+
+function setMostAppropriateKeyboardLayout(loggingReason)
+    devices = hs.usb.attachedDevices()
+
+    for key, value in pairs(devices) do
+        --- My Filco Majestouch 2 UK
+        if value["vendorID"] == 0x04d9 and value["productID"] == 0x1818 then
+            setKeyboardLayoutIfNeeded("British - PC", loggingReason)
+            return
+        end
+    end
+
+    setKeyboardLayoutIfNeeded("British", loggingReason)
+end
+
+function setKeyboardLayoutIfNeeded(name, loggingReason)
+    if hs.keycodes.currentLayout() ~= name then
+        if hs.keycodes.setLayout(name) then
+            logger.f("Set keyboard layout to %s. (reason: %s)", name, loggingReason)
+        else
+            logger.ef("Failed to set keyboard layout to %s. (reason: %s)", name, loggingReason)
+        end
+    end
+end
+
+function usbDevicesChanged(info)
+    setMostAppropriateKeyboardLayout("usbDevicesChanged")
+end
+
+local usbWatcher = hs.usb.watcher.new(usbDevicesChanged)
+usbWatcher:start()
+
+function powerEventHappened(info)
+    setMostAppropriateKeyboardLayout("powerEventHappened")
+
+    --- For debug purposes to understand why battery on MacBook appears to be draining
+    logger.f("Power event happened: %s, battery level: %s", info, hs.battery.percentage())
+    --hs.openConsole()
+end
+
+local caffeinateWatcher = hs.caffeinate.watcher.new(powerEventHappened)
+caffeinateWatcher:start()
