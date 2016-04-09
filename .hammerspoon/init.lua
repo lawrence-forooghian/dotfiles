@@ -75,3 +75,27 @@ if caffeine then
     caffeine:setClickCallback(caffeineClicked)
     setCaffeineDisplay(hs.caffeinate.get("displayIdle"))
 end
+
+--- Automatically switch to most appropriate layout for connected keyboard.
+function setMostAppropriateKeyboardLayout()
+    devices = hs.usb.attachedDevices()
+
+    for key, value in pairs(devices) do
+        --- My Filco Majestouch 2 UK
+        if value["vendorID"] == 0x04d9 and value["productID"] == 0x1818 then
+            hs.keycodes.setLayout("British - PC")
+            return
+        end
+    end
+
+    hs.keycodes.setLayout("British")
+end
+
+function usbDevicesChanged(info)
+    setMostAppropriateKeyboardLayout()
+end
+
+local usbWatcher = hs.usb.watcher.new(usbDevicesChanged)
+usbWatcher:start()
+
+setMostAppropriateKeyboardLayout()
