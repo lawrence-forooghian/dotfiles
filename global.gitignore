@@ -6,7 +6,7 @@ tmp/
 log
 soap.xml
 soap_xml
-*.sw*
+*.sw?
 *~
 tags
 *.vim
