@@ -18,7 +18,6 @@ if has("autocmd")
     " Use the default filetype settings, so that mail gets 'tw' set to 72,
     " 'cindent' is on in C files, etc.
     " Also load indent files, to automatically do language-dependent indenting.
-    filetype plugin indent on
 
     " Put these in an autocmd group, so that we can delete them easily.
     augroup vimrcEx
@@ -104,6 +103,7 @@ set listchars=tab:>!
 " -- Miscellaneous options --
 
 let mapleader=","
+let maplocalleader="-"
 
 set ruler " show the cursor position all the time
 set history=50 " keep 50 lines of command line history
@@ -119,26 +119,27 @@ set smartcase
 set wildmenu 
 
 " Highlight current line (only in GUI - it slows down OS X terminal)
-if has("gui_running")
+"if has("gui_running")
     set cursorline 
-end
+"end
 
 " Allow switching out of a buffer with unsaved changes
 set hidden
 
 " Somewhat strangely, it seems that vim 7.3 has internal version number 703. 
 " Look into using exists(":relativenumber") instead.
-if version >= 703
-    if has("gui_running") " really slows down OS X terminal
-        set relativenumber "displayed line numbering will be relative to the current line
-    end
-else
-    set number " show line numbers
-end
+"if version >= 703
+    "if has("gui_running") " really slows down OS X terminal
+        "set relativenumber "displayed line numbering will be relative to the current line
+    "end
+"else
+    "set number " show line numbers
+"end
+set number
+set relativenumber
 
 if &t_Co > 2 || has("gui_running")
     " Switch syntax highlighting on, when the terminal has colours.
-    syntax on
     " Also switch on highlighting the last used search pattern.
     set hlsearch
 endif
@@ -152,9 +153,10 @@ if has("gui_running")
 end
 
 " Edit .vimrc easily
-if !exists(':Vrc')
-    command Vrc e ~/.vimrc
-end
+"if !exists(':Vrc')
+    "command Vrc e ~/.vimrc
+"end
+nnoremap <Leader>ev :vsplit $MYVIMRC<cr>
 
 " Set up path so we can find header files
 " clang -v is good for seeing the default search paths
@@ -176,7 +178,7 @@ function! g:OpenInXcode()
 endfunction
 
 " Make it easy to close the window
-map <leader>c <C-w>c
+map <leader>cx <C-w>c
 " :ListMethods comes with cocoa.vim
 autocmd FileType objc,objcpp map <buffer> <leader>l :ListMethods<CR> 
 " Open current file in Xcode
@@ -221,6 +223,9 @@ let g:clang_complete_copen=1
 let g:clang_snippets=1
 let g:clang_complete_macros=1
 let g:clang_case_insensitive=1
+
+let g:NERDTreeShowLineNumbers=1
+let g:NERDTreeQuitOnOpen=1
 
 " This is an unfortunate compromise - I don't want to use the path or clang
 " options when doing iOS development, because it completely screws things up.
@@ -289,6 +294,12 @@ Plugin 'https://github.com/tpope/vim-fugitive'
 " indentation when there was a class definition below a constant regexp
 Plugin 'https://github.com/vim-ruby/vim-ruby' 
 
+Plugin 'https://github.com/kballard/vim-swift'
+
+Plugin 'elixir-lang/vim-elixir'
+
+Plugin 'vim-airline/vim-airline'
+
 call vundle#end()
 
 if has("gui_running") || &t_Co >= 256
@@ -307,3 +318,29 @@ endif
 "endif
 
 " vim:ft=vim
+
+" FIXME
+" moved these around to fix
+" https://github.com/elixir-lang/vim-elixir/issues/121
+" but no idea why it works
+filetype plugin indent on " Required by Vundle
+syntax on
+
+"echom "(>^.^<)"
+
+nnoremap <Leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <Leader>sv :source $MYVIMRC<cr>
+iabbrev @@ lawrence.forooghian@gmail.com
+
+nnoremap <Leader>" viw<esc>a"<esc>hbi"<esc>lel
+nnoremap <Leader>' viw<esc>a'<esc>hbi'<esc>lel
+
+nnoremap <Leader>ns :nohlsearch<cr>
+nnoremap <Leader>nt :NERDTreeToggle<cr>
+
+inoremap jk <esc>
+inoremap <c-[> <nop>
+
+vnoremap <Leader>" <esc>`>a"<esc>`<i"<esc>`>l
+
+set laststatus=2
