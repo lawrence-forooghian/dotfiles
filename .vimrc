@@ -197,7 +197,7 @@ endif
 
 " g:ClangUpdateQuickFix() comes with clang_complete - makes it parse file and
 " put errors in quickfix window (v. useful!)
-autocmd FileType c,cpp,objc,objcpp map <buffer> <leader>q :call g:ClangUpdateQuickFix()<CR> 
+"autocmd FileType c,cpp,objc,objcpp map <buffer> <leader>q :call g:ClangUpdateQuickFix()<CR> 
 
 map <leader>ctf :CommandTFlush<CR>
 
@@ -237,7 +237,7 @@ let g:clang_auto_user_options='.clang_complete'
 
 if has("python")
     let g:clang_use_library=1
-    let g:clang_library_path= "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/"
+    let g:clang_library_path= "/Applications/Xcode-7.3.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/"
 endif
 
 " This works well for clang_complete but I have a suspicion it might break
@@ -254,7 +254,9 @@ let g:inccomplete_frameworks = 1
 " TODO: Decide whether this is overkill in terms of disk access - InsertEnter
 " and InsertLeave may suffice
 set autoread
-au CursorHold,CursorHoldI,CursorMoved,InsertEnter,InsertLeave * checktime
+autocmd CursorHold,CursorHoldI,CursorMoved,InsertEnter,InsertLeave * checktime
+
+let g:CommandTFileScanner = "watchman"
 
 "-- Vundle stuff --
 
@@ -262,7 +264,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " % on acid
 Plugin 'matchit.zip' 
@@ -273,14 +275,14 @@ Plugin 'https://github.com/tpope/vim-rails'
 Plugin 'ack.vim'
 " :A alternates
 Plugin 'a.vim' 
-Plugin 'Command-T'
+Plugin 'https://github.com/wincent/command-t'
 
 " not sure about whether i like these ones.
 Plugin 'https://github.com/scrooloose/nerdcommenter'
 Plugin 'https://github.com/ervandew/supertab'
 Plugin 'https://github.com/scrooloose/nerdtree'
 
-Plugin 'https://github.com/lawrence-forooghian/clang_complete.git', {'rev': 'personal'}
+"Plugin 'https://github.com/lawrence-forooghian/clang_complete.git', {'rev': 'personal'}
 "Plugin 'https://github.com/Rip-Rip/clang_complete'
 Plugin 'git://github.com/lawrence-forooghian/cocoa.vim.git'
 Plugin 'https://github.com/lawrence-forooghian/inccomplete.git'
@@ -299,6 +301,7 @@ Plugin 'https://github.com/kballard/vim-swift'
 Plugin 'elixir-lang/vim-elixir'
 
 Plugin 'vim-airline/vim-airline'
+Plugin 'https://github.com/airblade/vim-gitgutter'
 
 call vundle#end()
 
@@ -339,8 +342,28 @@ nnoremap <Leader>ns :nohlsearch<cr>
 nnoremap <Leader>nt :NERDTreeToggle<cr>
 
 inoremap jk <esc>
+cnoremap jk <esc>
 inoremap <c-[> <nop>
 
 vnoremap <Leader>" <esc>`>a"<esc>`<i"<esc>`>l
 
 set laststatus=2
+
+augroup filetype_html
+    autocmd!
+    autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
+augroup END
+
+augroup filetype_markdown
+    autocmd!
+    autocmd FileType markdown :onoremap <buffer> ih :<c-u>execute "normal! ?^[=-]\\{2,\\}\r:nohlsearch\rkvg_"<cr>
+    autocmd FileType markdown :onoremap <buffer> ah :<c-u>execute "normal! ?^[=-]\\{2,\\}\r:nohlsearch\rg_vk0"<cr>
+augroup END
+
+" Vimscript file settings {{{
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+    autocmd FileType vim setlocal foldlevel=0
+augroup END
+" }}}

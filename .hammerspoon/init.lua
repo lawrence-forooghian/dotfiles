@@ -98,4 +98,9 @@ end
 local usbWatcher = hs.usb.watcher.new(usbDevicesChanged)
 usbWatcher:start()
 
-setMostAppropriateKeyboardLayout()
+function powerEventHappened(info)
+    setMostAppropriateKeyboardLayout()
+end
+
+local caffeinateWatcher = hs.caffeinate.watcher.new(powerEventHappened)
+caffeinateWatcher:start()

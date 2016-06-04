@@ -37,6 +37,7 @@ class Runner
       args << "-std=gnu99"
       args << "-fobjc-arc"
       args << "-miphoneos-version-min=7.0"
+      args << "-fmodules"
       # TODO pull preprocessor macros out of Xcode
       args << "-DDEBUG=1"
 
@@ -103,6 +104,11 @@ class Runner
     end
 
     def resolve(value, target_name)
+      return [] if (value.include? "$(SYMROOT)")
+      return [] if (value.include? "$(SYSTEM_APPS_DIR)")
+      return [] if (value.include? "$(OBJROOT)")
+      return [] if (value.include? "$(TARGET_BUILD_DIR)")
+
       build_environment = { 
                             "SDKROOT" => @sdkroot,
                             "DEVELOPER_FRAMEWORKS_DIR" => File.join(@developer_library_dir, "Frameworks"),

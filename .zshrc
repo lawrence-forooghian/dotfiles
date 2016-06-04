@@ -28,3 +28,7 @@ autoload -U compinit && compinit
 export HISTSIZE=10000
 export SAVEHIST=10000
 export HISTFILE=~/.zsh_history
+
+# Git aliases
+alias gs='git status'
+alias gsu='git submodule update --init --recursive'
