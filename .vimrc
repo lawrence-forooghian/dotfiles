@@ -333,7 +333,7 @@ syntax on
 
 nnoremap <Leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <Leader>sv :source $MYVIMRC<cr>
-iabbrev @@ lawrence.forooghian@gmail.com
+"iabbrev @@ lawrence.forooghian@gmail.com
 
 nnoremap <Leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <Leader>' viw<esc>a'<esc>hbi'<esc>lel
@@ -360,6 +360,11 @@ augroup filetype_markdown
     autocmd FileType markdown :onoremap <buffer> ah :<c-u>execute "normal! ?^[=-]\\{2,\\}\r:nohlsearch\rg_vk0"<cr>
 augroup END
 
+augroup stringsdict
+    autocmd!
+    autocmd BufRead *.stringsdict :set filetype=xml
+augroup END
+
 " Vimscript file settings {{{
 augroup filetype_vim
     autocmd!
@@ -367,3 +372,18 @@ augroup filetype_vim
     autocmd FileType vim setlocal foldlevel=0
 augroup END
 " }}}
+
+highlight TrailingWhitespace ctermbg=red 
+nnoremap <Leader>w :match TrailingWhitespace /\v\s+$/<cr>
+" TODO how to make this just clear the TrailingWhitespace match defined above,
+" and not all other matches?
+nnoremap <Leader>W :match none<cr>
+
+" As directed by the book, but I don't like the result - it seems to highlight
+" the character you're on when you type / now, and it matches the whole
+" document afterwards.
+"nnoremap / /\v
+
+" :silent is doing something very funny in my terminal...
+" http://vi.stackexchange.com/questions/2809/silent-makes-my-vim-go-blank
+":nnoremap <Leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD")) . " ."<cr>:copen<cr>:redraw!<cr>
