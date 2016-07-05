@@ -130,7 +130,7 @@ caffeinateWatcher:start()
 --- Add a menu icon for starting the screensaver (I can't find another obvious way of locking the screen without putting the computer to sleep)
 
 local lockMenu = hs.menubar.new()
-lockMenu:setTitle(hs.utf8.codepointToUTF8("U+1F4AA"))
+lockMenu:setTitle(hs.utf8.codepointToUTF8("U+1F474") .. hs.utf8.codepointToUTF8("U+1F3FC"))
 
 function lockMenuClicked()
     -- TODO Investigate: these don't seem to actually work; need to set them in System Preferences
