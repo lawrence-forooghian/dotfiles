@@ -67,6 +67,9 @@ end)
 -- And now, replace Caffeine:
 
 local caffeine = hs.menubar.new()
+local SLEEP_TYPE = "displayIdle"
+local CAFFEINATE_SETTINGS_KEY = "lawrence.caffeinate.displayIdle"
+
 function setCaffeineDisplay(state)
     if state then
         caffeine:setTitle(hs.utf8.codepointToUTF8("U+2615"))
@@ -76,12 +79,14 @@ function setCaffeineDisplay(state)
 end
 
 function caffeineClicked()
-    setCaffeineDisplay(hs.caffeinate.toggle("displayIdle"))
+    setCaffeineDisplay(hs.caffeinate.toggle(SLEEP_TYPE))
+    hs.settings.set(CAFFEINATE_SETTINGS_KEY, hs.caffeinate.get(SLEEP_TYPE))
 end
 
 if caffeine then
     caffeine:setClickCallback(caffeineClicked)
-    setCaffeineDisplay(hs.caffeinate.get("displayIdle"))
+    hs.caffeinate.set(SLEEP_TYPE, hs.settings.get(CAFFEINATE_SETTINGS_KEY))
+    setCaffeineDisplay(hs.caffeinate.get(SLEEP_TYPE))
 end
 
 --- Automatically switch to most appropriate layout for connected keyboard.
