@@ -9,6 +9,5 @@ soap_xml
 *.sw?
 *~
 tags
-*.vim
 .clang_complete
 generate_tags*
