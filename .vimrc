@@ -303,6 +303,10 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'vim-airline/vim-airline'
 Plugin 'https://github.com/airblade/vim-gitgutter'
 
+Plugin 'file:///Users/lawrence/.vim/plugin/potion'
+
+Plugin 'https://github.com/suan/vim-instant-markdown'
+
 call vundle#end()
 
 if has("gui_running") || &t_Co >= 256
@@ -387,3 +391,5 @@ nnoremap <Leader>W :match none<cr>
 " :silent is doing something very funny in my terminal...
 " http://vi.stackexchange.com/questions/2809/silent-makes-my-vim-go-blank
 ":nnoremap <Leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD")) . " ."<cr>:copen<cr>:redraw!<cr>
+
+let g:potion_command = "~/code/vimhard/potion/bin/potion"
