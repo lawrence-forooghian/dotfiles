@@ -114,7 +114,6 @@ function setKeyboardLayoutIfNeeded(name, loggingReason)
         else
             logger.ef("Failed to set keyboard layout to %s. (reason: %s)", name, loggingReason)
         end
-        hs.openConsole() --- For debug purposes until I get this working properly
     end
 end
 
