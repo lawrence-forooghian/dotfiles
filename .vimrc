@@ -393,3 +393,5 @@ nnoremap <Leader>W :match none<cr>
 ":nnoremap <Leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD")) . " ."<cr>:copen<cr>:redraw!<cr>
 
 let g:potion_command = "~/code/vimhard/potion/bin/potion"
+
+:nnoremap <silent> <leader>b :CommandTMRU<CR>
