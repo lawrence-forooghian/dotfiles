@@ -1,0 +1,3 @@
+Host rpi
+    HostName 192.168.1.17
+    User pi
