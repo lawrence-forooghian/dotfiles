@@ -126,6 +126,10 @@ usbWatcher:start()
 
 function powerEventHappened(info)
     setMostAppropriateKeyboardLayout("powerEventHappened")
+
+    --- For debug purposes to understand why battery on MacBook appears to be draining
+    logger.f("Power event happened: %s, battery level: %s", info, hs.battery.percentage())
+    hs.openConsole()
 end
 
 local caffeinateWatcher = hs.caffeinate.watcher.new(powerEventHappened)
