@@ -1,9 +1,11 @@
 cd ~
 
-for i in .hammerspoon .tmux.conf .vimperatorrc .vimrc .zsh_profile .zshrc
+for i in .tmux.conf .vimperatorrc .vimrc .zsh_profile .zshrc
 do
 	ln -s dotfiles/$i $i
 done
+
+ln -s dotfiles/.hammerspoon .
 
 git config --global core.excludesfile ~/dotfiles/global.gitignore
 
