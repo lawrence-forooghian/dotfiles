@@ -1,3 +1,5 @@
+set -e
+
 cd ~
 
 for i in .tmux.conf .vimperatorrc .vimrc .zsh_profile .zshrc
@@ -8,6 +10,8 @@ done
 ln -s dotfiles/.hammerspoon .
 
 git config --global core.excludesfile ~/dotfiles/global.gitignore
+
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew install ack tmux tree vim watchman reattach-to-user-namespace ncdu
 brew cask install transmission vlc anki hammerspoon mactex
