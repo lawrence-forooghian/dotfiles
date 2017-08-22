@@ -266,52 +266,37 @@ call vundle#begin()
 " let Vundle manage Vundle
 Plugin 'VundleVim/Vundle.vim'
 
-" % on acid
+Plugin 'chriskempson/base16-vim'
+
 Plugin 'matchit.zip' 
-" Includes molokai
-Plugin 'Colour-Sampler-Pack' 
 Plugin 'surround.vim'
 Plugin 'https://github.com/tpope/vim-rails'
 Plugin 'ack.vim'
-" :A alternates
 Plugin 'a.vim' 
 Plugin 'https://github.com/wincent/command-t'
+Plugin 'https://github.com/tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline'
+Plugin 'https://github.com/airblade/vim-gitgutter'
 
-" not sure about whether i like these ones.
 Plugin 'https://github.com/scrooloose/nerdcommenter'
 Plugin 'https://github.com/ervandew/supertab'
 Plugin 'https://github.com/scrooloose/nerdtree'
 
-"Plugin 'https://github.com/lawrence-forooghian/clang_complete.git', {'rev': 'personal'}
-"Plugin 'https://github.com/Rip-Rip/clang_complete'
 Plugin 'git://github.com/lawrence-forooghian/cocoa.vim.git'
 Plugin 'https://github.com/lawrence-forooghian/inccomplete.git'
 Plugin 'https://github.com/b4winckler/vim-objc'
-
 Plugin 'https://github.com/qqshfox/objc_matchbracket'
-
-Plugin 'https://github.com/tpope/vim-fugitive'
-
-" the one that came with my vim is out of date - ran into an issue with
-" indentation when there was a class definition below a constant regexp
-Plugin 'https://github.com/vim-ruby/vim-ruby' 
 
 Plugin 'https://github.com/kballard/vim-swift'
 
 Plugin 'elixir-lang/vim-elixir'
-
-Plugin 'vim-airline/vim-airline'
-Plugin 'https://github.com/airblade/vim-gitgutter'
-
-Plugin 'file:///Users/lawrence/.vim/plugin/potion'
 
 Plugin 'https://github.com/suan/vim-instant-markdown'
 
 call vundle#end()
 
 if has("gui_running") || &t_Co >= 256
-    set background=dark
-    colorscheme solarized
+    colorscheme base16-default-dark
 endif
 
 " This is getting annoying so comment it out for now, and try to find a less
