@@ -13,8 +13,9 @@ git config --global core.excludesfile ~/dotfiles/global.gitignore
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew install ack tmux tree vim watchman reattach-to-user-namespace ncdu
+brew install ack tmux tree vim watchman reattach-to-user-namespace ncdu node
 brew cask install transmission vlc anki hammerspoon mactex
+npm -g install instant-markdown-d
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
