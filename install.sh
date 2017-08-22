@@ -13,7 +13,7 @@ git config --global core.excludesfile ~/dotfiles/global.gitignore
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew install ack tmux tree vim watchman reattach-to-user-namespace ncdu node youtube-dl
+brew install ack tmux tree vim watchman reattach-to-user-namespace ncdu node youtube-dl ffmpeg
 brew cask install transmission vlc anki hammerspoon mactex
 npm -g install instant-markdown-d
 
@@ -24,7 +24,7 @@ chsh -s /bin/zsh
 git config --global user.name "Lawrence Forooghian"
 git config --global user.email "lawrence.forooghian@gmail.com"
 
-vim -c BundleInstall
+vim -c BundleInstall -c q -c q
 
 cd .vim/bundle/command-t/ruby/command-t/ext/command-t
 /usr/local/bin/ruby extconf.rb
