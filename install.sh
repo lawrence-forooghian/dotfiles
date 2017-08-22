@@ -13,7 +13,7 @@ git config --global core.excludesfile ~/dotfiles/global.gitignore
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew install ack tmux tree vim watchman reattach-to-user-namespace ncdu node
+brew install ack tmux tree vim watchman reattach-to-user-namespace ncdu node youtube-dl
 brew cask install transmission vlc anki hammerspoon mactex
 npm -g install instant-markdown-d
 
