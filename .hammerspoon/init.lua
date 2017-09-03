@@ -129,7 +129,7 @@ function powerEventHappened(info)
 
     --- For debug purposes to understand why battery on MacBook appears to be draining
     logger.f("Power event happened: %s, battery level: %s", info, hs.battery.percentage())
-    hs.openConsole()
+    --hs.openConsole()
 end
 
 local caffeinateWatcher = hs.caffeinate.watcher.new(powerEventHappened)
