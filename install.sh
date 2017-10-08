@@ -9,6 +9,10 @@ done
 
 ln -s dotfiles/.hammerspoon .
 
+mkdir .ssh
+cd .ssh
+ln -s ../dotfiles/ssh_config config
+
 git config --global core.excludesfile ~/dotfiles/global.gitignore
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
