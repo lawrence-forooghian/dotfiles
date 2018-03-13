@@ -149,7 +149,7 @@ endif
 if has("gui_running")
     set guioptions-=T
     set visualbell
-    set guifont=Menlo\ Regular:h11
+    set guifont=Menlo\ Regular:h15
 end
 
 " Edit .vimrc easily
@@ -258,6 +258,21 @@ autocmd CursorHold,CursorHoldI,CursorMoved,InsertEnter,InsertLeave * checktime
 
 let g:CommandTFileScanner = "watchman"
 
+" From syntastic "Recommended settings"
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Shouldn't be required?
+let g:syntastic_swift_checkers = ['swiftlint']
+
+let g:airline#extensions#branch#enabled = 0
+
 "-- Vundle stuff --
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -287,7 +302,9 @@ Plugin 'https://github.com/lawrence-forooghian/inccomplete.git'
 Plugin 'https://github.com/b4winckler/vim-objc'
 Plugin 'https://github.com/qqshfox/objc_matchbracket'
 
-Plugin 'https://github.com/kballard/vim-swift'
+"Plugin 'https://github.com/vim-syntastic/syntastic'
+
+Plugin 'https://github.com/keith/Swift.vim'
 
 Plugin 'elixir-lang/vim-elixir'
 
@@ -352,6 +369,21 @@ augroup END
 augroup stringsdict
     autocmd!
     autocmd BufRead *.stringsdict :set filetype=xml
+augroup END
+
+augroup fastlane
+    autocmd!
+    autocmd BufRead Appfile :set filetype=ruby
+    autocmd BufRead Fastfile :set filetype=ruby
+    autocmd BufRead Matchfile :set filetype=ruby
+    autocmd BufRead Pluginfile :set filetype=ruby
+    autocmd BufRead Snapfile :set filetype=ruby
+    autocmd BufRead Scanfile :set filetype=ruby
+augroup END
+
+augroup cocoapods
+    autocmd!
+    autocmd BufRead Podfile :set filetype=ruby
 augroup END
 
 " Vimscript file settings {{{
