@@ -118,25 +118,17 @@ set smartcase
 " Cool tab completion for commands
 set wildmenu 
 
-" Highlight current line (only in GUI - it slows down OS X terminal)
-"if has("gui_running")
-    set cursorline 
-"end
+" Highlight current line
+set cursorline 
 
 " Allow switching out of a buffer with unsaved changes
 set hidden
 
-" Somewhat strangely, it seems that vim 7.3 has internal version number 703. 
-" Look into using exists(":relativenumber") instead.
-"if version >= 703
-    "if has("gui_running") " really slows down OS X terminal
-        "set relativenumber "displayed line numbering will be relative to the current line
-    "end
-"else
-    "set number " show line numbers
-"end
 set number
 set relativenumber
+
+" Set last window to always have a status line
+set laststatus=2
 
 if &t_Co > 2 || has("gui_running")
     " Switch syntax highlighting on, when the terminal has colours.
@@ -152,25 +144,6 @@ if has("gui_running")
     set guifont=Menlo\ Regular:h15
 end
 
-" Edit .vimrc easily
-"if !exists(':Vrc')
-    "command Vrc e ~/.vimrc
-"end
-nnoremap <Leader>ev :vsplit $MYVIMRC<cr>
-
-" Set up path so we can find header files
-" clang -v is good for seeing the default search paths
-if has ('macunix')
-    autocmd FileType c,cpp,objc,objcpp setlocal path+=/System/Library/Frameworks,/Library/Frameworks
-endif
-
-autocmd FileType cpp setlocal path+=/usr/include/c++/4.2.1
-
-let g:rubycomplete_buffer_loading=1
-let g:rubycomplete_classes_in_global=1
-" make <c-x><c-u> do omnicompletion for ruby
-autocmd FileType ruby set completefunc=rubycomplete#Complete
-
 " --- Keyboard mappings ---
 
 function! g:OpenInXcode()
@@ -181,35 +154,27 @@ endfunction
 map <leader>cx <C-w>c
 " :ListMethods comes with cocoa.vim
 autocmd FileType objc,objcpp map <buffer> <leader>l :ListMethods<CR> 
-" Open current file in Xcode
-if has('macunix')
-    map <leader>xc :call g:OpenInXcode()<CR> 
-endif
-
-" Align current Objective-C line using objc_align
-" I'm sure there's a way to do this without the use of exec, but I don't know
-" what it is
-let s:objcAlignCommand = $HOME . '/code/objc_align/cmdline.rb'
-if filereadable(s:objcAlignCommand)
-    let s:objcAlignMapping = 'autocmd FileType objc map <buffer> <silent> <leader>al !!' . s:objcAlignCommand . '<CR>'
-    exec s:objcAlignMapping
-endif
-
-" g:ClangUpdateQuickFix() comes with clang_complete - makes it parse file and
-" put errors in quickfix window (v. useful!)
-"autocmd FileType c,cpp,objc,objcpp map <buffer> <leader>q :call g:ClangUpdateQuickFix()<CR> 
 
 map <leader>ctf :CommandTFlush<CR>
 
-" Until I integrate it properly into inccomplete, use this to normalise
-" framework include/imports; e.g. AVFoundation.framework/Headers/AVAsset.h ->
-" AVFoundation/AVAsset.h
-if has('macunix')
-    autocmd FileType c,cpp,objc,objcpp map <buffer> <leader>ni :.s/\v\.framework\/Headers//<CR>
-endif
-
 " Handy for alternates.
 map <leader>a :on<CR>:AV<CR><C-w><C-x> 
+
+map <leader>ul :TestLast<CR>
+map <leader>un :TestNearest<CR>
+map <leader>uf :TestFile<CR>
+map <leader>us :TestSuite<CR>
+
+nnoremap <Leader>ev :vsplit $MYVIMRC<cr>
+
+nnoremap <silent> <leader>b :CommandTMRU<CR>
+
+nnoremap <Leader>ns :nohlsearch<cr>
+nnoremap <Leader>nt :NERDTreeToggle<cr>
+
+inoremap jk <esc>
+cnoremap jk <esc>
+inoremap <c-[> <nop>
 
 " --- External options ---
 "  Should put guards around these to check whether the things are defined.
@@ -218,36 +183,7 @@ map <leader>a :on<CR>:AV<CR><C-w><C-x>
 let g:alternateExtensions_h = "c,cpp,cxx,cc,CC,m,mm"
 let g:alternateExtensions_m = "h"
 
-let g:clang_complete_auto=0
-let g:clang_complete_copen=1
-let g:clang_snippets=1
-let g:clang_complete_macros=1
-let g:clang_case_insensitive=1
-
 let g:NERDTreeShowLineNumbers=1
-let g:NERDTreeQuitOnOpen=1
-
-" This is an unfortunate compromise - I don't want to use the path or clang
-" options when doing iOS development, because it completely screws things up.
-" However, it would be nice to be able to alter this on a per-buffer basis,
-" since I've now effectively broken standard C/C++ development.  Might
-" investigate getopts#{anything}#getopts as mentioned in docs for doing
-" something like this.
-let g:clang_auto_user_options='.clang_complete'
-
-if has("python")
-    let g:clang_use_library=1
-    let g:clang_library_path= "/Applications/Xcode-7.3.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/"
-endif
-
-" This works well for clang_complete but I have a suspicion it might break
-" other stuff. Should probably set <c-x><c-p> as a backup (or do it based on
-" filetype)
-let g:SuperTabDefaultCompletionType="<c-x><c-u>"
-
-let g:inccomplete_showdirs = 1
-let g:inccomplete_addclosebracket = ""
-let g:inccomplete_frameworks = 1
 
 " Testing - want console vim to warn me like MacVim does when an open file
 " changes externally
@@ -258,113 +194,9 @@ autocmd CursorHold,CursorHoldI,CursorMoved,InsertEnter,InsertLeave * checktime
 
 let g:CommandTFileScanner = "watchman"
 
-" From syntastic "Recommended settings"
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" Shouldn't be required?
-let g:syntastic_swift_checkers = ['swiftlint']
-
 let g:airline#extensions#branch#enabled = 0
 
-"-- Vundle stuff --
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'chriskempson/base16-vim'
-
-Plugin 'matchit.zip' 
-Plugin 'surround.vim'
-Plugin 'https://github.com/tpope/vim-rails'
-Plugin 'ack.vim'
-Plugin 'a.vim' 
-Plugin 'https://github.com/wincent/command-t'
-Plugin 'https://github.com/tpope/vim-fugitive'
-Plugin 'vim-airline/vim-airline'
-Plugin 'https://github.com/airblade/vim-gitgutter'
-
-Plugin 'https://github.com/scrooloose/nerdcommenter'
-Plugin 'https://github.com/ervandew/supertab'
-Plugin 'https://github.com/scrooloose/nerdtree'
-
-Plugin 'git://github.com/lawrence-forooghian/cocoa.vim.git'
-Plugin 'https://github.com/lawrence-forooghian/inccomplete.git'
-Plugin 'https://github.com/b4winckler/vim-objc'
-Plugin 'https://github.com/qqshfox/objc_matchbracket'
-
-"Plugin 'https://github.com/vim-syntastic/syntastic'
-
-Plugin 'https://github.com/keith/Swift.vim'
-
-Plugin 'elixir-lang/vim-elixir'
-
-Plugin 'https://github.com/suan/vim-instant-markdown'
-
-call vundle#end()
-
-if has("gui_running") || &t_Co >= 256
-    colorscheme base16-default-dark
-endif
-
-" This is getting annoying so comment it out for now, and try to find a less
-" obnoxious way of being made aware of hard tab usage.
-"if &t_Co > 2 || has("gui_running")
-    "" Highlight hard tabs.
-    "" Needs to come after molokai is loaded, else it will override the
-    "" highlighting rule.
-    "highlight ExtraWhitespace ctermbg=red guibg=red
-    "match ExtraWhitespace /\t/
-"endif
-
-" vim:ft=vim
-
-" FIXME
-" moved these around to fix
-" https://github.com/elixir-lang/vim-elixir/issues/121
-" but no idea why it works
-filetype plugin indent on " Required by Vundle
-syntax on
-
-"echom "(>^.^<)"
-
-nnoremap <Leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <Leader>sv :source $MYVIMRC<cr>
-"iabbrev @@ lawrence.forooghian@gmail.com
-
-nnoremap <Leader>" viw<esc>a"<esc>hbi"<esc>lel
-nnoremap <Leader>' viw<esc>a'<esc>hbi'<esc>lel
-
-nnoremap <Leader>ns :nohlsearch<cr>
-nnoremap <Leader>nt :NERDTreeToggle<cr>
-
-inoremap jk <esc>
-cnoremap jk <esc>
-inoremap <c-[> <nop>
-
-vnoremap <Leader>" <esc>`>a"<esc>`<i"<esc>`>l
-
-set laststatus=2
-
-augroup filetype_html
-    autocmd!
-    autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
-augroup END
-
-augroup filetype_markdown
-    autocmd!
-    autocmd FileType markdown :onoremap <buffer> ih :<c-u>execute "normal! ?^[=-]\\{2,\\}\r:nohlsearch\rkvg_"<cr>
-    autocmd FileType markdown :onoremap <buffer> ah :<c-u>execute "normal! ?^[=-]\\{2,\\}\r:nohlsearch\rg_vk0"<cr>
-augroup END
+" --- Filetypes for some common iOS files ---
 
 augroup stringsdict
     autocmd!
@@ -386,29 +218,64 @@ augroup cocoapods
     autocmd BufRead Podfile :set filetype=ruby
 augroup END
 
-" Vimscript file settings {{{
-augroup filetype_vim
+augroup danger
     autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-    autocmd FileType vim setlocal foldlevel=0
+    autocmd BufRead Dangerfile :set filetype=ruby
 augroup END
-" }}}
 
-highlight TrailingWhitespace ctermbg=red 
-nnoremap <Leader>w :match TrailingWhitespace /\v\s+$/<cr>
-" TODO how to make this just clear the TrailingWhitespace match defined above,
-" and not all other matches?
-nnoremap <Leader>W :match none<cr>
+"-- Vundle stuff --
 
-" As directed by the book, but I don't like the result - it seems to highlight
-" the character you're on when you type / now, and it matches the whole
-" document afterwards.
-"nnoremap / /\v
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" :silent is doing something very funny in my terminal...
-" http://vi.stackexchange.com/questions/2809/silent-makes-my-vim-go-blank
-":nnoremap <Leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD")) . " ."<cr>:copen<cr>:redraw!<cr>
+" let Vundle manage Vundle
+Plugin 'VundleVim/Vundle.vim'
 
-let g:potion_command = "~/code/vimhard/potion/bin/potion"
+" Theme
+Plugin 'chriskempson/base16-vim'
 
-:nnoremap <silent> <leader>b :CommandTMRU<CR>
+" General editing
+Plugin 'matchit.zip' 
+Plugin 'surround.vim'
+Plugin 'https://github.com/scrooloose/nerdcommenter'
+Plugin 'https://github.com/tpope/vim-sleuth' " apparently this infers indentation
+
+" File system navigation
+Plugin 'https://github.com/scrooloose/nerdtree'
+Plugin 'ack.vim'
+Plugin 'a.vim' 
+Plugin 'https://github.com/wincent/command-t'
+
+" Info
+Plugin 'vim-airline/vim-airline'
+
+" Git
+Plugin 'https://github.com/tpope/vim-fugitive'
+Plugin 'https://github.com/airblade/vim-gitgutter'
+
+" Rails
+Plugin 'https://github.com/tpope/vim-rails'
+Plugin 'https://github.com/tpope/vim-dispatch'
+
+" iOS dev
+Plugin 'git://github.com/lawrence-forooghian/cocoa.vim.git'
+Plugin 'https://github.com/b4winckler/vim-objc'
+Plugin 'https://github.com/qqshfox/objc_matchbracket'
+Plugin 'https://github.com/keith/Swift.vim'
+
+" Testing
+Plugin 'janko-m/vim-test'
+
+" Markdown
+Plugin 'https://github.com/suan/vim-instant-markdown'
+
+call vundle#end()
+
+if has("gui_running") || &t_Co >= 256
+    let base16colorspace=256
+    colorscheme base16-default-dark
+endif
+
+filetype plugin indent on " Required by Vundle
+syntax on
+
