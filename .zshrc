@@ -2,6 +2,7 @@
 alias grep='grep --color=auto'
 alias rm='rm -i'
 alias lsa='ls -alh'
+alias be='bundle exec'
 
 alias genclaco='ruby ~/dotfiles/generate_clang_complete.rb'
 
@@ -28,3 +29,12 @@ export HISTFILE=~/.zsh_history
 # Git aliases
 alias gs='git status'
 alias gsu='git submodule update --init --recursive'
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+# init rbenv
+eval "$(rbenv init -)"
