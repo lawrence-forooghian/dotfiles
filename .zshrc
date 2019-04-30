@@ -38,3 +38,6 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 
 # init rbenv
 eval "$(rbenv init -)"
+
+# for ryalto
+alias ryalto='~/dotfiles/tmux_ryalto.sh'
