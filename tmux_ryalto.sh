@@ -21,7 +21,7 @@ else
   tmux send-keys -t "${SESSION_NAME}:${index}" emacs C-m
 
   # Create window for each service, with vim
-  for service in api-service notification-service news_feed ryalto.rb
+  for service in api-service notification-service news_feed ryalto.rb infrastructure docker-images
   do
 	cd ~/code/ryalto/backend/${service}
 	tmux new-window -n "${service}" -a -t "${SESSION_NAME}"
@@ -29,10 +29,10 @@ else
 	tmux send-keys -t "${SESSION_NAME}:${index}" 'vim -c NERDTree' C-m
   done
 
-  # Create window for iOS (TODO why not working?)
+  # Create window for iOS
   cd ~/code/ryalto/ios/right-nurse-ios
   tmux new-window -n ios -a -t "${SESSION_NAME}"
-  #((index++))
+  ((index++))
 
   # Kill the initial window
   tmux kill-window -t "${SESSION_NAME}:0"

@@ -1,10 +1,3 @@
-# Universal aliases
-alias grep='grep --color=auto'
-alias rm='rm -i'
-alias lsa='ls -alh'
-alias be='bundle exec'
-
-alias genclaco='ruby ~/dotfiles/generate_clang_complete.rb'
 
 # Exports
 export EDITOR=vim
@@ -26,10 +19,6 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 export HISTFILE=~/.zsh_history
 
-# Git aliases
-alias gs='git status'
-alias gsu='git submodule update --init --recursive'
-
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
@@ -40,4 +29,27 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 eval "$(rbenv init -)"
 
 # for ryalto
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/ryalto-production
+ssh-add ~/.ssh/ryalto-staging
+
+## Aliases
+
+# Git aliases
+alias gs='git status'
+alias gsu='git submodule update --init --recursive'
+
+# Ruby aliases
+alias be='bundle exec'
+alias rc='bundle exec rubocop -a'
+
+# iOS aliases
+alias pi='bundle exec pod install'
+
+# Universal aliases
+alias grep='grep --color=auto'
+alias rm='rm -i'
+alias lsa='ls -alh'
+
+# Ryalto aliases
 alias ryalto='~/dotfiles/tmux_ryalto.sh'
