@@ -63,3 +63,28 @@ hs.hotkey.bind("ctrl", "Space", function()
         end
     end
 end)
+
+-- And now, replace Caffeine:
+
+local caffeine = hs.menubar.new()
+local SLEEP_TYPE = "displayIdle"
+local CAFFEINATE_SETTINGS_KEY = "lawrence.caffeinate.displayIdle"
+
+function setCaffeineDisplay(state)
+    if state then
+        caffeine:setTitle(hs.utf8.codepointToUTF8("U+2615"))
+    else
+        caffeine:setTitle(hs.utf8.codepointToUTF8("U+1F31A"))
+    end
+end
+
+function caffeineClicked()
+    setCaffeineDisplay(hs.caffeinate.toggle(SLEEP_TYPE))
+    hs.settings.set(CAFFEINATE_SETTINGS_KEY, hs.caffeinate.get(SLEEP_TYPE))
+end
+
+if caffeine then
+    caffeine:setClickCallback(caffeineClicked)
+    hs.caffeinate.set(SLEEP_TYPE, hs.settings.get(CAFFEINATE_SETTINGS_KEY))
+    setCaffeineDisplay(hs.caffeinate.get(SLEEP_TYPE))
+end
