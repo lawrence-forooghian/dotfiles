@@ -28,11 +28,6 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 # init rbenv
 eval "$(rbenv init -)"
 
-# for ryalto
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/ryalto-production
-ssh-add ~/.ssh/ryalto-staging
-
 ## Aliases
 
 # Git aliases
@@ -50,6 +45,9 @@ alias pi='bundle exec pod install'
 alias grep='grep --color=auto'
 alias rm='rm -i'
 alias lsa='ls -alh'
+alias less='less -R' # colors
 
-# Ryalto aliases
-alias ryalto='~/dotfiles/tmux_ryalto.sh'
+# https://github.com/pyenv/pyenv#basic-github-checkout
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
