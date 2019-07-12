@@ -155,8 +155,6 @@ map <leader>cx <C-w>c
 " :ListMethods comes with cocoa.vim
 autocmd FileType objc,objcpp map <buffer> <leader>l :ListMethods<CR> 
 
-map <leader>ctf :CommandTFlush<CR>
-
 " Handy for alternates.
 map <leader>a :on<CR>:AV<CR><C-w><C-x> 
 
@@ -171,6 +169,8 @@ nnoremap <silent> <leader>b :CommandTMRU<CR>
 
 nnoremap <Leader>ns :nohlsearch<cr>
 nnoremap <Leader>nt :NERDTreeToggle<cr>
+
+nnoremap <Leader>g :Ack<cr>
 
 inoremap jk <esc>
 cnoremap jk <esc>
@@ -192,10 +192,15 @@ let g:NERDTreeShowLineNumbers=1
 set autoread
 autocmd CursorHold,CursorHoldI,CursorMoved,InsertEnter,InsertLeave * checktime
 
-let g:CommandTFileScanner = "watchman"
+let g:CommandTFileScanner = "find"
+let g:CommandTMaxFiles = 500000
 
 let g:airline#extensions#branch#enabled = 0
 
+" make test commands execute using dispatch.vim
+let test#strategy = "dispatch"
+
+let g:ack_use_dispatch = 1
 " --- Filetypes for some common iOS files ---
 
 augroup stringsdict
@@ -223,6 +228,11 @@ augroup danger
     autocmd BufRead Dangerfile :set filetype=ruby
 augroup END
 
+augroup jira
+    autocmd!
+    autocmd BufRead *.jira :set filetype=confluencewiki
+augroup END
+
 "-- Vundle stuff --
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -239,10 +249,11 @@ Plugin 'matchit.zip'
 Plugin 'surround.vim'
 Plugin 'https://github.com/scrooloose/nerdcommenter'
 Plugin 'https://github.com/tpope/vim-sleuth' " apparently this infers indentation
+Plugin 'https://github.com/tpope/vim-endwise' " inserts `end` for ruby
 
 " File system navigation
 Plugin 'https://github.com/scrooloose/nerdtree'
-Plugin 'ack.vim'
+Plugin 'https://github.com/mileszs/ack.vim'
 Plugin 'a.vim' 
 Plugin 'https://github.com/wincent/command-t'
 
@@ -268,10 +279,20 @@ Plugin 'janko-m/vim-test'
 
 " Markdown
 Plugin 'https://github.com/suan/vim-instant-markdown'
+"Plugin 'https://github.com/shime/vim-livedown'
+
+" Confluence / Jira markup
+Plugin 'confluencewiki.vim'
+
+Plugin 'tpope/vim-speeddating' " Requirement of vim-orgmode, it seems
+Plugin 'jceb/vim-orgmode'
+
+Plugin 'https://github.com/hashivim/vim-hashicorp-tools'
 
 call vundle#end()
 
 if has("gui_running") || &t_Co >= 256
+    " https://github.com/chriskempson/base16-vim/issues/197#issuecomment-471507314
     let base16colorspace=256
     colorscheme base16-default-dark
 endif
