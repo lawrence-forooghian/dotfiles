@@ -152,8 +152,6 @@ endfunction
 
 " Make it easy to close the window
 map <leader>cx <C-w>c
-" :ListMethods comes with cocoa.vim
-autocmd FileType objc,objcpp map <buffer> <leader>l :ListMethods<CR> 
 
 " Handy for alternates.
 map <leader>a :on<CR>:AV<CR><C-w><C-x> 
@@ -269,7 +267,6 @@ Plugin 'https://github.com/tpope/vim-rails'
 Plugin 'https://github.com/tpope/vim-dispatch'
 
 " iOS dev
-Plugin 'git://github.com/lawrence-forooghian/cocoa.vim.git'
 Plugin 'https://github.com/b4winckler/vim-objc'
 Plugin 'https://github.com/qqshfox/objc_matchbracket'
 Plugin 'https://github.com/keith/Swift.vim'
