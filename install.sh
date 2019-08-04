@@ -2,7 +2,7 @@ set -e
 
 cd ~
 
-for i in .tmux.conf .vimperatorrc .vimrc .zsh_profile .zshrc .inputrc .emacs
+for i in .tmux.conf .vimperatorrc .vimrc .zsh_profile .zshrc .inputrc .emacs .ackrc
 do
 	ln -s dotfiles/$i $i
 done

@@ -1,0 +1,2 @@
+--ignore-dir=log/
+--pager=less -r
