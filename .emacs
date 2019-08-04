@@ -91,3 +91,15 @@
 (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 
 (setq org-mobile-files '("~/org/to_mobile.org"))
+
+; https://stackoverflow.com/a/47850858
+(defun org-export-output-file-name-modified (orig-fun extension &optional subtreep pub-dir)
+    (unless pub-dir
+          (setq pub-dir "export")
+              (unless (file-directory-p pub-dir)
+                      (make-directory pub-dir)))
+      (apply orig-fun extension subtreep pub-dir nil))
+(advice-add 'org-export-output-file-name :around #'org-export-output-file-name-modified)
+
+; https://stackoverflow.com/a/151946
+(setq backup-directory-alist `(("." . "~/.emacs_backups")))
