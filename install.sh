@@ -18,7 +18,7 @@ git config --global core.excludesfile ~/dotfiles/global.gitignore
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew install ack tmux tree vim watchman reattach-to-user-namespace ncdu node youtube-dl ffmpeg mas emacs rbenv
-brew cask install transmission vlc anki hammerspoon mactex spotmenu spotify skype whatsapp 1password dropbox virtualbox
+brew cask install transmission vlc anki hammerspoon mactex spotmenu spotify skype whatsapp 1password dropbox virtualbox iterm2
 npm -g install instant-markdown-d
 
 mas account # `mas signin` doesn't work with 2FA
