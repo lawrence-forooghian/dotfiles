@@ -35,3 +35,5 @@ cd .vim/bundle/command-t/ruby/command-t/ext/command-t
 make install
 
 open -a Hammerspoon
+
+echo "Now follow the steps in the additional_steps file."

@@ -1,0 +1,10 @@
+Steps that need to be performed after install.sh:
+
+M-x package-install:
+- evil
+- evil-escape
+- use-package
+- ox-jira
+
+- install the base16-default-dark-256.itermcolors from https://github.com/martinlindhe/base16-iterm2, now vim works
+- clone the base16-shell repo to its suggested location
