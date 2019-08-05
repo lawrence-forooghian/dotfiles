@@ -31,7 +31,7 @@ git config --global user.email "lawrence@dxw.com"
 vim -c BundleInstall -c q -c q
 
 cd .vim/bundle/command-t/ruby/command-t/ext/command-t
-/usr/local/bin/ruby extconf.rb
+/usr/local/opt/ruby/bin/ruby extconf.rb
 make install
 
 open -a Hammerspoon
