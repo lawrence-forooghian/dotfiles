@@ -107,3 +107,7 @@
 
 ; https://stackoverflow.com/a/151946
 (setq backup-directory-alist `(("." . "~/.emacs_backups")))
+
+; https://emacs.stackexchange.com/a/17214
+; note that this directory must already exist, or emacs complains
+(setq auto-save-file-name-transforms `((".*" "~/.emacs_autosaves/" t)))

@@ -36,4 +36,6 @@ make install
 
 open -a Hammerspoon
 
+mkdir ~/.emacs_autosaves
+
 echo "Now follow the steps in the additional_steps file."
