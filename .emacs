@@ -1,3 +1,5 @@
+; https://github.com/syl20bnr/spacemacs/issues/12535#issue-469259962
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 (require 'package)
 
 (add-to-list 'package-archives
