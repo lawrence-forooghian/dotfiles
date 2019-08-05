@@ -68,12 +68,14 @@
   :config
   (global-evil-surround-mode 1))
 
+(setq base16-theme-use-shell-colors t)
+(setq base16-theme-256-color-source "base16-shell")
+
 ; https://github.com/belak/base16-emacs
-; doesn't work; very ugly
-; (use-package base16-theme
-;   :ensure t
-;   :config
-;   (load-theme 'base16-default-dark t))
+(use-package base16-theme
+  :ensure t
+  :config
+  (load-theme 'base16-default-dark t))
 
 ; Trying to undo emacs-evil-state which puts evil into emacs mode. The first one didn't work, but I learned about ~kbd~ which is how you enter keyboard commands.
 ; The second solution came from https://github.com/syl20bnr/spacemacs/issues/7372 - seems like keys can be defined in different maps, e.g. global, or this specific one evil-emacs-state-map.
