@@ -164,9 +164,11 @@ map <leader>us :TestSuite<CR>
 nnoremap <Leader>ev :vsplit $MYVIMRC<cr>
 
 nnoremap <silent> <leader>b :CommandTMRU<CR>
+nnoremap <silent> <leader>p :CommandTTag<CR>
 
 nnoremap <Leader>ns :nohlsearch<cr>
 nnoremap <Leader>nt :NERDTreeToggle<cr>
+nnoremap <Leader>nf :NERDTreeFind<cr>
 
 nnoremap <Leader>g :Ack<cr>
 
@@ -245,37 +247,37 @@ Plugin 'chriskempson/base16-vim'
 " General editing
 Plugin 'matchit.zip' 
 Plugin 'surround.vim'
-Plugin 'https://github.com/scrooloose/nerdcommenter'
-Plugin 'https://github.com/tpope/vim-sleuth' " apparently this infers indentation
-Plugin 'https://github.com/tpope/vim-endwise' " inserts `end` for ruby
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-sleuth' " apparently this infers indentation
+Plugin 'tpope/vim-endwise' " inserts `end` for ruby
 
 " File system navigation
-Plugin 'https://github.com/scrooloose/nerdtree'
-Plugin 'https://github.com/mileszs/ack.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'mileszs/ack.vim'
 Plugin 'a.vim' 
-Plugin 'https://github.com/wincent/command-t'
+Plugin 'wincent/command-t'
 
 " Info
 Plugin 'vim-airline/vim-airline'
 
 " Git
-Plugin 'https://github.com/tpope/vim-fugitive'
-Plugin 'https://github.com/airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 
 " Rails
-Plugin 'https://github.com/tpope/vim-rails'
-Plugin 'https://github.com/tpope/vim-dispatch'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-dispatch'
 
 " iOS dev
-Plugin 'https://github.com/b4winckler/vim-objc'
-Plugin 'https://github.com/qqshfox/objc_matchbracket'
-Plugin 'https://github.com/keith/Swift.vim'
+Plugin 'b4winckler/vim-objc'
+Plugin 'qqshfox/objc_matchbracket'
+Plugin 'keith/Swift.vim'
 
 " Testing
 Plugin 'janko-m/vim-test'
 
 " Markdown
-Plugin 'https://github.com/suan/vim-instant-markdown'
+Plugin 'suan/vim-instant-markdown'
 "Plugin 'https://github.com/shime/vim-livedown'
 
 " Confluence / Jira markup
@@ -284,7 +286,9 @@ Plugin 'confluencewiki.vim'
 Plugin 'tpope/vim-speeddating' " Requirement of vim-orgmode, it seems
 Plugin 'jceb/vim-orgmode'
 
-Plugin 'https://github.com/hashivim/vim-hashicorp-tools'
+Plugin 'hashivim/vim-hashicorp-tools'
+
+Plugin 'rlue/vim-fold-rspec'
 
 call vundle#end()
 

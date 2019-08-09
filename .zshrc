@@ -59,3 +59,9 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 base16_default-dark
+
+export PATH="${PATH}:/Applications/Postgres.app/Contents/Versions/latest/bin"
+
+# Generate tags for a Rails project
+# https://blog.sensible.io/2014/05/09/supercharge-your-vim-into-ide-with-ctags.html
+alias rtgen='ctags -R --languages=ruby --exclude=.git --exclude=log .'
