@@ -65,3 +65,5 @@ export PATH="${PATH}:/Applications/Postgres.app/Contents/Versions/latest/bin"
 # Generate tags for a Rails project
 # https://blog.sensible.io/2014/05/09/supercharge-your-vim-into-ide-with-ctags.html
 alias rtgen='ctags -R --languages=ruby --exclude=.git --exclude=log .'
+
+alias tmux_dxw_dss='~/dotfiles/tmux_dxw_dss.sh'
