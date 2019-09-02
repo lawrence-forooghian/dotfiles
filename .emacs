@@ -35,7 +35,7 @@
     ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
  '(package-selected-packages
    (quote
-    (ox-jira solarized-theme base16-theme evil-surround htmlize evil-escape key-chord ##))))
+    (haml-mode ox-jira solarized-theme base16-theme evil-surround htmlize evil-escape key-chord ##))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
