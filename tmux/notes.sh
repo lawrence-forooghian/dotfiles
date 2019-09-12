@@ -3,7 +3,7 @@
 
 set -e
 
-SESSION_NAME="dxw-dss"
+SESSION_NAME="notes"
 
 if tmux has-session -t "${SESSION_NAME}"
 then
@@ -24,23 +24,11 @@ else
 
   ((index++))
 
-  # Create window for each service, with splits and vim in the largest pane
-  for service in DataSubmissionService DataSubmissionServiceAPI
-  do
-	cd ~/code/${service}
-	tmux new-window -n "${service}" -a -t "${SESSION_NAME}"
-	((index++))
+  # Create window for dotfiles
+  cd ~/dotfiles
+  tmux rename-window -t "${TARGET}" dotfiles
+  tmux send-keys -t "${TARGET}" 'cd ~/dotfiles' 'C-m'
 
-	tmux split-window -h -t "${TARGET}"
-	tmux split-window -t "${TARGET}"
-
-	tmux selectp -L -t "${TARGET}"
-	tmux send-keys -t "${TARGET}" 'vim -c NERDTree' C-m
-  done
-
-  # Create window for service manual
-  cd ~/code/ReportMI-service-manual
-  tmux new-window -n manual -a -t "${SESSION_NAME}"
   ((index++))
 
   # Start out on the first window when we attach

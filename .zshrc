@@ -69,7 +69,7 @@ export PATH="${PATH}:/Applications/Postgres.app/Contents/Versions/latest/bin"
 # https://blog.sensible.io/2014/05/09/supercharge-your-vim-into-ide-with-ctags.html
 alias rtgen='ctags -R --languages=ruby --exclude=.git --exclude=log .'
 
-alias tmux_dxw_rmi='~/dotfiles/dxw_tmux/tmux_dxw_rmi.sh'
-alias tmux_dxw_10kft='~/dotfiles/dxw_tmux/tmux_dxw_10kft.sh'
-
-alias umlet='open ~/bin/Umlet/umlet.jar'
+alias tmux_notes='~/dotfiles/tmux/notes.sh'
+alias tmux_dxw_rmi='~/dotfiles/tmux/dxw/rmi.sh'
+alias tmux_dxw_10kft='~/dotfiles/tmux/dxw/10kft.sh'
+alias tmux_dxw_support='~/dotfiles/tmux/dxw/support.sh'

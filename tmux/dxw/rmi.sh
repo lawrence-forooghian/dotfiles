@@ -3,7 +3,7 @@
 
 set -e
 
-SESSION_NAME="dxw-10kft"
+SESSION_NAME="dxw-rmi"
 
 if tmux has-session -t "${SESSION_NAME}"
 then
@@ -16,27 +16,23 @@ else
   index=0
   target="${SESSION_NAME}:${index}"
 
-  # Create window for notes
-  cd ~/org
-  tmux rename-window -t "${TARGET}" notes
-  tmux send-keys -t "${TARGET}" 'cd ~/org' 'C-m'
-  tmux send-keys -t "${TARGET}" emacs C-m
-
-  ((index++))
-
   # Create window for each service, with splits and vim in the largest pane
-  for service in 10000ft-scheduling-dashboard 10000ft-utilisation-dashboard
+  for service in DataSubmissionService DataSubmissionServiceAPI
   do
 	cd ~/code/${service}
 	tmux new-window -n "${service}" -a -t "${SESSION_NAME}"
 	((index++))
 
-	tmux split-window -h -t "${TARGET}"
-	tmux split-window -t "${TARGET}"
+	tmux split-window -h -t "${TARGET}" tmux split-window -t "${TARGET}"
 
 	tmux selectp -L -t "${TARGET}"
 	tmux send-keys -t "${TARGET}" 'vim -c NERDTree' C-m
   done
+
+  # Create window for service manual
+  cd ~/code/ReportMI-service-manual
+  tmux new-window -n manual -a -t "${SESSION_NAME}"
+  ((index++))
 
   # Start out on the first window when we attach
   tmux select-window -t "${SESSION_NAME}:0"
