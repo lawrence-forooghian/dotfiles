@@ -6,6 +6,9 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 
 # Other shell niceties
 bindkey -v
+bindkey "^R" history-incremental-search-backward
+# https://dougblack.io/words/zsh-vi-mode.html
+export KEYTIMEOUT=1
 
 # Set prompts - nabbed from http://www.edsel.nu/?p=203 until I get round to making one
 autoload colors; colors
@@ -66,4 +69,7 @@ export PATH="${PATH}:/Applications/Postgres.app/Contents/Versions/latest/bin"
 # https://blog.sensible.io/2014/05/09/supercharge-your-vim-into-ide-with-ctags.html
 alias rtgen='ctags -R --languages=ruby --exclude=.git --exclude=log .'
 
-alias tmux_dxw_dss='~/dotfiles/tmux_dxw_dss.sh'
+alias tmux_dxw_rmi='~/dotfiles/dxw_tmux/tmux_dxw_rmi.sh'
+alias tmux_dxw_10kft='~/dotfiles/dxw_tmux/tmux_dxw_10kft.sh'
+
+alias umlet='open ~/bin/Umlet/umlet.jar'
