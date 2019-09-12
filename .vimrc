@@ -7,10 +7,6 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
-
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
@@ -44,18 +40,14 @@ else
 
 endif " has("autocmd")
 
-"
-" ---- Copied settings ----
-"
+" --- Copied settings ---
 
 " Complete options (disable preview scratch window)
 set completeopt=menu,menuone,longest
 " Limit popup menu height
 set pumheight=30
 
-"
-" ---- Personal settings ----
-"
+" --- Personal settings ---
 
 " Some things have been moved down from the example section now that I know
 " what they do.
@@ -96,10 +88,6 @@ autocmd FileType ruby setlocal expandtab softtabstop=2 shiftwidth=2
 
 autocmd FileType java setlocal noexpandtab
 
-" Make it easy to see when a file is using hard tabs.
-set listchars=tab:>!
-"set list
-
 " -- Miscellaneous options --
 
 let mapleader=","
@@ -124,31 +112,15 @@ set cursorline
 " Allow switching out of a buffer with unsaved changes
 set hidden
 
-set number
 set relativenumber
 
 " Set last window to always have a status line
 set laststatus=2
 
-if &t_Co > 2 || has("gui_running")
-    " Switch syntax highlighting on, when the terminal has colours.
-    " Also switch on highlighting the last used search pattern.
-    set hlsearch
-endif
-
-" Trying to move away from having a separate .gvimrc file, so here are the GUI
-" options with a guard
-if has("gui_running")
-    set guioptions-=T
-    set visualbell
-    set guifont=Menlo\ Regular:h15
-end
+" Highlight the last used search pattern.
+set hlsearch
 
 " --- Keyboard mappings ---
-
-function! g:OpenInXcode()
-   call system("open -a Xcode ". shellescape(expand('%')))
-endfunction
 
 " Make it easy to close the window
 map <leader>cx <C-w>c
@@ -177,11 +149,6 @@ cnoremap jk <esc>
 inoremap <c-[> <nop>
 
 " --- External options ---
-"  Should put guards around these to check whether the things are defined.
-
-" These need to come before a.vim is loaded
-let g:alternateExtensions_h = "c,cpp,cxx,cc,CC,m,mm"
-let g:alternateExtensions_m = "h"
 
 let g:NERDTreeShowLineNumbers=1
 
@@ -197,10 +164,26 @@ let g:CommandTMaxFiles = 500000
 
 let g:airline#extensions#branch#enabled = 0
 
-" make test commands execute using dispatch.vim
-let test#strategy = "dispatch"
+" make test commands execute using terminal - TODO restore to dispatch
+let test#strategy = "vimterminal"
 
 let g:ack_use_dispatch = 1
+
+" tmux is no good because it causes a zoomed vim pane to become unzoomed
+let g:dispatch_no_tmux_make = 1
+let g:dispatch_no_tmux_start = 1
+" job would be ideal but :Ack just seems to fail, so until that's fixed use
+" iTerm
+let g:dispatch_no_job_make = 1
+let g:dispatch_no_job_start = 1
+
+" invoke with '-'
+nmap  -  <Plug>(choosewin)
+" if you want to use overlay feature
+let g:choosewin_overlay_enable = 1
+
+let test#ruby#rspec#executable = 'bin/dspec'
+
 " --- Filetypes for some common iOS files ---
 
 augroup stringsdict
@@ -233,12 +216,19 @@ augroup jira
     autocmd BufRead *.jira :set filetype=confluencewiki
 augroup END
 
-"-- Vundle stuff --
+" --- JSON syntax highlighting issue ---
+" https://github.com/chriskempson/base16-vim/issues/125
+augroup json
+    autocmd!
+    autocmd FileType json :highlight clear Error
+augroup END
+
+"--- Vundle stuff --
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle
+" Let Vundle manage Vundle
 Plugin 'VundleVim/Vundle.vim'
 
 " Theme
@@ -251,6 +241,10 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-sleuth' " apparently this infers indentation
 Plugin 'tpope/vim-endwise' " inserts `end` for ruby
 
+" Window navigation
+Plugin 't9md/vim-choosewin'
+Plugin 'weilbith/nerdtree_choosewin-plugin'
+
 " File system navigation
 Plugin 'scrooloose/nerdtree'
 Plugin 'mileszs/ack.vim'
@@ -260,44 +254,35 @@ Plugin 'wincent/command-t'
 " Info
 Plugin 'vim-airline/vim-airline'
 
-" Git
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
+" Testing
+Plugin 'janko-m/vim-test'
 
 " Rails
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-dispatch'
+Plugin 'rlue/vim-fold-rspec'
 
 " iOS dev
-Plugin 'b4winckler/vim-objc'
-Plugin 'qqshfox/objc_matchbracket'
 Plugin 'keith/Swift.vim'
-
-" Testing
-Plugin 'janko-m/vim-test'
 
 " Markdown
 Plugin 'suan/vim-instant-markdown'
-"Plugin 'https://github.com/shime/vim-livedown'
 
-" Confluence / Jira markup
-Plugin 'confluencewiki.vim'
-
-Plugin 'tpope/vim-speeddating' " Requirement of vim-orgmode, it seems
-Plugin 'jceb/vim-orgmode'
-
+" Terraform
 Plugin 'hashivim/vim-hashicorp-tools'
-
-Plugin 'rlue/vim-fold-rspec'
 
 call vundle#end()
 
-if has("gui_running") || &t_Co >= 256
-    " https://github.com/chriskempson/base16-vim/issues/197#issuecomment-471507314
+if filereadable(expand("~/.vimrc_background"))
     let base16colorspace=256
-    colorscheme base16-default-dark
+    source ~/.vimrc_background
 endif
+
+"if has("gui_running") || &t_Co >= 256
+    "" https://github.com/chriskempson/base16-vim/issues/197#issuecomment-471507314
+    "let base16colorspace=256
+    "colorscheme base16-default-dark
+"endif
 
 filetype plugin indent on " Required by Vundle
 syntax on
-
