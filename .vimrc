@@ -1,44 +1,5 @@
-" ** .vimrc (Lawrence Forooghian)
-" ** This is based on the example file that ships with Vim.
-
 " Use Vim settings, rather than Vi settings (needs to come first)
 set nocompatible
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-
-    " Enable file type detection.
-    " Use the default filetype settings, so that mail gets 'tw' set to 72,
-    " 'cindent' is on in C files, etc.
-    " Also load indent files, to automatically do language-dependent indenting.
-
-    " Put these in an autocmd group, so that we can delete them easily.
-    augroup vimrcEx
-        au!
-
-        " For all text files set 'textwidth' to 78 characters.
-        autocmd FileType text setlocal textwidth=78
-
-        " When editing a file, always jump to the last known cursor position.
-        " Don't do it when the position is invalid or when inside an event handler
-        " (happens when dropping a file on gvim).
-        " Also don't do it when the mark is in the first line, that is the default
-        " position when opening a file.
-        autocmd BufReadPost *
-                    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-                    \   exe "normal! g`\"" |
-                    \ endif
-
-    augroup END
-
-else
-
-    set autoindent " always set autoindenting on
-
-endif " has("autocmd")
 
 " --- Copied settings ---
 
@@ -48,12 +9,6 @@ set completeopt=menu,menuone,longest
 set pumheight=30
 
 " --- Personal settings ---
-
-" Some things have been moved down from the example section now that I know
-" what they do.
-
-" I should aim to understand all of the stuff above this, so that I can pick
-" which bits are important to me.
 
 " --- Built-in vim options ---
 
@@ -133,10 +88,7 @@ map <leader>un :TestNearest<CR>
 map <leader>uf :TestFile<CR>
 map <leader>us :TestSuite<CR>
 
-nnoremap <Leader>ev :vsplit $MYVIMRC<cr>
-
 nnoremap <silent> <leader>b :CommandTMRU<CR>
-nnoremap <silent> <leader>p :CommandTTag<CR>
 
 nnoremap <Leader>ns :nohlsearch<cr>
 nnoremap <Leader>nt :NERDTreeToggle<cr>
@@ -164,8 +116,10 @@ let g:CommandTMaxFiles = 500000
 
 let g:airline#extensions#branch#enabled = 0
 
-" make test commands execute using terminal - TODO restore to dispatch
-let test#strategy = "vimterminal"
+" make test commands execute using terminal
+" TODO restore to dispatch (but when using tmux dispatch it removes all the
+" coloured output)
+let test#strategy = "terminal"
 
 let g:ack_use_dispatch = 1
 
@@ -185,35 +139,20 @@ let g:choosewin_overlay_enable = 1
 let test#ruby#rspec#executable = 'bin/dspec'
 
 " --- Filetypes for some common iOS files ---
-
-augroup stringsdict
+augroup ios
     autocmd!
     autocmd BufRead *.stringsdict :set filetype=xml
-augroup END
 
-augroup fastlane
-    autocmd!
     autocmd BufRead Appfile :set filetype=ruby
     autocmd BufRead Fastfile :set filetype=ruby
     autocmd BufRead Matchfile :set filetype=ruby
     autocmd BufRead Pluginfile :set filetype=ruby
     autocmd BufRead Snapfile :set filetype=ruby
     autocmd BufRead Scanfile :set filetype=ruby
-augroup END
 
-augroup cocoapods
-    autocmd!
     autocmd BufRead Podfile :set filetype=ruby
-augroup END
 
-augroup danger
-    autocmd!
     autocmd BufRead Dangerfile :set filetype=ruby
-augroup END
-
-augroup jira
-    autocmd!
-    autocmd BufRead *.jira :set filetype=confluencewiki
 augroup END
 
 " --- JSON syntax highlighting issue ---
@@ -277,12 +216,6 @@ if filereadable(expand("~/.vimrc_background"))
     let base16colorspace=256
     source ~/.vimrc_background
 endif
-
-"if has("gui_running") || &t_Co >= 256
-    "" https://github.com/chriskempson/base16-vim/issues/197#issuecomment-471507314
-    "let base16colorspace=256
-    "colorscheme base16-default-dark
-"endif
 
 filetype plugin indent on " Required by Vundle
 syntax on
