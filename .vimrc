@@ -119,7 +119,7 @@ let g:airline#extensions#branch#enabled = 0
 " make test commands execute using terminal
 " TODO restore to dispatch (but when using tmux dispatch it removes all the
 " coloured output)
-let test#strategy = "terminal"
+let test#strategy = "vimterminal"
 
 let g:ack_use_dispatch = 1
 
