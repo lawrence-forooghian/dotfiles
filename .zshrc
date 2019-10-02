@@ -1,3 +1,4 @@
+DOTFILES_DIR="${HOME}/dotfiles"
 
 # Exports
 export EDITOR=vim
@@ -21,12 +22,6 @@ autoload -U compinit && compinit
 export HISTSIZE=10000
 export SAVEHIST=10000
 export HISTFILE=~/.zsh_history
-
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 # init rbenv
 eval "$(rbenv init -)"
@@ -56,7 +51,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
+BASE16_SHELL="${DOTFILES_DIR}/vendor/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
