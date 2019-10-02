@@ -30,3 +30,4 @@ M-x package-install:
 - Touch Bar: brightness up/down, space, keyboard backlight up/down, space, playback ff/play/rewind, space, mute/vol up/down
 - Disable automatic brightness?
 - Set iTerm2 to sync preferences with dotfiles dir
+- symlink user.js into Firefox profile
