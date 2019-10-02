@@ -124,20 +124,13 @@ let g:CommandTMaxFiles = 500000
 
 let g:airline#extensions#branch#enabled = 0
 
-" make test commands execute using terminal
-" TODO restore to dispatch (but when using tmux dispatch it removes all the
-" coloured output)
+" We use vimterminal instead of dispatch, so that we can keep the coloured
+" output, which is very useful for e.g. RSpec. The only downside I've seen is
+" that if you run the tests a second time, it doesn't close the previous
+" window.
 let test#strategy = "vimterminal"
 
 let g:ack_use_dispatch = 1
-
-" tmux is no good because it causes a zoomed vim pane to become unzoomed
-let g:dispatch_no_tmux_make = 1
-let g:dispatch_no_tmux_start = 1
-" job would be ideal but :Ack just seems to fail, so until that's fixed use
-" iTerm
-let g:dispatch_no_job_make = 1
-let g:dispatch_no_job_start = 1
 
 " invoke with '-'
 nmap  -  <Plug>(choosewin)
