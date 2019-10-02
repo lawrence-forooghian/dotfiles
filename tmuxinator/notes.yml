@@ -1,0 +1,12 @@
+# /Users/lawrence/dotfiles/tmuxinator/notes.yml
+
+name: notes
+root: ~/
+
+windows:
+  - notes:
+      root: ~/org
+      panes:
+        - emacs
+  - dotfiles:
+      root: ~/dotfiles

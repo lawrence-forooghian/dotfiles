@@ -64,8 +64,12 @@ export PATH="${PATH}:/Applications/Postgres.app/Contents/Versions/latest/bin"
 # https://blog.sensible.io/2014/05/09/supercharge-your-vim-into-ide-with-ctags.html
 alias rtgen='ctags -R --languages=ruby --exclude=.git --exclude=log .'
 
-alias tmux_notes='~/dotfiles/tmux/notes.sh'
+# TODO replace with tmuxinator
 alias tmux_dxw_rmi='~/dotfiles/tmux/dxw/rmi.sh'
 alias tmux_dxw_10kft='~/dotfiles/tmux/dxw/10kft.sh'
-alias tmux_dxw_claims='~/dotfiles/tmux/dxw/claims.sh'
 alias tmux_dxw_support='~/dotfiles/tmux/dxw/support.sh'
+
+export TMUXINATOR_CONFIG="${HOME}/dotfiles/tmuxinator"
+source "${HOME}/dotfiles/vendor/tmuxinator.zsh"
+# For starting multiple sessions in one go.
+alias tnr='tmuxinator start --attach=false'

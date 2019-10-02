@@ -1,0 +1,8 @@
+name: claims
+root: ~/code/dfe-teachers-payment-service
+
+windows:
+  - editor: vim
+  - console:
+  - server: bundle exec foreman start
+  - logs: tail -f log/development.log
