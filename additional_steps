@@ -8,3 +8,82 @@ M-x package-install:
 
 - install the base16-default-dark-256.itermcolors from https://github.com/martinlindhe/base16-iterm2, now vim works
 - clone the base16-shell repo to its suggested location
+
+Updated (2019-10-02):
+
+- Install Alfred
+- Disable Spotlight keyboard shortcut and set cmd-space to Alfred
+- Exclude Terminal from Spotlight -> Privacy
+
+Old
+
+Log in to iCloud Disable iCloud stuff I don’t want
+Get Dropbox (ljfrugn / long)
+Get 1Password
+add safari plugins: vimmy, 1password, adguard
+Add Google accounts
+Add dot to lawrenceforooghian@gmail.com
+
+Xcode & command-line tools
+
+Set up keys
+
+Get dotfiles and run install script
+
+Disable guest user
+
+Keyboard layout
+
+Spotify and last.fm; tell Spotify not to start at login and make its helper not go mental
+
+
+Evernote; kill helper
+
+
+/* QuickHue - doesn’t seem to find my bridge. could investigate sometime, but until then just use Colors for Hue from App Store. */ Trying Chroma atm
+
+Wunderlist
+
+LaTeX
+
+Karabiner (or for new computers just whack up the keyboard speed in OS X)
+
+Solarized for Terminal
+
+Tunnelbear
+
+Skype
+
+mouse speed
+
+Sort out dock
+
+Volume icon
+
+show date next to time
+
+Office, or LibreOffice and GIMP (via cask)
+
+gatekeeper
+
+barkeeper
+
+bluetooth icon
+
+Development certs
+
+Disable spellchecking
+
+Printer
+
+Steam
+
+work stuff
+
+adobe
+
+virtualbox
+
+Turn on FileVault
+
+CrashPlan
