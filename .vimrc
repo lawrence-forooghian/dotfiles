@@ -75,6 +75,10 @@ set laststatus=2
 " Highlight the last used search pattern.
 set hlsearch
 
+" Open files with all folds open (looking at you, RSpec plugin):
+" https://vi.stackexchange.com/questions/4482/how-to-open-a-file-with-all-folds-opened
+set nofoldenable
+
 " --- Keyboard mappings ---
 
 " Make it easy to close the window
