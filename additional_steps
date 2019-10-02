@@ -24,7 +24,7 @@ M-x package-install:
 - Disable spellchecking
 - Turn on FileVault
 - Backblaze
-- Install Alfred
+- Install Alfred and add Powerpack licence
 - Disable Spotlight keyboard shortcut and set cmd-space to Alfred
 - Exclude Terminal from Spotlight -> Privacy
 - Touch Bar: brightness up/down, space, keyboard backlight up/down, space, playback ff/play/rewind, space, mute/vol up/down
