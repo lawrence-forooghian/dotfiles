@@ -79,6 +79,10 @@ set hlsearch
 " https://vi.stackexchange.com/questions/4482/how-to-open-a-file-with-all-folds-opened
 set nofoldenable
 
+" allow backspacing over everything in insert mode; this was in a default
+" .vimrc; upon removing it I wished I hadn't
+set backspace=indent,eol,start
+
 " --- Keyboard mappings ---
 
 " Make it easy to close the window
