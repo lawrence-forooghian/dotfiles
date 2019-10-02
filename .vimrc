@@ -214,6 +214,9 @@ Plugin 'suan/vim-instant-markdown'
 " Terraform
 Plugin 'hashivim/vim-hashicorp-tools'
 
+" Nginx
+Plugin 'chr4/nginx.vim'
+
 call vundle#end()
 
 if filereadable(expand("~/.vimrc_background"))
