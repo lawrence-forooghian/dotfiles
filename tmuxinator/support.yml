@@ -1,0 +1,7 @@
+name: support
+
+windows:
+  - docs:
+      root: ~/code/docs
+  - chef:
+      root: ~/code/chef-repo
