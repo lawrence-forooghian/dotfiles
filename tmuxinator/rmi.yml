@@ -3,7 +3,15 @@ name: rmi
 windows:
   - api:
       root: ~/code/DataSubmissionServiceAPI
+      panes:
+        - vim
+  - api-console:
+      root: ~/code/DataSubmissionServiceAPI
   - frontend:
+      root: ~/code/DataSubmissionService
+      panes:
+        - vim
+  - frontend-console:
       root: ~/code/DataSubmissionService
   - service-manual:
       root: ~/code/ReportMI-service-manual
