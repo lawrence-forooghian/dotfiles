@@ -1,4 +1,4 @@
-Steps that need to be performed after install.sh:
+Steps that need to be performed after install.sh. Some of these could probably be automated:
 
 M-x package-install:
 - evil
@@ -31,3 +31,4 @@ M-x package-install:
 - symlink user.js into Firefox profile
 - create ~/.gitconfig_local
 - git absorb
+- clone git-update-messages so that hooks work
