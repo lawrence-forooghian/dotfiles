@@ -166,6 +166,12 @@ augroup json
     autocmd FileType json :highlight clear Error
 augroup END
 
+" --- Recognise .gitconfig_local
+augroup ios
+    autocmd!
+    autocmd BufRead .gitconfig_local :set filetype=gitconfig
+augroup END
+
 "--- Vundle stuff --
 
 set rtp+=~/.vim/bundle/Vundle.vim

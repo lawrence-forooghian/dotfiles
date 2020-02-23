@@ -1,10 +1,13 @@
 [core]
 	excludesfile = /Users/lawrence/dotfiles/global.gitignore
 [user]
-	name = Lawrence Forooghian
-	email = lawrence@dxw.com
+	# These values are set in ~/.gitconfig_local, e.g.
+	# name = Lawrence Forooghian
+	# email = lawrence@forooghian.com
 [rebase]
 	autoStash = true
 	autoSquash = true
 [commit]
 	verbose = true
+[include]
+	path = ~/.gitconfig_local

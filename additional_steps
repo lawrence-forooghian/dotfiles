@@ -10,13 +10,11 @@ M-x package-install:
 - Disable iCloud stuff I don’t want
 - Get Dropbox (ljfrugn / long)
 - Get 1Password
-- Add Google accounts
-- Add dot to lawrenceforooghian@gmail.com
+- Add email account
 - Get dotfiles and run install script
 - Disable guest user
 - Tell Spotify not to start at login
 - Evernote; kill helper
-- Wunderlist
 - LaTeX
 - Whack up the keyboard speed in OS X)
 - mouse speed
@@ -31,3 +29,5 @@ M-x package-install:
 - Disable automatic brightness?
 - Set iTerm2 to sync preferences with dotfiles dir
 - symlink user.js into Firefox profile
+- create ~/.gitconfig_local
+- git absorb
