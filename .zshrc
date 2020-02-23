@@ -31,10 +31,13 @@ eval "$(rbenv init -)"
 # Git aliases
 alias gs='git status'
 alias gsu='git submodule update --init --recursive'
+alias gri='git rebase -i origin/master'
+alias gpu='git push -u origin HEAD'
 
 # Ruby aliases
 alias be='bundle exec'
 alias rc='bundle exec rubocop -a'
+alias sf='bundle exec standardrb --fix'
 
 # iOS aliases
 alias pi='bundle exec pod install'
@@ -68,3 +71,6 @@ export TMUXINATOR_CONFIG="${DOTFILES_DIR}/tmuxinator"
 source "${DOTFILES_DIR}/vendor/tmuxinator.zsh"
 # For starting multiple sessions in one go.
 alias tnr='tmuxinator start --attach=false'
+
+# https://stackoverflow.com/questions/38725102/how-to-add-custom-git-command-to-zsh-completion
+zstyle ':completion:*:*:git:*' user-commands update-messages:'after a rebase, fix commit messages which contain outdated references to other commits'
