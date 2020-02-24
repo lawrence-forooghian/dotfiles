@@ -121,6 +121,8 @@ autocmd CursorHold,CursorHoldI,CursorMoved,InsertEnter,InsertLeave * checktime
 
 let g:CommandTFileScanner = "find"
 let g:CommandTMaxFiles = 500000
+let g:CommandTAlwaysShowDotFiles = 1
+let g:CommandTScanDotDirectories = 1
 
 let g:airline#extensions#branch#enabled = 0
 
