@@ -1,5 +1,11 @@
 #!/bin/bash
 set -e
+TOOL_PATH=~/code/git-update-messages
 
-cd ~/code/git-update-messages
-rbenv exec bundle exec bin/commands/git-update-messages
+CURRENT_DIR=$(pwd)
+cd "${TOOL_PATH}"
+BUNDLER_PATH=$(rbenv which bundle)
+cd "${CURRENT_DIR}"
+
+export BUNDLE_GEMFILE="${TOOL_PATH}/Gemfile"
+${BUNDLER_PATH} exec "${TOOL_PATH}/bin/commands/git-update-messages" "$@"

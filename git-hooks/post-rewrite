@@ -1,1 +1,12 @@
-/Users/lawrence/code/git-update-messages/bin/hooks/post-rewrite
+#!/bin/bash
+set -e
+TOOL_PATH=~/code/git-update-messages
+
+CURRENT_DIR=$(pwd)
+cd "${TOOL_PATH}"
+BUNDLER_PATH=$(rbenv which bundle)
+cd "${CURRENT_DIR}"
+
+export BUNDLE_GEMFILE="${TOOL_PATH}/Gemfile"
+# This seems to pass STDIN input through, as we want
+${BUNDLER_PATH} exec "${TOOL_PATH}/bin/hooks/post-rewrite" "$@"
