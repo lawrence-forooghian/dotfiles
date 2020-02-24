@@ -31,4 +31,4 @@ M-x package-install:
 - symlink user.js into Firefox profile
 - create ~/.gitconfig_local
 - git absorb
-- clone git-update-messages so that hooks work
+- clone git-update-messages so that hooks work, and rbenv / bundle install there
