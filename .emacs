@@ -96,6 +96,11 @@
 
 (setq org-mobile-files '("~/org/to_mobile.org"))
 
+; # https://orgmode.org/manual/HTML-doctypes.html#HTML-doctypes
+; # https://emacs.stackexchange.com/questions/27691/org-mode-export-images-to-html-as-figures-not-img
+(setq org-html-doctype "html5")
+(setq org-html-html5-fancy t)
+
 ; https://stackoverflow.com/a/47850858
 (defun org-export-output-file-name-modified (orig-fun extension &optional subtreep pub-dir)
     (unless pub-dir
