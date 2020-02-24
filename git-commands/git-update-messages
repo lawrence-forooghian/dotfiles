@@ -1,1 +1,5 @@
-/Users/lawrence/code/git-update-messages/bin/commands/git-update-messages
+#!/bin/bash
+set -e
+
+cd ~/code/git-update-messages
+rbenv exec bundle exec bin/commands/git-update-messages
