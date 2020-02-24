@@ -34,6 +34,7 @@ alias gsu='git submodule update --init --recursive'
 alias gri='git rebase -i origin/master'
 alias gpu='git push -u origin HEAD'
 alias gpf='git push --force-with-lease'
+alias gf='git fetch origin'
 
 # Ruby aliases
 alias be='bundle exec'
