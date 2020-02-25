@@ -36,7 +36,8 @@ alias grc='git rebase --continue'
 alias gpu='git push -u origin HEAD'
 alias gpf='git push --force-with-lease'
 alias gf='git fetch origin'
-alias ga='git absorb'
+alias gab='git absorb'
+alias gam='git commit --amend'
 
 # Ruby aliases
 alias be='bundle exec'
