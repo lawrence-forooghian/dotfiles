@@ -32,12 +32,15 @@ eval "$(rbenv init -)"
 alias gs='git status'
 alias gsu='git submodule update --init --recursive'
 alias gri='git rebase -i origin/master'
+alias grc='git rebase --continue'
 alias gpu='git push -u origin HEAD'
 alias gpf='git push --force-with-lease'
 alias gf='git fetch origin'
+alias ga='git absorb'
 
 # Ruby aliases
 alias be='bundle exec'
+alias bs='bundle exec rspec'
 alias rc='bundle exec rubocop -a'
 alias sf='bundle exec standardrb --fix'
 
