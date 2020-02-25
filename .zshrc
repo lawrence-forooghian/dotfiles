@@ -29,15 +29,20 @@ eval "$(rbenv init -)"
 ## Aliases
 
 # Git aliases
+DEFAULT_REMOTE_BRANCH="origin/master"
 alias gs='git status'
 alias gsu='git submodule update --init --recursive'
-alias gri='git rebase -i origin/master'
+alias gri="git rebase -i ${DEFAULT_REMOTE_BRANCH}"
 alias grc='git rebase --continue'
 alias gpu='git push -u origin HEAD'
 alias gpf='git push --force-with-lease'
 alias gf='git fetch origin'
 alias gab='git absorb'
 alias gam='git commit --amend'
+# This is "git review" - a thing to do before PRs, e.g. for finding TODOs. I
+# haven’t included -p because sometimes it’s useful to just see the commits.
+# But can add -p on when calling it
+alias grv="git log ${DEFAULT_REMOTE_BRANCH}..HEAD"
 
 # Ruby aliases
 alias be='bundle exec'
