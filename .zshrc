@@ -43,6 +43,7 @@ alias gam='git commit --amend'
 # haven’t included -p because sometimes it’s useful to just see the commits.
 # But can add -p on when calling it
 alias grv="git log ${DEFAULT_REMOTE_BRANCH}..HEAD"
+alias gco="git checkout"
 
 # Ruby aliases
 alias be='bundle exec'
