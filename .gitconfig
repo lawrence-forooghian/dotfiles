@@ -12,3 +12,5 @@
 	verbose = true
 [include]
 	path = ~/.gitconfig_local
+[absorb]
+	maxStack = 100
