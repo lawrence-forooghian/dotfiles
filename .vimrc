@@ -209,7 +209,9 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'janko-m/vim-test'
 
 " Rails
+Plugin 'tpope/vim-projectionist'
 Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-dispatch'
 Plugin 'rlue/vim-fold-rspec'
 
