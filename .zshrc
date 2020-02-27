@@ -39,6 +39,7 @@ alias gbh="git reflog | grep 'checkout:' | head -n 20"
 alias gco="git checkout"
 alias gd="git diff"
 alias gf='git fetch origin'
+alias gl='git log'
 alias gp='git push -u origin HEAD'
 alias gpf='git push --force-with-lease'
 alias grc='git rebase --continue'
@@ -52,9 +53,11 @@ alias gsu='git submodule update --init --recursive'
 
 # Ruby aliases
 alias be='bundle exec'
+alias br='bundle exec rake'
 alias bs='bundle exec rspec'
 alias rc='bundle exec rubocop -a'
 alias sf='bundle exec standardrb --fix'
+alias rt='ripper-tags -R --exclude=vendor'
 
 # iOS aliases
 alias pi='bundle exec pod install'
