@@ -62,7 +62,7 @@ alias br='bundle exec rake'
 alias bs='bundle exec rspec'
 alias rc='bundle exec rubocop -a'
 alias sf='bundle exec standardrb --fix'
-alias rt='ripper-tags -R --exclude=vendor'
+alias rt="${DOTFILES_DIR}/bin/dotfiles-bundle-exec ripper-tags -R --exclude=vendor"
 
 # iOS aliases
 alias pi='bundle exec pod install'
@@ -95,7 +95,7 @@ alias rtgen='ctags -R --languages=ruby --exclude=.git --exclude=log .'
 export TMUXINATOR_CONFIG="${DOTFILES_DIR}/tmuxinator"
 source "${DOTFILES_DIR}/vendor/tmuxinator.zsh"
 # For starting multiple sessions in one go.
-alias tnr='tmuxinator start --attach=false'
+alias tnr="${DOTFILES_DIR}/bin/dotfiles-bundle-exec tmuxinator start --attach false"
 
 # https://stackoverflow.com/questions/38725102/how-to-add-custom-git-command-to-zsh-completion
 zstyle ':completion:*:*:git:*' user-commands update-messages:'after a rebase, fix commit messages which contain outdated references to other commits'

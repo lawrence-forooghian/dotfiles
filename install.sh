@@ -36,6 +36,9 @@ make install
 
 open -a Hammerspoon
 
-mkdir ~/.emacs_autosaves
+cd ~/dotfiles
+rbenv install
+bundle install
+rbenv rehash
 
 echo "Now follow the steps in the additional_steps file."

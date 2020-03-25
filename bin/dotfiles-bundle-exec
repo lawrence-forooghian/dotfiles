@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+
+export RBENV_DIR=~/dotfiles
+BUNDLER_PATH=$(rbenv which bundle)
+
+export BUNDLE_GEMFILE=~/dotfiles/Gemfile
+# We need to to use unbundled_exec so that when we use this to launch
+# tmuxinator, tmux's shells don't inherit BUNDLE_GEMFILE and mess up attempts
+# to use Bundler inside those shells.
+COMMAND="Bundler.unbundled_exec('$@')"
+${BUNDLER_PATH} exec ruby -e "${COMMAND}"

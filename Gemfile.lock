@@ -1,0 +1,21 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    erubis (2.7.0)
+    ripper-tags (0.9.0)
+    thor (1.0.1)
+    tmuxinator (1.1.4)
+      erubis (~> 2.6)
+      thor (~> 1.0)
+      xdg (~> 2.2, >= 2.2.5)
+    xdg (2.2.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  ripper-tags
+  tmuxinator
+
+BUNDLED WITH
+   2.1.2
