@@ -2,9 +2,10 @@
 	excludesfile = /Users/lawrence/dotfiles/global.gitignore
 	hooksPath=/Users/lawrence/dotfiles/git-hooks
 [user]
-	# These values are set in ~/.gitconfig_local, e.g.
-	# name = Lawrence Forooghian
+	name = Lawrence Forooghian
+	# Email is set in ~/.gitconfig_local, e.g.
 	# email = lawrence@forooghian.com
+	useConfigOnly = true
 [rebase]
 	autoStash = true
 	autoSquash = true
