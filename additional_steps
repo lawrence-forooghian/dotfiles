@@ -6,7 +6,7 @@ M-x package-install:
 - use-package
 - ox-jira
 
-- Log in to iCloud
+- Log in to iCloud (already done on Mac setup)
 - Disable iCloud stuff I don’t want
 - Get Dropbox (ljfrugn / long)
 - Get 1Password

@@ -1,3 +1,6 @@
+# I already installed Xcode through Mac App Store, and then installed 1Password and Dropbox
+# Probably would be best to install Homebrew first, which installs command line tools, then do this
+
 set -e
 
 cd ~
@@ -9,7 +12,8 @@ done
 
 ln -s dotfiles/.hammerspoon .
 
-mkdir .ssh
+# TODO: this already exists because generated a key to clone this repo
+# mkdir .ssh
 cd .ssh
 ln -s ../dotfiles/ssh_config config
 
@@ -17,24 +21,22 @@ git config --global core.excludesfile ~/dotfiles/global.gitignore
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew install ack tmux tree vim reattach-to-user-namespace ncdu node emacs rbenv
-brew cask install hammerspoon spotify iterm2
-npm -g install instant-markdown-d
+cd ~/dotfiles
+brew bundle
 
+npm -g install instant-markdown-d
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim -c BundleInstall -c q -c q
 
 chsh -s /bin/zsh 
 
-git config --global user.name "Lawrence Forooghian"
-git config --global user.email "lawrence@dxw.com"
-
-vim -c BundleInstall -c q -c q
-
-cd .vim/bundle/command-t/ruby/command-t/ext/command-t
+cd ~/.vim/bundle/command-t/ruby/command-t/ext/command-t
 /usr/local/opt/ruby/bin/ruby extconf.rb
 make install
 
 open -a Hammerspoon
+
+mkdir ~/.emacs_autosaves
 
 cd ~/dotfiles
 rbenv install
