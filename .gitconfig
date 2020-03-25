@@ -14,3 +14,9 @@
 	path = ~/.gitconfig_local
 [absorb]
 	maxStack = 100
+[grep]
+	patternType = perl
+
+[alias]
+	# https://tekin.co.uk/2020/01/clean-up-your-git-branches-and-repositories
+	delete-merged = !git branch --merged master | egrep -v \"(^\\*|^  master$)\" | xargs git branch --delete
