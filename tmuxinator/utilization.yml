@@ -1,0 +1,8 @@
+name: utilization
+root: ~/code/10000ft-utilisation-dashboard
+
+windows:
+  - editor: vim
+  - console:
+  - server: bin/dstart --build
+  - logs: tail -f log/development.log
