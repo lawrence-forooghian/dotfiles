@@ -5,6 +5,9 @@ export EDITOR=vim
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
 
+# brew bundle is very quiet otherwise
+export HOMEBREW_VERBOSE=1
+
 # Other shell niceties
 bindkey -v
 bindkey "^R" history-incremental-search-backward
