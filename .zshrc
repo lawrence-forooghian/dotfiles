@@ -88,14 +88,7 @@ base16_default-dark
 
 export PATH="${PATH}:/Applications/Postgres.app/Contents/Versions/latest/bin:${DOTFILES_DIR}/git-commands"
 
-# Generate tags for a Rails project
-# https://blog.sensible.io/2014/05/09/supercharge-your-vim-into-ide-with-ctags.html
-alias rtgen='ctags -R --languages=ruby --exclude=.git --exclude=log .'
-
 export TMUXINATOR_CONFIG="${DOTFILES_DIR}/tmuxinator"
 source "${DOTFILES_DIR}/vendor/tmuxinator.zsh"
 # For starting multiple sessions in one go.
 alias tnr="${DOTFILES_DIR}/bin/dotfiles-bundle-exec tmuxinator start --attach false"
-
-# https://stackoverflow.com/questions/38725102/how-to-add-custom-git-command-to-zsh-completion
-zstyle ':completion:*:*:git:*' user-commands update-messages:'after a rebase, fix commit messages which contain outdated references to other commits'
