@@ -90,6 +90,11 @@ BASE16_SHELL="${DOTFILES_DIR}/vendor/base16-shell/"
 base16_default-dark
 
 export PATH="${PATH}:/Applications/Postgres.app/Contents/Versions/latest/bin:${DOTFILES_DIR}/git-commands"
+# When using PlantUML installed via Homebrew we want org-babel’s
+# invocation of `java` to use the Homebrew-provided OpenJDK – TODO
+# this is nasty because it essentially overrides the java command,
+# which Homebrew doesn’t want to do.
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
 export TMUXINATOR_CONFIG="${DOTFILES_DIR}/tmuxinator"
 source "${DOTFILES_DIR}/vendor/tmuxinator.zsh"

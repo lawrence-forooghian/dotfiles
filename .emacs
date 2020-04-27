@@ -117,6 +117,32 @@
 
 ; --- END htmlize ---
 
+; --- BEGIN PlantUML ---
+
+; This has some compilation error, and when opening an Org file with
+; PlantUML content we get:
+; Org mode fontification error in #<buffer ncvo-code-review.org> at 134
+; (use-package plantuml-mode
+;   :ensure t)
+; (add-to-list
+;   'org-src-lang-modes '("plantuml" . plantuml))
+
+;; active Org-babel languages
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(;; other Babel languages
+   (plantuml . t)))
+
+; This assumes that we’re using Homebrew to install PlantUML
+; babel will invoke PlantUML using `java` so the Homebrew-installed
+; OpenJDK needs to be in PATH – TODO raise an issue to make it accept
+; a path to java executable
+; https://github.com/emacs-mirror/emacs/blob/master/lisp/org/ob-plantuml.el
+(setq org-plantuml-jar-path
+      "/usr/local/opt/plantuml/libexec/plantuml.jar")
+
+; --- END PlantUML ---
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
