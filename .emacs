@@ -108,6 +108,15 @@
 
 ; --- END org ---
 
+; --- BEGIN htmlize ---
+
+; It asked me to install this when I tried to export an org file as
+; HTML
+(use-package htmlize
+  :ensure t)
+
+; --- END htmlize ---
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
