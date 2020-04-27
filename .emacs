@@ -97,15 +97,6 @@
   (setq org-html-doctype "html5")
   (setq org-html-html5-fancy t))
 
-; https://stackoverflow.com/a/47850858
-(defun org-export-output-file-name-modified (orig-fun extension &optional subtreep pub-dir)
-    (unless pub-dir
-          (setq pub-dir "export")
-              (unless (file-directory-p pub-dir)
-                      (make-directory pub-dir)))
-      (apply orig-fun extension subtreep pub-dir nil))
-(advice-add 'org-export-output-file-name :around #'org-export-output-file-name-modified)
-
 ; --- END org ---
 
 ; --- BEGIN htmlize ---
