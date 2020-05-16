@@ -25,3 +25,5 @@ brew "reattach-to-user-namespace"
 brew "tmux"
 brew "tree"
 brew "vim"
+brew "youtube-dl"
+brew "ffmpeg" # Allows youtube-dl to merge best quality audio and video
