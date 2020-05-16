@@ -171,7 +171,8 @@
 (typo-global-mode 1)
 (add-hook 'text-mode-hook 'typo-mode)
 
-(use-package magit)
+(use-package magit
+  :ensure t)
 
 ;; --- END experimenting ---
 
