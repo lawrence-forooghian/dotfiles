@@ -8,12 +8,13 @@ cask "anki"
 cask "atom" # Used for find and replace
 cask "calibre"
 cask "dropbox"
-cask "emacs"
+# cask "emacs" I've undone this because it took over my normal emacs command – install from https://emacsformacosx.com for now
 cask "evernote"
 cask "firefox"
 cask "google-chrome" # Best WebRTC experience (e.g. whereby.com)
 cask "hammerspoon"
 cask "iterm2"
+cask "mactex"
 cask "skype"
 cask "tor-browser"
 cask "transmission"
