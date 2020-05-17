@@ -174,6 +174,14 @@
 (use-package magit
   :ensure t)
 
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/org/brain.org" "Captured")
+         "* TODO %?\n%i\nCaptured at: %a")))
+
+(add-hook 'org-capture-mode-hook 'evil-insert-state)
+
+(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg/")
+
 ;; --- END experimenting ---
 
 (custom-set-variables
@@ -183,6 +191,8 @@
  ;; If there is more than one, they won't work right.
  '(ns-right-alternate-modifier (quote none))
  '(org-adapt-indentation nil)
+ '(org-agenda-files (quote ("~/org/brain.org")))
+ '(org-refile-use-outline-path t)
  '(package-selected-packages
    (quote
     (magit aggressive-indent typo visual-fill-column helm markdown-mode dockerfile-mode anki-editor org-preview-html base16-theme evil-surround evil-escape evil use-package)))
@@ -193,4 +203,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(outline-4 ((t (:foreground "coral1")))))
