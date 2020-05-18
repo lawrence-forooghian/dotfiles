@@ -254,6 +254,7 @@
  '(ns-right-alternate-modifier (quote none))
  '(org-adapt-indentation nil)
  '(org-agenda-files (quote ("~/org/brain.org")))
+ '(org-catch-invisible-edits (quote error))
  '(org-refile-use-outline-path t)
  '(package-selected-packages
    (quote
