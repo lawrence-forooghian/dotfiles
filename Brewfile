@@ -21,6 +21,7 @@ cask "transmission"
 cask "vlc"
 cask "whatsapp"
 cask "zoom"
+cask "netnewswire"
 
 cask "backblaze" # Installing because not backed up in ages, I wonder if it will affect battery. Turn off battery mode
 
