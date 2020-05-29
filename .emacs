@@ -128,7 +128,8 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '(;; other Babel languages
-   (plantuml . t)))
+   (plantuml . t)
+   (ruby . t)))
 
 ;; This assumes that we’re using Homebrew to install PlantUML
 ;; babel will invoke PlantUML using `java` so the Homebrew-installed
@@ -182,6 +183,64 @@
 
 (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg/")
 
+; https://orgmode.org/manual/Activation.html#Activation
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
+
+(global-set-key (kbd "C-c j") 'org-clock-goto)
+
+;; I'm temporarily disabling these because I seem to not have a clock running often when I think I do
+;;(global-set-key (kbd "C-c o") 'org-clock-out)
+;;(global-set-key (kbd "C-c x") 'org-clock-in-last)
+
+; https://emacs.stackexchange.com/questions/2999/how-to-maximize-my-emacs-frame-on-start-up
+; Want GUI Emacs to start up maximised
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+
+(use-package projectile
+  :ensure t)
+; http://tuhdo.github.io/helm-projectile.html
+; see "All-in-one command: helm-projectile, C-c p h"
+(projectile-global-mode)
+; https://github.com/bbatsov/projectile
+(projectile-mode +1)
+
+(use-package helm-projectile
+  :ensure t)
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
+
+(use-package projectile-rails
+  :ensure t)
+(projectile-rails-global-mode)
+(define-key projectile-rails-mode-map (kbd "C-c r") 'projectile-rails-command-map)
+
+(use-package evil-leader
+  :ensure t)
+(global-evil-leader-mode) ; TODO Note: You should enable global-evil-leader-mode before you enable evil-mode, otherwise evil-leader won’t be enabled in initial buffers (*scratch*, *Messages*, …).
+(evil-leader/set-leader ",")
+(evil-leader/set-key
+  "t" 'helm-projectile
+  "p" 'helm-projectile-switch-project)
+
+; Code completion
+(use-package company
+  :ensure t)
+(company-mode)
+
+(setq org-todo-keywords
+      '((sequence "TODO" "PENDING" "|" "DONE")))
+
+(setq org-todo-keyword-faces
+      '(("TODO" . org-warning) ("PENDING" . "yellow")))
+
+;; (use-package smartparens
+;;   :ensure t)
+;; (require 'smartparens-config)
+
 ;; --- END experimenting ---
 
 (custom-set-variables
@@ -189,15 +248,18 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(calendar-week-start-day 1)
  '(ns-right-alternate-modifier (quote none))
  '(org-adapt-indentation nil)
  '(org-agenda-files (quote ("~/org/brain.org")))
  '(org-refile-use-outline-path t)
  '(package-selected-packages
    (quote
-    (magit aggressive-indent typo visual-fill-column helm markdown-mode dockerfile-mode anki-editor org-preview-html base16-theme evil-surround evil-escape evil use-package)))
+    (php-mode smartparens company company-mode evil-leader projectile-rails projectile browse-at-remote magit aggressive-indent typo visual-fill-column helm markdown-mode dockerfile-mode anki-editor org-preview-html base16-theme evil-surround evil-escape evil use-package)))
  '(ring-bell-function (quote ignore))
- '(tool-bar-mode nil))
+ '(ruby-insert-encoding-magic-comment nil)
+ '(tool-bar-mode nil)
+ '(vc-follow-symlinks t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
