@@ -20,7 +20,7 @@ cask "tor-browser"
 cask "transmission"
 cask "vlc"
 cask "whatsapp"
-cask "zoom"
+cask "zoomus"
 cask "netnewswire"
 
 cask "backblaze" # Installing because not backed up in ages, I wonder if it will affect battery. Turn off battery mode
