@@ -8,7 +8,7 @@ cask "anki"
 cask "atom" # Used for find and replace
 cask "calibre"
 cask "dropbox"
-# cask "emacs" I've undone this because it took over my normal emacs command – install from https://emacsformacosx.com for now
+cask "emacs" # This takes over the `emacs` command line and replaces with GUI
 cask "evernote"
 cask "firefox"
 cask "google-chrome" # Best WebRTC experience (e.g. whereby.com)
@@ -22,14 +22,16 @@ cask "vlc"
 cask "whatsapp"
 cask "zoomus"
 cask "netnewswire"
+# cask "turbo-boost-switcher" Using pro instead now
+cask "spotify"
+cask "visual-studio-code" # Playing around with JS, not committed to sorting out tooling yet
 
 cask "backblaze" # Installing because not backed up in ages, I wonder if it will affect battery. Turn off battery mode
 
 brew "ack"
-brew "emacs"
 brew "ffmpeg" # Allows youtube-dl to merge best quality audio and video
 brew "git-absorb"
-brew "node" # For vim-instant-markdown
+brew "nvm" # Will use this to manage node, for dev and for vim-instant-markdown
 brew "plantuml"
 brew "rbenv"
 brew "reattach-to-user-namespace"
@@ -37,6 +39,7 @@ brew "tmux"
 brew "tree"
 brew "vim"
 brew "youtube-dl"
+brew "postgres"
 
 # TODO I want AdGuard but mas isn't finding it, it's installed manually for now
 # TODO EasyRes
