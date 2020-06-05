@@ -100,3 +100,7 @@ export TMUXINATOR_CONFIG="${DOTFILES_DIR}/tmuxinator"
 source "${DOTFILES_DIR}/vendor/tmuxinator.zsh"
 # For starting multiple sessions in one go.
 alias tnr="${DOTFILES_DIR}/bin/dotfiles-bundle-exec tmuxinator start --attach false"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
