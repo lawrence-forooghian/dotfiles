@@ -241,6 +241,8 @@
 ;;   :ensure t)
 ;; (require 'smartparens-config)
 
+;; TODO web-mode http://web-mode.org/ for all sorts of templates
+
 ;; --- END experimenting ---
 
 (custom-set-variables
