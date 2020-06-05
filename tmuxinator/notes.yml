@@ -6,7 +6,5 @@ root: ~/
 windows:
   - notes:
       root: ~/org
-      panes:
-        - emacs
   - dotfiles:
       root: ~/dotfiles
