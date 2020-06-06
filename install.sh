@@ -43,4 +43,6 @@ rbenv install
 bundle install
 rbenv rehash
 
+npm -g install typescript
+
 echo "Now follow the steps in the additional_steps file."
