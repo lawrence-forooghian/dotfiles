@@ -266,6 +266,12 @@
   :ensure t)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
+(use-package helm-org
+  :ensure t)
+
+(evil-leader/set-key
+  "h" 'helm-org-in-buffer-headings)
+
 ;; --- END experimenting ---
 
 (custom-set-variables
@@ -274,14 +280,16 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(calendar-week-start-day 1)
+ '(helm-org-headings-fontify t)
  '(ns-right-alternate-modifier (quote none))
+ '(org-M-RET-may-split-line (quote ((default))))
  '(org-adapt-indentation nil)
  '(org-agenda-files (quote ("~/org/brain.org")))
  '(org-catch-invisible-edits (quote error))
  '(org-refile-use-outline-path t)
  '(package-selected-packages
    (quote
-    (web-mode php-mode smartparens company company-mode evil-leader projectile-rails projectile browse-at-remote magit aggressive-indent typo visual-fill-column helm markdown-mode dockerfile-mode anki-editor org-preview-html base16-theme evil-surround evil-escape evil use-package)))
+    (helm-org web-mode php-mode smartparens company company-mode evil-leader projectile-rails projectile browse-at-remote magit aggressive-indent typo visual-fill-column helm markdown-mode dockerfile-mode anki-editor org-preview-html base16-theme evil-surround evil-escape evil use-package)))
  '(ring-bell-function (quote ignore))
  '(ruby-insert-encoding-magic-comment nil)
  '(tool-bar-mode nil)
