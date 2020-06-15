@@ -96,6 +96,9 @@ export PATH="${PATH}:/Applications/Postgres.app/Contents/Versions/latest/bin:${D
 # which Homebrew doesn’t want to do.
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
+# This is suggested by the Firefox bootstrap script
+export PATH="${HOME}/.mozbuild/git-cinnabar:$PATH"
+
 export TMUXINATOR_CONFIG="${DOTFILES_DIR}/tmuxinator"
 source "${DOTFILES_DIR}/vendor/tmuxinator.zsh"
 # For starting multiple sessions in one go.

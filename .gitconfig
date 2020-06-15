@@ -21,3 +21,6 @@
 [alias]
 	# https://tekin.co.uk/2020/01/clean-up-your-git-branches-and-repositories
 	delete-merged = !git branch --merged master | egrep -v \"(^\\*|^  master$)\" | xargs git branch --delete
+[cinnabar]
+	version-check = 1591461021
+	helper = /Users/lawrence/.mozbuild/git-cinnabar/git-cinnabar-helper
