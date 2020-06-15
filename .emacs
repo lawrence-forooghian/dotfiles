@@ -157,20 +157,16 @@
   :ensure t)
 (require 'helm-config)
 
-;; TODO this doesn't work
-;;(evil-define-key 'normal evil-normal-state-map
-;;  (kbd ",t") helm-find-files)
-
 ;; For GUI
 (set-default-font "Menlo 17")
 
 ;; This gives us smart quotes in text mode. I noticed that when
 ;; editing Ruby source inside an Org file, it gives the "wrong"
 ;; quotes. And in code comments it gives code-y quotes.
-(use-package typo
-  :ensure t)
-(typo-global-mode 1)
-(add-hook 'text-mode-hook 'typo-mode)
+;; (use-package typo
+;;   :ensure t)
+;; (typo-global-mode 1)
+;; (add-hook 'text-mode-hook 'typo-mode)
 
 (use-package magit
   :ensure t)
