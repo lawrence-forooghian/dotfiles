@@ -24,3 +24,5 @@
 [cinnabar]
 	version-check = 1591461021
 	helper = /Users/lawrence/.mozbuild/git-cinnabar/git-cinnabar-helper
+[pull]
+	ff = only
