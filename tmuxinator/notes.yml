@@ -8,3 +8,7 @@ windows:
       root: ~/org
   - dotfiles:
       root: ~/dotfiles
+  - tech-team-rfcs:
+      root: ~/code/tech-team-rfcs
+  - playbook:
+      root: ~/code/playbook
