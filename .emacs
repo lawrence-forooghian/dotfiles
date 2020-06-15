@@ -247,6 +247,21 @@
 (when (display-graphic-p)
   (server-start))
 
+(use-package web-mode
+  :ensure t)
+
+;; Copied and pasted from http://web-mode.org/, not sure why the
+;; plugin doesn't handle this. And does it handle nunjucks for me?
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+;; I guess I have to add this
+(add-to-list 'auto-mode-alist '("\\.njk\\'" . web-mode))
+
 ;; --- END experimenting ---
 
 (custom-set-variables
@@ -262,7 +277,7 @@
  '(org-refile-use-outline-path t)
  '(package-selected-packages
    (quote
-    (php-mode smartparens company company-mode evil-leader projectile-rails projectile browse-at-remote magit aggressive-indent typo visual-fill-column helm markdown-mode dockerfile-mode anki-editor org-preview-html base16-theme evil-surround evil-escape evil use-package)))
+    (web-mode php-mode smartparens company company-mode evil-leader projectile-rails projectile browse-at-remote magit aggressive-indent typo visual-fill-column helm markdown-mode dockerfile-mode anki-editor org-preview-html base16-theme evil-surround evil-escape evil use-package)))
  '(ring-bell-function (quote ignore))
  '(ruby-insert-encoding-magic-comment nil)
  '(tool-bar-mode nil)
