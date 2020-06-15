@@ -220,7 +220,10 @@
 (evil-leader/set-leader ",")
 (evil-leader/set-key
   "t" 'helm-projectile
-  "p" 'helm-projectile-switch-project)
+  "p" 'helm-projectile-switch-project
+  "b" (lambda () (interactive) (find-file "~/org/brain.org"))
+  "e" (lambda () (interactive) (find-file "~/.emacs"))
+  )
 
 ; Code completion
 (use-package company
