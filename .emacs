@@ -244,6 +244,9 @@
 
 ;; FIXME a way to auto give ruby the permissions it needs to get full disk access so I can access Desktop etc - https://emacs.stackexchange.com/questions/53026/how-to-restore-file-system-access-in-macos-catalina/53037#53037
 
+(when (display-graphic-p)
+  (server-start))
+
 ;; --- END experimenting ---
 
 (custom-set-variables
