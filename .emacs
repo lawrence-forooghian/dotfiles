@@ -262,6 +262,10 @@
 ;; I guess I have to add this
 (add-to-list 'auto-mode-alist '("\\.njk\\'" . web-mode))
 
+(use-package js2-mode
+  :ensure t)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
 ;; --- END experimenting ---
 
 (custom-set-variables
