@@ -7,9 +7,7 @@ cask "alfred"
 cask "anki"
 cask "atom" # Used for find and replace
 cask "calibre"
-cask "dropbox"
 cask "emacs" # This takes over the `emacs` command line and replaces with GUI
-cask "evernote"
 cask "firefox"
 cask "google-chrome" # Best WebRTC experience (e.g. whereby.com)
 cask "hammerspoon"
