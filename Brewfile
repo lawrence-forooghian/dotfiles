@@ -15,11 +15,9 @@ cask "iterm2"
 cask "mactex"
 cask "skype"
 cask "tor-browser"
-cask "transmission"
 cask "vlc"
 cask "whatsapp"
 cask "zoomus"
-cask "netnewswire"
 # cask "turbo-boost-switcher" Using pro instead now
 cask "visual-studio-code" # Playing around with JS, not committed to sorting out tooling yet
 
