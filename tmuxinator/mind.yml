@@ -1,0 +1,8 @@
+name: mind
+root: ~/code/mind-side-by-side
+
+windows:
+  - editor: vim
+  - console:
+  - server: true
+  - logs: tail -f log/development.log
