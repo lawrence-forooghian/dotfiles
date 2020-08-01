@@ -286,6 +286,7 @@
  '(org-adapt-indentation nil)
  '(org-agenda-files (quote ("~/org/brain.org")))
  '(org-catch-invisible-edits (quote error))
+ '(org-refile-targets (quote ((org-agenda-files :maxlevel . 9))))
  '(org-refile-use-outline-path t)
  '(package-selected-packages
    (quote
