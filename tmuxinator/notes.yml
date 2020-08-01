@@ -5,7 +5,7 @@ root: ~/
 
 windows:
   - notes:
-      root: ~/org
+      root: ~/Documents/org
   - dotfiles:
       root: ~/dotfiles
   - tech-team-rfcs:

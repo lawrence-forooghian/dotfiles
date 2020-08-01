@@ -172,7 +172,7 @@
   :ensure t)
 
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/org/brain.org" "Captured")
+      '(("t" "Todo" entry (file+headline "~/Documents/org/brain.org" "Captured")
          "* TODO %?\n%i\nCaptured at: %a")))
 
 (add-hook 'org-capture-mode-hook 'evil-insert-state)
@@ -221,7 +221,7 @@
 (evil-leader/set-key
   "t" 'helm-projectile
   "p" 'helm-projectile-switch-project
-  "b" (lambda () (interactive) (find-file "~/org/brain.org"))
+  "b" (lambda () (interactive) (find-file "~/Documents/org/brain.org"))
   "e" (lambda () (interactive) (find-file "~/.emacs"))
   )
 
@@ -284,7 +284,7 @@
  '(ns-right-alternate-modifier (quote none))
  '(org-M-RET-may-split-line (quote ((default))))
  '(org-adapt-indentation nil)
- '(org-agenda-files (quote ("~/org/brain.org")))
+ '(org-agenda-files (quote ("~/Documents/org/brain.org")))
  '(org-catch-invisible-edits (quote error))
  '(org-refile-targets (quote ((org-agenda-files :maxlevel . 9))))
  '(org-refile-use-outline-path t)
