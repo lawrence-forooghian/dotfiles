@@ -33,6 +33,8 @@ eval "$(rbenv init -)"
 
 # Git aliases
 default_remote_branch () {
+  # If the origin/HEAD ref doesn’t exist, try creating it from the remote
+  # repo’s head by running `git remote set-head origin --auto`
   git rev-parse --abbrev-ref origin/HEAD
 }
 alias ga="git add"
