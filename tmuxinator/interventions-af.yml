@@ -1,0 +1,23 @@
+name: interventions-af
+
+windows:
+  - editor:
+      root: ~/code/hmpps-interventions-add-and-find
+      panes: vim
+  - console:
+      root: ~/code/hmpps-interventions-add-and-find
+  - server:
+      root: ~/code/hmpps-interventions-add-and-find
+      panes: npm start
+
+  - assessments-console:
+      root: ~/code/offender-assessments-api-kotlin
+  - assessments-server:
+      root: ~/code/offender-assessments-api-kotlin
+      panes:
+        # This will probably fail on startup because it needs to be run after OAuth container is up
+        - SPRING_PROFILES_ACTIVE=dev java -jar build/libs/offender-assessments-api-2020-09-03.jar
+  - oauth:
+      root: ~/code/offender-assessments-api-kotlin
+      panes: 
+        - docker-compose up

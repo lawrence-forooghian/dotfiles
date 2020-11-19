@@ -1,0 +1,10 @@
+name: interventions-alpha
+
+root:
+
+windows:
+  - editor:
+      root: ~/code/interventions/hmpps-interventions-ui
+      panes: vim
+  - console:
+      root: ~/code/interventions/hmpps-interventions-ui

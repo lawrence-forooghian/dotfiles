@@ -1,0 +1,11 @@
+name: interventions-alpha
+
+windows:
+  - editor:
+      root: ~/code/hmpps-interventions-prototype
+      panes: vim
+  - console:
+      root: ~/code/hmpps-interventions-prototype
+  - server:
+      root: ~/code/hmpps-interventions-prototype
+      panes: npm start
