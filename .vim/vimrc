@@ -185,6 +185,9 @@ Plugin 'VundleVim/Vundle.vim'
 " Theme
 Plugin 'chriskempson/base16-vim'
 
+" Highlight currently-selected search term
+Plugin 'PeterRincker/vim-searchlight'
+
 " General editing
 Plugin 'matchit.zip' 
 Plugin 'surround.vim'
@@ -249,3 +252,7 @@ filetype plugin indent on " Required by Vundle
 syntax on
 
 runtime interventions.vim
+
+" term=bold doesn’t seem to do anything, cterm=bold does
+highlight SelectedSearchResult term=bold cterm=bold ctermfg=DarkBlue ctermbg=LightMagenta guifg=#80a0ff gui=bold
+highlight link Searchlight SelectedSearchResult
