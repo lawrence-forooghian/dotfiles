@@ -11,3 +11,4 @@ soap_xml
 tags
 .clang_complete
 generate_tags*
+.projections.json

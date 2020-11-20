@@ -1,0 +1,17 @@
+{
+  "integration_tests/integration/*.spec.js": {
+    "type": "integration",
+    "runner": "cypress"
+  },
+  "server/*.test.ts": {
+    "type": "test",
+    "runner": "jest",
+    "alternate": "server/{}.ts"
+  },
+  "server/*.ts": {
+    "alternate": "server/{}.test.ts"
+  },
+  "*": {
+    "runner": "jest"
+  }
+}

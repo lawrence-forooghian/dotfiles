@@ -218,6 +218,17 @@ Plugin 'rlue/vim-fold-rspec'
 " iOS dev
 Plugin 'keith/Swift.vim'
 
+" JavaScript
+Plugin 'lepture/vim-jinja'
+" https://www.vimfromscratch.com/articles/setting-up-vim-for-typescript
+" TypeScript syntax (there’s apparently one built in to later Vim versions but
+" maybe this is better…? 🤷)
+Plugin 'HerringtonDarkholme/yats.vim'
+" For completion and also currently using this to automatically run Prettier
+" after save of some files (these file types are configured in
+" .vim/coc-settings.json)
+Plugin 'https://github.com/neoclide/coc.nvim', {'rev': 'release'}
+
 " Markdown
 Plugin 'suan/vim-instant-markdown'
 
@@ -236,3 +247,5 @@ endif
 
 filetype plugin indent on " Required by Vundle
 syntax on
+
+runtime interventions.vim
