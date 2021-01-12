@@ -11,6 +11,34 @@
   "server/*.ts": {
     "alternate": "server/{}.test.ts"
   },
+  "server/views/*.njk": {
+    "type": "template",
+    "related": ["server/routes/{}View.ts", "server/routes/{}Presenter.ts"]
+  },
+  "server/routes/*Presenter.ts": {
+    "type": "presenter",
+    "related": ["server/routes/{}View.ts", "server/views/{}.njk"]
+  },
+  "server/routes/*Form.ts": {
+    "type": "form",
+    "related": ["server/routes/{}Presenter.ts"]
+  },
+  "server/routes/*View.ts": {
+    "type": "view",
+    "related": ["server/views/{}.njk", "server/routes/{}Presenter.ts"]
+  },
+  "server/routes/index.ts": {
+    "type": "routes"
+  },
+  "server/routes/*Controller.ts": {
+    "type": "controller"
+  },
+  "server/services/*Service.ts": {
+    "type": "service"
+  },
+  "testutils/factories/*.ts": {
+    "type": "factory"
+  },
   "*": {
     "runner": "jest"
   }
