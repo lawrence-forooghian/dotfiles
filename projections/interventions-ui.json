@@ -39,6 +39,13 @@
   "testutils/factories/*.ts": {
     "type": "factory"
   },
+  "package.json": {
+    "type": "package",
+    "alternate": "package-lock.json"
+  },
+  "package-lock.json": {
+    "alternate": "package.json"
+  },
   "*": {
     "runner": "jest"
   }
