@@ -141,7 +141,7 @@ let g:instant_markdown_autostart = 0
 " TODO automatic selection
 "let test#ruby#rspec#executable = 'bin/dspec'
 
-" --- Filetypes for some common iOS files ---
+" --- Filetypes for some common files ---
 augroup ios
     autocmd!
     autocmd BufRead *.stringsdict :set filetype=xml
@@ -156,6 +156,11 @@ augroup ios
     autocmd BufRead Podfile :set filetype=ruby
 
     autocmd BufRead Dangerfile :set filetype=ruby
+augroup END
+
+augroup tooling
+    autocmd!
+    autocmd BufRead .watchmanconfig :set filetype=json
 augroup END
 
 " --- JSON syntax highlighting issue ---
