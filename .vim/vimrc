@@ -207,6 +207,11 @@ Plugin 'mileszs/ack.vim'
 Plugin 'a.vim' 
 Plugin 'wincent/command-t'
 
+" Git
+" I am using this for :Gbrowse
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rhubarb'
+
 " Info
 Plugin 'vim-airline/vim-airline'
 
