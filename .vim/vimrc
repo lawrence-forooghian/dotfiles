@@ -119,10 +119,7 @@ let g:NERDTreeShowLineNumbers=1
 set autoread
 autocmd CursorHold,CursorHoldI,CursorMoved,InsertEnter,InsertLeave * checktime
 
-let g:CommandTFileScanner = "find"
-let g:CommandTMaxFiles = 500000
-let g:CommandTAlwaysShowDotFiles = 1
-let g:CommandTScanDotDirectories = 1
+let g:CommandTFileScanner = "watchman"
 
 let g:airline#extensions#branch#enabled = 0
 
