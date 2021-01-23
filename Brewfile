@@ -26,6 +26,7 @@ cask "nextcloud"
 cask "backblaze" # Installing because not backed up in ages, I wonder if it will affect battery. Turn off battery mode
 
 brew "ack"
+brew "aws-cli"
 brew "ffmpeg" # Allows youtube-dl to merge best quality audio and video
 brew "git-absorb"
 brew "nvm" # Will use this to manage node, for dev and for vim-instant-markdown
