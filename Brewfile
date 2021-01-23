@@ -20,6 +20,8 @@ cask "whatsapp"
 cask "zoomus"
 # cask "turbo-boost-switcher" Using pro instead now
 cask "visual-studio-code" # Playing around with JS, not committed to sorting out tooling yet
+cask "lyricsx"
+cask "nextcloud"
 
 cask "backblaze" # Installing because not backed up in ages, I wonder if it will affect battery. Turn off battery mode
 
