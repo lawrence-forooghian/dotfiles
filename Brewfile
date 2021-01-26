@@ -18,10 +18,10 @@ cask "tor-browser"
 cask "vlc"
 cask "whatsapp"
 cask "zoomus"
-# cask "turbo-boost-switcher" Using pro instead now
 cask "visual-studio-code" # Playing around with JS, not committed to sorting out tooling yet
 cask "lyricsx"
 cask "nextcloud"
+cask "libreoffice"
 
 cask "backblaze" # Installing because not backed up in ages, I wonder if it will affect battery. Turn off battery mode
 
@@ -39,8 +39,9 @@ brew "vim"
 brew "youtube-dl"
 brew "postgres"
 
-# TODO I want AdGuard but mas isn't finding it, it's installed manually for now
-# TODO EasyRes
+mas "EasyRes", id: 688211836
+mas "AdGuard for Safari", id: 1440147259
 
 # TODO espeak-ng - it's not on homebrew
 # TODO espeak normal doesn't come with pt compiled
+# cask "turbo-boost-switcher" Using pro instead now
