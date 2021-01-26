@@ -161,6 +161,7 @@ augroup END
 augroup tooling
     autocmd!
     autocmd BufRead .watchmanconfig :set filetype=json
+    autocmd BufRead Brewfile :set filetype=ruby
 augroup END
 
 " --- JSON syntax highlighting issue ---
