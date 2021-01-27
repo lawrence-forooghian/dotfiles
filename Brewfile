@@ -26,7 +26,7 @@ cask "whatsapp"
 cask "zoomus"
 
 brew "ack"
-brew "aws-cli"
+brew "awscli"
 brew "ffmpeg" # Allows youtube-dl to merge best quality audio and video
 brew "git-absorb"
 brew "nvm" # Will use this to manage node, for dev and for vim-instant-markdown
