@@ -158,7 +158,7 @@
 (require 'helm-config)
 
 ;; For GUI
-(set-default-font "Menlo 17")
+(set-frame-font "Menlo 17")
 
 ;; This gives us smart quotes in text mode. I noticed that when
 ;; editing Ruby source inside an Org file, it gives the "wrong"
