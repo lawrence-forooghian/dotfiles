@@ -23,7 +23,7 @@ cask "tor-browser"
 cask "visual-studio-code" # Playing around with JS, not committed to sorting out tooling yet
 cask "vlc"
 cask "whatsapp"
-cask "zoomus"
+cask "zoom"
 
 brew "ack"
 brew "awscli"
