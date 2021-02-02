@@ -1,14 +1,12 @@
-# /Users/lawrence/dotfiles/tmuxinator/notes.yml
-
 name: notes
 root: ~/
 
 windows:
-  - notes:
+  - org:
       root: ~/Documents/org
+  - notes:
+      root: ~/Nextcloud/notes
+  - website:
+      root: ~/code/lawrence-forooghian.github.io
   - dotfiles:
       root: ~/dotfiles
-  - tech-team-rfcs:
-      root: ~/code/tech-team-rfcs
-  - playbook:
-      root: ~/code/playbook
