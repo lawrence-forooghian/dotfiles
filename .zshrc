@@ -1,4 +1,5 @@
 DOTFILES_DIR="${HOME}/dotfiles"
+export DOTFILES_ENV=$(cat ~/.dotfiles_env)
 
 # Exports
 export EDITOR=vim

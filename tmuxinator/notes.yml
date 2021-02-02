@@ -6,7 +6,9 @@ windows:
       root: ~/Documents/org
   - notes:
       root: ~/Nextcloud/notes
+  <%- if ENV['DOTFILES_ENV'] == 'home' %>
   - website:
       root: ~/code/lawrence-forooghian.github.io
+  <%- end %>
   - dotfiles:
       root: ~/dotfiles
