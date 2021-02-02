@@ -60,7 +60,7 @@ alias gri="git rebase -i \`default_remote_branch\`"
 # But can add -p on when calling it
 alias grv="git log \`default_remote_branch\`..HEAD"
 # "git repository root" - cd to repo root
-alias grr="cd $(git rev-parse --show-toplevel)"
+alias grr="cd \`git rev-parse --show-toplevel\`"
 alias gs='git status'
 alias gsh='git show'
 alias gsu='git submodule update --init --recursive'
