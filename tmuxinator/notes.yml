@@ -8,7 +8,7 @@ windows:
       root: ~/Nextcloud/notes
   <%- if ENV['DOTFILES_ENV'] == 'home' %>
   - website:
-      root: ~/code/lawrence-forooghian.github.io
+      root: ~/code/website
   <%- end %>
   - dotfiles:
       root: ~/dotfiles
