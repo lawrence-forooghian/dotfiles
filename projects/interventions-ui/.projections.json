@@ -46,6 +46,9 @@
   "package-lock.json": {
     "alternate": "package.json"
   },
+  "integration_tests/mockApis/*.ts": {
+    "type": "mockApi"
+  },
   "*": {
     "runner": "jest"
   }
