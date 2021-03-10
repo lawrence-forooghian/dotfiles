@@ -44,16 +44,20 @@ cask "zoom"
 brew "ack"
 brew "awscli" if env.work?
 brew "ffmpeg" # Allows youtube-dl to merge best quality audio and video
+brew "git" # More up to date than the Apple version
 brew "git-absorb"
+brew "jq" # At least, it does pretty-printing of JSON
 brew "nvm" # Will use this to manage node, for dev and for vim-instant-markdown
 brew "plantuml" if env.work?
 brew "postgres" if env.work?
+brew "q" # SQL-like querying of CSV
 brew "rbenv"
 brew "reattach-to-user-namespace"
 brew "tmux"
 brew "tree"
 brew "vim"
 brew "youtube-dl" if env.home?
+brew "yq" # jq but for YAML
 
 if env.home?
   mas "AdGuard for Safari", id: 1440147259
