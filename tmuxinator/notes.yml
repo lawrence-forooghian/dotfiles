@@ -9,6 +9,10 @@ windows:
   <%- if ENV['DOTFILES_ENV'] == 'home' %>
   - website:
       root: ~/code/website
+  - website-server:
+      root: ~/code/website
+      panes:
+        - script/server
   <%- end %>
   - dotfiles:
       root: ~/dotfiles
