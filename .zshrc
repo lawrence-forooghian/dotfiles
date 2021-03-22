@@ -83,6 +83,11 @@ alias rm='rm -i'
 alias lsa='ls -alh'
 alias less='less -R' # colors
 
+alias notes='tnr notes && tmux at -t notes'
+
+# Set up resolution / refresh rate / scaling for my Samsung TV.
+alias tv='displayplacer "id:5AB97DBE-C0BC-A81D-C1D2-7208ABDAD0D0+1A59AF89-04EA-AF12-1259-72A4A3F904C6 res:1920x1080 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0"'
+
 # https://github.com/pyenv/pyenv#basic-github-checkout
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
