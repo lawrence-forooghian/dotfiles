@@ -250,6 +250,9 @@ Plugin 'hashivim/vim-hashicorp-tools'
 " Nginx
 Plugin 'chr4/nginx.vim'
 
+" TOML
+Plugin 'cespare/vim-toml'
+
 call vundle#end()
 
 if filereadable(expand("~/.vimrc_background"))
