@@ -253,6 +253,9 @@ Plugin 'chr4/nginx.vim'
 " TOML
 Plugin 'cespare/vim-toml'
 
+" Kotlin
+Plugin 'https://github.com/udalov/kotlin-vim'
+
 call vundle#end()
 
 if filereadable(expand("~/.vimrc_background"))
