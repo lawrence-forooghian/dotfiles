@@ -162,6 +162,7 @@ augroup tooling
     autocmd!
     autocmd BufRead .watchmanconfig :set filetype=json
     autocmd BufRead Brewfile :set filetype=ruby
+    autocmd BufRead .prettierignore :set filetype=gitignore
 augroup END
 
 " --- JSON syntax highlighting issue ---
