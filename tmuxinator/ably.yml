@@ -1,0 +1,13 @@
+name: ably
+
+windows:
+  - console:
+      root: ~/code/ably/ably-cocoa
+  - editor:
+      root: ~/code/ably/ably-cocoa
+      panes:
+        - vim
+  - notes:
+      root: ~/code/ably/notes
+  - invoices:
+      root: ~/code/ably/invoices
