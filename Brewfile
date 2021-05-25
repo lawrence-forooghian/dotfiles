@@ -38,6 +38,7 @@ cask "macdown"
 cask "mactex" if env.home?
 cask "netnewswire" if env.home?
 cask "nextcloud"
+cask "obs" # Useful for cropping and zooming webcam
 cask "spotify"
 cask "the-unarchiver" if env.home?
 cask "transmission" if env.home?
