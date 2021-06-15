@@ -11,4 +11,6 @@ soap_xml
 tags
 .clang_complete
 generate_tags*
+.watchmanconfig
+.ackrc
 .projections.json
