@@ -28,8 +28,9 @@ cask "alfred"
 cask "anki" if env.home?
 cask "atom" if env.work? # Used for find and replace
 cask "calibre" if env.home?
+cask "docker"
 cask "emacs" # This takes over the `emacs` command line and replaces with GUI
-cask "firefox" if env.work?
+cask "firefox"
 cask "google-chrome" if env.work? # Best WebRTC experience (e.g. whereby.com)
 cask "hammerspoon"
 cask "iterm2"
@@ -39,6 +40,7 @@ cask "mactex" if env.home?
 cask "netnewswire" if env.home?
 cask "nextcloud"
 cask "obs" # Useful for cropping and zooming webcam
+cask "plex-media-server" if env.home?
 cask "spotify"
 cask "the-unarchiver" if env.home?
 cask "transmission" if env.home?
@@ -51,18 +53,22 @@ brew "ack"
 brew "awscli" if env.work?
 brew "cmake" # to install Rugged
 brew "jakehilborn/jakehilborn/displayplacer" if env.home?
+brew "exiftool" # https://exiftool.org/forum/index.php?topic=8652.0
 brew "ffmpeg" # Allows youtube-dl to merge best quality audio and video
 brew "git" # More up to date than the Apple version
 brew "git-absorb"
 brew "gpg"
 brew "jq" # At least, it does pretty-printing of JSON
+brew "mp4v2" # For converting Audible books
 brew "ncdu"
 brew "nvm" # Will use this to manage node, for dev and for vim-instant-markdown
 brew "plantuml" if env.work?
 brew "postgres" if env.work?
 brew "q" # SQL-like querying of CSV
+brew "qpdf" # Used for removing passwords on PDFs: `qpdf --decrypt --replace-input --password=<password> 2020-04.pdf`
 brew "rbenv"
 brew "reattach-to-user-namespace"
+brew "rename" # Used this to rename wedding pics to zero-pad them - https://stackoverflow.com/a/5418035
 brew "tmux"
 brew "tree"
 brew "vim"
