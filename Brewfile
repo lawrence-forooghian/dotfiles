@@ -44,9 +44,10 @@ cask "plex-media-server" if env.home?
 cask "spotify"
 cask "the-unarchiver" if env.home?
 cask "transmission" if env.home?
+cask "tunnelblick" if env.home?
 cask "visual-studio-code" if env.work? # Playing around with JS, not committed to sorting out tooling yet
 cask "vlc" if env.home?
-cask "whatsapp" if env.home?
+cask "whatsapp"
 cask "zoom"
 
 brew "ack"
