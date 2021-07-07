@@ -36,6 +36,14 @@
   "server/services/*Service.ts": {
     "type": "service"
   },
+  "server/decorators/*Decorator.ts": {
+    "type": "decorator",
+    "related": ["server/models/{}.ts", "testutils/factories/{}.ts"]
+  },
+  "server/models/*.ts": {
+    "type": "model",
+    "related": ["testutils/factories/{}.ts"]
+  },
   "testutils/factories/*.ts": {
     "type": "factory"
   },
