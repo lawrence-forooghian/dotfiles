@@ -108,6 +108,12 @@ inoremap jk <esc>
 cnoremap jk <esc>
 inoremap <c-[> <nop>
 
+" --- Commands ---
+
+" Generate a UUID, downcase it, and put it in the "u register. Used a lot for
+" HMPPS Interventions contract tests.
+command! GrabUUID let @u = system("uuidgen | tr '[:upper:]' '[:lower:]' | tr -d '\n'")
+
 " --- External options ---
 
 let g:NERDTreeShowLineNumbers=1
