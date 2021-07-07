@@ -45,4 +45,6 @@ rbenv rehash
 
 npm -g install typescript
 
+npm -g install wait-on
+
 echo "Now follow the steps in the additional_steps file."
