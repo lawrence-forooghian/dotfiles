@@ -30,6 +30,9 @@
   "server/routes/index.ts": {
     "type": "routes"
   },
+  "server/routes/*Routes.ts": {
+    "type": "routes"
+  },
   "server/routes/*Controller.ts": {
     "type": "controller"
   },
