@@ -38,7 +38,7 @@ cask "libreoffice" if env.home?
 cask "macdown"
 cask "mactex" if env.home?
 cask "netnewswire" if env.home?
-cask "nextcloud"
+cask "nextcloud" if env.home?
 cask "obs" # Useful for cropping and zooming webcam
 cask "plex-media-server" if env.home?
 cask "spotify"
@@ -47,7 +47,7 @@ cask "transmission" if env.home?
 cask "tunnelblick" if env.home?
 cask "visual-studio-code" if env.work? # Playing around with JS, not committed to sorting out tooling yet
 cask "vlc" if env.home?
-cask "whatsapp"
+cask "whatsapp" if env.home?
 cask "zoom"
 
 brew "ack"
