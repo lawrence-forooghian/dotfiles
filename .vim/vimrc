@@ -117,6 +117,7 @@ command! GrabUUID let @u = system("uuidgen | tr '[:upper:]' '[:lower:]' | tr -d 
 " --- External options ---
 
 let g:NERDTreeShowLineNumbers=1
+let g:NERDTreeShowHidden=1
 
 " Testing - want console vim to warn me like MacVim does when an open file
 " changes externally
