@@ -6,11 +6,13 @@
 	# Email is set in ~/.gitconfig_local, e.g.
 	# email = lawrence@forooghian.com
 	useConfigOnly = true
+	signingkey = C0C4A6A46EB6AD78
 [rebase]
 	autoStash = true
 	autoSquash = true
 [commit]
 	verbose = true
+	gpgsign = true
 [include]
 	path = ~/.gitconfig_local
 [absorb]
