@@ -28,7 +28,7 @@ export SAVEHIST=10000
 export HISTFILE=~/.zsh_history
 
 # init rbenv
-eval "$(rbenv init -)"
+eval "$(time rbenv init -)"
 
 ## Aliases
 
@@ -90,7 +90,7 @@ alias tv='displayplacer "id:5AB97DBE-C0BC-A81D-C1D2-7208ABDAD0D0+1A59AF89-04EA-A
 
 # https://github.com/pyenv/pyenv#basic-github-checkout
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
+  eval "$(time pyenv init --path)"
 fi
 
 # Base16 Shell
@@ -119,6 +119,8 @@ alias tnr="${DOTFILES_DIR}/bin/dotfiles-bundle-exec tmuxinator start --attach fa
 # Open in the running Emacs server and then detach.
 alias ec="emacsclient -n"
 
+# TODO This is slowing everything down
+# TODO why can’t I use the `time` command on these? https://stackoverflow.com/questions/57422437/why-zsh-time-not-work-for-some-commands-but-bash-time-could
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
