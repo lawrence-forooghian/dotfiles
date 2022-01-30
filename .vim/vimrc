@@ -185,6 +185,13 @@ augroup ios
     autocmd BufRead .gitconfig_local :set filetype=gitconfig
 augroup END
 
+augroup fmt
+  autocmd!
+  autocmd BufWritePre *.html undojoin | Neoformat
+  autocmd BufWritePre *.md undojoin | Neoformat
+  autocmd BufWritePre *.scss undojoin | Neoformat
+augroup END
+
 "--- Vundle stuff --
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -205,6 +212,7 @@ Plugin 'surround.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-sleuth' " apparently this infers indentation
 Plugin 'tpope/vim-endwise' " inserts `end` for ruby
+Plugin 'sbdchd/neoformat'
 
 " Window navigation
 Plugin 't9md/vim-choosewin'
