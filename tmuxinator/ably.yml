@@ -1,13 +1,15 @@
 name: ably
 
 windows:
-  - console:
-      root: ~/code/ably/ably-cocoa
-  - editor:
+  - sdk-editor:
       root: ~/code/ably/ably-cocoa
       panes:
         - vim
-  - notes:
-      root: ~/code/ably/notes
-  - invoices:
-      root: ~/code/ably/invoices
+  - sdk-console:
+      root: ~/code/ably/ably-cocoa
+  - aat-editor:
+      root: ~/code/ably/ably-asset-tracking-swift
+      panes:
+        - vim
+  - aat-console:
+      root: ~/code/ably/ably-asset-tracking-swift
