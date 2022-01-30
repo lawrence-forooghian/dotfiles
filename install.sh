@@ -46,5 +46,6 @@ rbenv rehash
 npm -g install typescript
 
 npm -g install wait-on
+npm install --global alfred-currency-conversion
 
 echo "Now follow the steps in the additional_steps file."
