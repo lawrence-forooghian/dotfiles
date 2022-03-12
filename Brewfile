@@ -22,13 +22,15 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 tap "jakehilborn/jakehilborn"
+tap "heroku/brew"
 
 cask "alfred"
 cask "anki" if env.home?
 cask "atom" if env.work? # Used for find and replace
 cask "bartender"
 cask "bettertouchtool"
-cask "bitwarden" if env.home?
+# Bitwarden needs to come from Mac App Store to allow biometric authentication, apparently. This is a pain since it’s not always up to date.
+#cask "bitwarden" if env.home?
 cask "calibre" if env.home?
 cask "coconutbattery"
 cask "docker"
@@ -55,9 +57,11 @@ cask "slack" if env.home?
 cask "skype" if env.home?
 cask "spotify"
 cask "the-unarchiver" if env.home?
+cask "tomighty"
 cask "transmission" if env.home?
 cask "tunnelblick" if env.home?
 cask "virtualbox" if env.home?
+brew "vmware-fusion" # I have a free licence
 cask "visual-studio-code" if env.work? # Playing around with JS, not committed to sorting out tooling yet
 cask "vlc" if env.home?
 cask "whatsapp" if env.home?
@@ -73,6 +77,7 @@ brew "ffmpeg" # Allows youtube-dl to merge best quality audio and video
 brew "gh"
 brew "git" # More up to date than the Apple version
 brew "git-absorb"
+brew "heroku"
 #brew "gpg" # Not sure if I need this, now I use gpg-suite 
 brew "jq" # At least, it does pretty-printing of JSON
 brew "mp4v2" # For converting Audible books
@@ -99,4 +104,5 @@ if env.home?
   mas "Xcode", id: 497799835
   mas "Reeder", id: 1529448980
   mas "Dark Noise", id: 1465439395
+  mas "Bitwarden", id: 1352778147
 end
