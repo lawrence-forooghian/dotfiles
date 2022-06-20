@@ -1,15 +1,21 @@
 name: ably
 
 windows:
-  - sdk-editor:
+  - sdk-ed:
       root: ~/code/ably/ably-cocoa
       panes:
         - vim
-  - sdk-console:
+  - sdk-con:
       root: ~/code/ably/ably-cocoa
-  - aat-editor:
+  - aat-ed:
       root: ~/code/ably/ably-asset-tracking-swift
       panes:
         - vim
-  - aat-console:
+  - aat-con:
       root: ~/code/ably/ably-asset-tracking-swift
+  - obs-con:
+      root: ~/code/ably/test-observability
+  - obs-serv:
+      root: ~/code/ably/test-observability
+      panes:
+        - npm run-script start:dev
