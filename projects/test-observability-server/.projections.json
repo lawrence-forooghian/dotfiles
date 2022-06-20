@@ -1,0 +1,14 @@
+{
+  "src/*.viewModel.ts": { 
+    type: "viewModel"
+  },
+  "src/*.controller.ts": { 
+    type: "controller"
+  },
+  "src/*.module.ts": { 
+    type: "module"
+  },
+  "src/*.service.ts": { 
+    type: "service"
+  },
+}
