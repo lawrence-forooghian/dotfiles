@@ -1,8 +1,5 @@
 Brewfile.lock.json
 
-# This is the Dash workflow, which is updated automatically by Dash
-Alfred.alfredpreferences/workflows/user.workflow.364D6B95-94FC-4224-B1F2-880E93F038BD
-
 .vim/bundle
 
 !.ackrc
