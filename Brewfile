@@ -36,7 +36,6 @@ cask "android-studio" # For Ably Android stuff
 cask "anki" if env.home?
 cask "arduino"
 cask "bartender"
-cask "bettertouchtool"
 cask "calibre" if env.home?
 cask "chef-workstation"
 cask "coconutbattery"
@@ -44,7 +43,6 @@ cask "discord"
 cask "docker"
 cask "emacs" # This takes over the `emacs` command line and replaces with GUI
 cask "firefox"
-cask "freecad"
 cask "google-chrome" if env.work? # Best WebRTC experience (e.g. whereby.com)
 cask "gpg-suite"
 cask "hammerspoon"
@@ -54,7 +52,6 @@ cask "libreoffice" if env.home?
 cask "macdown"
 cask "mactex" if env.home?
 cask "mos" # smooth scrolling with 3rd party mouse
-cask "msgpack-tools"
 cask "netnewswire" if env.home?
 cask "nextcloud"
 cask "nordvpn"
@@ -71,7 +68,7 @@ cask "vagrant"
 cask "virtualbox" if env.home?
 cask "visual-studio-code" if env.work? # Playing around with JS, not committed to sorting out tooling yet
 cask "vlc" if env.home?
-cask "watchman" # For Command-T
+cask "vmware-fusion" # I have a free licence
 cask "whatsapp" if env.home?
 cask "zoom"
 
@@ -90,6 +87,7 @@ brew "heroku"
 brew "jakehilborn/jakehilborn/displayplacer" if env.home?
 brew "jq" # At least, it does pretty-printing of JSON
 brew "mp4v2" # For converting Audible books
+brew "msgpack-tools"
 brew "ncdu"
 brew "plantuml" if env.work?
 brew "postgres" if env.work?
@@ -103,15 +101,13 @@ brew "robotsandpencils/made/xcodes"
 brew "tmux"
 brew "tree"
 brew "vim"
-brew "vmware-fusion" # I have a free licence
+brew "watchman" # For Command-T
 brew "youtube-dl" if env.home?
 brew "yq" # jq but for YAML
 
 # TODO if I like Seamly2D / Valentina, create a cask for it
 
 if env.home?
-  mas "AdGuard for Safari", id: 1440147259
-  mas "Xcode", id: 497799835
   mas "Reeder", id: 1529448980
   mas "Dark Noise", id: 1465439395
   # Bitwarden needs to come from Mac App Store to allow biometric authentication, apparently. This is a pain since it’s not always up to date.
