@@ -74,6 +74,7 @@ brew "cloc"
 brew "jakehilborn/jakehilborn/displayplacer" if env.home?
 brew "exiftool" # https://exiftool.org/forum/index.php?topic=8652.0
 brew "ffmpeg" # Allows youtube-dl to merge best quality audio and video
+brew "fnm"
 brew "gh"
 brew "git" # More up to date than the Apple version
 brew "git-absorb"
@@ -82,7 +83,6 @@ brew "heroku"
 brew "jq" # At least, it does pretty-printing of JSON
 brew "mp4v2" # For converting Audible books
 brew "ncdu"
-brew "nvm" # Will use this to manage node, for dev and for vim-instant-markdown
 brew "plantuml" if env.work?
 brew "postgres" if env.work?
 brew "pyenv"

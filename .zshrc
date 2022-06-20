@@ -28,7 +28,7 @@ export SAVEHIST=10000
 export HISTFILE=~/.zsh_history
 
 # init rbenv
-eval "$(time rbenv init -)"
+eval "$(rbenv init -)"
 
 ## Aliases
 
@@ -90,7 +90,7 @@ alias tv='displayplacer "id:5AB97DBE-C0BC-A81D-C1D2-7208ABDAD0D0+1A59AF89-04EA-A
 
 # https://github.com/pyenv/pyenv#basic-github-checkout
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(time pyenv init --path)"
+  eval "$(pyenv init --path)"
 fi
 
 # Base16 Shell
@@ -119,34 +119,7 @@ alias tnr="${DOTFILES_DIR}/bin/dotfiles-bundle-exec tmuxinator start --attach fa
 # Open in the running Emacs server and then detach.
 alias ec="emacsclient -n"
 
-# TODO This is slowing everything down
-# TODO why can’t I use the `time` command on these? https://stackoverflow.com/questions/57422437/why-zsh-time-not-work-for-some-commands-but-bash-time-could
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
 # Run this after Homebrew upgrades Ruby.
 alias rebuild_commandt_extension="cd ~/.vim/bundle/command-t/ruby/command-t/ext/command-t && /usr/local/opt/ruby/bin/ruby extconf.rb && make install"
 
-# Auto-run `nvm use` after switching to a directory with a .nvmrc file
-# https://github.com/nvm-sh/nvm#zsh
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+eval "$(fnm env --use-on-cd)"
