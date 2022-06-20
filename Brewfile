@@ -7,12 +7,19 @@ class DotfilesEnv
     @env = File.read("/Users/lawrence/.dotfiles_env").chomp
   end
 
+  # I’m disabling this functionality for now, since at the moment I’m
+  # contracting and just using the one computer
+
   def home?
-    env == 'home'
+    return true
+
+    #env == 'home'
   end
 
   def work?
-    env == 'work'
+    return true
+
+    #env == 'work'
   end
 end
 

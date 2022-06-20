@@ -1,6 +1,8 @@
 # I already installed Xcode through Mac App Store, and then installed 1Password and Dropbox
 # Probably would be best to install Homebrew first, which installs command line tools, then do this
 
+# TODO sort out DOTFILES_ENV stuff
+
 set -e
 
 cd ~
