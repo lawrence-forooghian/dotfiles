@@ -35,7 +35,6 @@ cask "alfred"
 cask "android-studio" # For Ably Android stuff
 cask "anki" if env.home?
 cask "arduino"
-cask "atom" if env.work? # Used for find and replace
 cask "bartender"
 cask "bettertouchtool"
 cask "calibre" if env.home?
