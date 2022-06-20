@@ -113,4 +113,5 @@ if env.home?
   # Bitwarden needs to come from Mac App Store to allow biometric authentication, apparently. This is a pain since it’s not always up to date.
   mas "Bitwarden", id: 1352778147
   mas "DevCleaner", id: 1388020431
+  mas "Yubico Authenticator", id: 1497506650
 end
