@@ -2,8 +2,5 @@ Host *
     UseKeychain yes
     AddKeysToAgent yes
 
-Host pi.internal.forooghian.com
-    User pi
-
-Host laptop.internal.forooghian.com
+Host optiplex.internal.forooghian.com
     User lawrence
