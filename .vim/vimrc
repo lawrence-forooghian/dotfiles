@@ -271,6 +271,9 @@ Plugin 'cespare/vim-toml'
 " Kotlin
 Plugin 'https://github.com/udalov/kotlin-vim'
 
+" Textile
+Plugin 'timcharper/textile.vim'
+
 call vundle#end()
 
 if filereadable(expand("~/.vimrc_background"))
