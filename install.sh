@@ -52,4 +52,7 @@ npm install --global alfred-currency-conversion
 
 npm install --global npm-merge-driver
 
+cd ~/code/git-update-messages
+rbenv install && bundle install
+
 echo "Now follow the steps in the additional_steps file."
