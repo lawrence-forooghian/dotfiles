@@ -111,6 +111,8 @@ export PATH="/usr/local/opt/openjdk/bin:$PATH"
 # This is suggested by the Firefox bootstrap script
 export PATH="${HOME}/.mozbuild/git-cinnabar:$PATH"
 
+export PATH="${HOME}/dotfiles/bin:$PATH"
+
 export TMUXINATOR_CONFIG="${DOTFILES_DIR}/tmuxinator"
 source "${DOTFILES_DIR}/vendor/tmuxinator.zsh"
 # For starting multiple sessions in one go.
@@ -118,8 +120,5 @@ alias tnr="${DOTFILES_DIR}/bin/dotfiles-bundle-exec tmuxinator start --attach fa
 
 # Open in the running Emacs server and then detach.
 alias ec="emacsclient -n"
-
-# Run this after Homebrew upgrades Ruby.
-alias rebuild_commandt_extension="cd ~/.vim/bundle/command-t/ruby/command-t/ext/command-t && /usr/local/opt/ruby/bin/ruby extconf.rb && make install"
 
 eval "$(fnm env --use-on-cd)"
