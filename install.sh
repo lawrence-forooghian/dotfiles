@@ -1,5 +1,3 @@
-# TODO runnable from a web command
-
 set -e
 
 # This script should be idempotent, and should succeed even if it’s already been
