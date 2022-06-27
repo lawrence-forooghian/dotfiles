@@ -3,7 +3,6 @@
 # TODO this means that I need the dotfiles repo locally, also git-update-messages, check those both exist. We need to handle both circumstances - already exists, and doesn't exist (e.g. restoring from a backup at home vs a fresh machine at work).
 # TODO create ~/.dotfiles_env
 # TODO switch out the origin of dotfiles from HTTP to SSH at the end
-# TODO install Xcode
 
 set -e
 
@@ -171,6 +170,16 @@ create_emacs_autosaves_dir() {
 	fi
 }
 
+install_xcode() {
+	if [[ $(xcodes installed | wc -l) -eq 0 ]]; then
+		log "Xcode is already installed."
+		xcodes install --latest --experimental-unxip
+		# TODO do we need to do xcode-select?
+	else
+		log "Installing latest release version of Xcode."
+	fi
+}
+
 # First we install Homebrew, which gives us the developer tools and Git.
 set_up_homebrew
 install_config_files
@@ -180,6 +189,7 @@ set_up_dotfiles_ruby
 set_up_git_update_messages
 create_local_gitconfig
 change_shell
+install_xcode
 
 open -a Hammerspoon
 
