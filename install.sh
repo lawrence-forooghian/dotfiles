@@ -1,5 +1,7 @@
 # TODO runnable from a web command
 # TODO what if I've copied this over from another machine? Is any of this necessary?
+# TODO this means that I need the dotfiles repo locally, also git-update-messages, check those both exist. We need to handle both circumstances - already exists, and doesn't exist (e.g. restoring from a backup at home vs a fresh machine at work).
+# TODO create ~/.dotfiles_env
 
 set -e
 
@@ -88,21 +90,12 @@ set_up_vim() {
 			https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	fi
 
-	# TODO will this work if I install .vimrc before any of this stuff? Or will all the `bundle` commands cause a ruckus?
-
-	# Error detected while processing /Users/lawrence/dotfiles/.vim/vimrc[281]../Users
-	# /lawrence/.vimrc_background:
-	# line    2:
-	# E185: Cannot find colour scheme 'base16-default-dark'
-	# Error detected while processing command line..function vundle#installer#new[24].
-	# .<SNR>26_process:
-	# line    3:
-
-	# TODO we need to move to vim-plug I think so that we can check out the release branch of coc
 	# TODO what are you meant to do after installing coc? Is there stuff I need to put into a config file?
 
 	log "Installing vim-plug packages."
-	vim -c PlugInstall -c q
+	# The set nocompatible is required for the nerdcommenter package to be
+	# initialised properly (normally we’d rely on vimrc to provide it)
+	vim -u NONE -c 'set nocompatible' -c 'source ~/.vim/plugins.vim' -c PlugInstall -c qa
 
 	log "Rebuilding Command-T extension."
 	~/dotfiles/bin/rebuild_commandt_extension
@@ -148,8 +141,6 @@ GITCONFIG
 	fi
 }
 
-# TODO this means that I need the dotfiles repo locally, also git-update-messages, check those both exist. We need to handle both circumstances - already exists, and doesn't exist (e.g. restoring from a backup at home vs a fresh machine at work).
-# TODO create ~/.dotfiles_env
 # First we install Homebrew, which gives us the developer tools and Git.
 set_up_homebrew
 install_config_files
