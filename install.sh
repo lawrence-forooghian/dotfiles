@@ -3,6 +3,7 @@
 # TODO this means that I need the dotfiles repo locally, also git-update-messages, check those both exist. We need to handle both circumstances - already exists, and doesn't exist (e.g. restoring from a backup at home vs a fresh machine at work).
 # TODO create ~/.dotfiles_env
 # TODO switch out the origin of dotfiles from HTTP to SSH at the end
+# TODO install Xcode
 
 set -e
 
@@ -111,6 +112,9 @@ set_up_dotfiles_ruby() {
 
 	log "Setting up dotfiles’s Ruby version and gems."
 	cd ~/dotfiles
+	# TODO slight problem here: replying no below makes it exit with 1
+	# rbenv: /Users/lawrence/.rbenv/versions/2.7.0 already exists
+	# continue with installation? (y/N)
 	rbenv install
 	bundle install
 	rbenv rehash
@@ -146,6 +150,27 @@ GITCONFIG
 	fi
 }
 
+change_shell() {
+	# https://stackoverflow.com/a/16375583
+	current_shell=$(dscl . -read /Users/$USER UserShell)
+
+	if [[ $current_shell == "UserShell: /bin/zsh" ]]; then
+		log "User’s current default shell is already zsh."
+	else
+		log "Setting default shell to zsh."
+		chsh -s /bin/zsh
+	fi
+}
+
+create_emacs_autosaves_dir() {
+	if [[ -e ~/.emacs_autosaves ]]; then
+		log "~/.emacs_autosaves already exists."
+	else
+		log "Creating ~/.emacs_autosaves."
+		mkdir ~/.emacs_autosaves
+	fi
+}
+
 # First we install Homebrew, which gives us the developer tools and Git.
 set_up_homebrew
 install_config_files
@@ -154,9 +179,8 @@ set_up_vim
 set_up_dotfiles_ruby
 set_up_git_update_messages
 create_local_gitconfig
+change_shell
 
-chsh -s /bin/zsh
 open -a Hammerspoon
-mkdir ~/.emacs_autosaves
 
 echo "Now follow the steps in the additional_steps file."
