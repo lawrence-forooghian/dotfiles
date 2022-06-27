@@ -4,6 +4,6 @@
 
 set -e
 
-cd ~/.vim/bundle/command-t/ruby/command-t/ext/command-t
+cd ~/.vim/plugged/command-t/ruby/command-t/ext/command-t
 /usr/local/opt/ruby/bin/ruby extconf.rb
 make install

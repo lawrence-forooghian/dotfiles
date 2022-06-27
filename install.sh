@@ -79,34 +79,30 @@ set_up_node() {
 }
 
 set_up_vim() {
-	if [[ -e ~/.vim/bundle/Vundle.vim ]]; then
-		log "Vundle.vim is already installed."
+	if [[ -e ~/.vim/autoload/plug.vim ]]; then
+		log "vim-plug is already installed."
 	else
-		log "Installing Vundle.vim."
+		log "Installing vim-plug."
 
-# TODO will this work if I install .vimrc before any of this stuff? Or will all the `bundle` commands cause a ruckus?
-
-# Error detected while processing /Users/lawrence/dotfiles/.vim/vimrc[281]../Users
-# /lawrence/.vimrc_background:
-# line    2:
-# E185: Cannot find colour scheme 'base16-default-dark'
-# Error detected while processing command line..function vundle#installer#new[24].
-# .<SNR>26_process:
-# line    3:
-# E117: Unknown function: coc#status
-# [coc.nvim] build/index.js not found, please install dependencies and compile coc
-# .nvim by: yarn install
-# [coc.nvim] build/index.js not found, please install dependencies and compile coc
-# .nvim by: yarn install
-
-		# TODO we need to move to vim-plug I think so that we can check out the release branch of coc
-		# TODO what are you meant to do after installing coc? Is there stuff I need to put into a config file?
-
-		git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+		curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+			https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	fi
 
-	log "Installing Vundle.vim packages."
-	vim -c BundleInstall -c q
+	# TODO will this work if I install .vimrc before any of this stuff? Or will all the `bundle` commands cause a ruckus?
+
+	# Error detected while processing /Users/lawrence/dotfiles/.vim/vimrc[281]../Users
+	# /lawrence/.vimrc_background:
+	# line    2:
+	# E185: Cannot find colour scheme 'base16-default-dark'
+	# Error detected while processing command line..function vundle#installer#new[24].
+	# .<SNR>26_process:
+	# line    3:
+
+	# TODO we need to move to vim-plug I think so that we can check out the release branch of coc
+	# TODO what are you meant to do after installing coc? Is there stuff I need to put into a config file?
+
+	log "Installing vim-plug packages."
+	vim -c PlugInstall -c q
 
 	log "Rebuilding Command-T extension."
 	~/dotfiles/bin/rebuild_commandt_extension
