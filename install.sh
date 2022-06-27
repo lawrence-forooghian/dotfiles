@@ -2,6 +2,7 @@
 # TODO what if I've copied this over from another machine? Is any of this necessary?
 # TODO this means that I need the dotfiles repo locally, also git-update-messages, check those both exist. We need to handle both circumstances - already exists, and doesn't exist (e.g. restoring from a backup at home vs a fresh machine at work).
 # TODO create ~/.dotfiles_env
+# TODO switch out the origin of dotfiles from HTTP to SSH at the end
 
 set -e
 
@@ -90,12 +91,16 @@ set_up_vim() {
 			https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	fi
 
-	# TODO what are you meant to do after installing coc? Is there stuff I need to put into a config file?
-
 	log "Installing vim-plug packages."
 	# The set nocompatible is required for the nerdcommenter package to be
 	# initialised properly (normally we’d rely on vimrc to provide it)
-	vim -u NONE -c 'set nocompatible' -c 'source ~/.vim/plugins.vim' -c PlugInstall -c qa
+	vim -u NONE -c 'set nocompatible' -c 'source ~/.vim/plugins.vim' -c PlugUpdate -c qa
+
+	log "Installing CoC packages."
+	# I would have preferred to use g:coc_global_extensions but since that just
+	# takes effect on startup it means it doesn’t run synchronously and there’s
+	# no way to quit once it’s complete, so hard to use in a script.
+	vim -c 'CocInstall -sync coc-tsserver coc-prettier coc-eslint coc-sourcekit' -c 'qa'
 
 	log "Rebuilding Command-T extension."
 	~/dotfiles/bin/rebuild_commandt_extension
