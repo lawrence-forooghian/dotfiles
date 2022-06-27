@@ -1,7 +1,6 @@
 # TODO runnable from a web command
 # TODO what if I've copied this over from another machine? Is any of this necessary?
 # TODO this means that I need the dotfiles repo locally, also git-update-messages, check those both exist. We need to handle both circumstances - already exists, and doesn't exist (e.g. restoring from a backup at home vs a fresh machine at work).
-# TODO create ~/.dotfiles_env
 # TODO switch out the origin of dotfiles from HTTP to SSH at the end
 
 set -e
@@ -180,6 +179,19 @@ install_xcode() {
 	fi
 }
 
+create_dotfiles_env() {
+	if [[ -e ~/.dotfiles_env ]]; then
+		log "~/.dotfiles_env already exists."
+	else
+		log "What should be used for the DOTFILES_ENV? (all, home, work)"
+		read dotfiles_env
+
+		printf $dotfiles_env > ~/.dotfiles_env
+
+		log "Created ~/.dotfiles_env."
+	fi
+}
+
 # First we install Homebrew, which gives us the developer tools and Git.
 set_up_homebrew
 install_config_files
@@ -191,6 +203,7 @@ create_local_gitconfig
 change_shell
 create_emacs_autosaves_dir
 install_xcode
+create_dotfiles_env
 
 open -a Hammerspoon
 
