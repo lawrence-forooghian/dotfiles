@@ -256,9 +256,6 @@ Plugin 'HerringtonDarkholme/yats.vim'
 " .vim/coc-settings.json)
 Plugin 'https://github.com/neoclide/coc.nvim', {'rev': 'release'}
 
-" Markdown
-Plugin 'suan/vim-instant-markdown'
-
 " Terraform
 Plugin 'hashivim/vim-hashicorp-tools'
 

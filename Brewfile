@@ -7,19 +7,19 @@ class DotfilesEnv
     @env = File.read("/Users/lawrence/.dotfiles_env").chomp
   end
 
-  # I’m disabling this functionality for now, since at the moment I’m
-  # contracting and just using the one computer
+  # The 'all' env is used for when I’m contracting and using a single machine
+  # for personal + work
 
   def home?
     return true
 
-    #env == 'home'
+    env == 'home' || env == 'all'
   end
 
   def work?
     return true
 
-    #env == 'work'
+    env == 'work' || env == 'all'
   end
 end
 

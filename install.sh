@@ -1,58 +1,170 @@
-# I already installed Xcode through Mac App Store, and then installed 1Password and Dropbox
-# Probably would be best to install Homebrew first, which installs command line tools, then do this
-
-# TODO sort out DOTFILES_ENV stuff
+# TODO runnable from a web command
+# TODO what if I've copied this over from another machine? Is any of this necessary?
 
 set -e
 
-cd ~
+# This script should be idempotent, and should succeed even if it’s already been
+# run.
 
-for i in .tmux.conf .vimperatorrc .vim .zsh_profile .zshrc .inputrc .emacs .ackrc .gitconfig
-do
-	ln -s dotfiles/$i $i
-done
+log() {
+	echo "$1" 2>&1
+}
 
-ln -s dotfiles/.hammerspoon .
+set_up_homebrew() {
+	pushd .
 
-# TODO: this already exists because generated a key to clone this repo
-# mkdir .ssh
-cd .ssh
-ln -s ../dotfiles/ssh_config config
+	if which brew >/dev/null; then
+		log "Homebrew is already installed."
+	else
+		log "Installing Homebrew."
 
-git config --global core.excludesfile ~/dotfiles/global.gitignore
+		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	fi
 
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	cd ~/dotfiles
+	log "Installing Homebrew packages."
+	brew bundle
 
-cd ~/dotfiles
-brew bundle
+	popd
+}
 
-npm -g install instant-markdown-d
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim -c BundleInstall -c q -c q
+install_config_files() {
+	pushd .
 
-chsh -s /bin/zsh 
+	log "Installing config files."
 
-cd ~/.vim/bundle/command-t/ruby/command-t/ext/command-t
-/usr/local/opt/ruby/bin/ruby extconf.rb
-make install
+	cd ~
 
+	for i in .tmux.conf .vim .zsh_profile .zshrc .inputrc .emacs .ackrc .gitconfig .hammerspoon; do
+		if [[ -e $i ]]; then
+			log "~/$i already exists."
+		else
+			log "Creating symlink ~/$i."
+			ln -s dotfiles/$i $i
+		fi
+	done
+
+	if [[ -e .ssh ]]; then
+		log "~/.ssh already exists."
+	else
+		log "Creating ~/.ssh."
+		mkdir .ssh
+	fi
+
+	cd .ssh
+
+	if [[ -e config ]]; then
+		log "~/.ssh/config already exists."
+	else
+		log "Creating symlink ~/.ssh/config."
+		ln -s ../dotfiles/ssh_config config
+	fi
+
+	log "Configuring Git’s global core.excludesfile to be ~/dotfiles/global.gitignore."
+	git config --global core.excludesfile ~/dotfiles/global.gitignore
+
+	popd .
+}
+
+set_up_node() {
+	eval "$(fnm env)"
+
+	log "Installing latest Node.js LTS."
+	fnm install --lts
+
+	for package in typescript wait-on npm-merge-driver; do
+		log "Globally installing NPM package $package."
+		npm install --location=global $package
+	done
+}
+
+set_up_vim() {
+	if [[ -e ~/.vim/bundle/Vundle.vim ]]; then
+		log "Vundle.vim is already installed."
+	else
+		log "Installing Vundle.vim."
+
+# TODO will this work if I install .vimrc before any of this stuff? Or will all the `bundle` commands cause a ruckus?
+
+# Error detected while processing /Users/lawrence/dotfiles/.vim/vimrc[281]../Users
+# /lawrence/.vimrc_background:
+# line    2:
+# E185: Cannot find colour scheme 'base16-default-dark'
+# Error detected while processing command line..function vundle#installer#new[24].
+# .<SNR>26_process:
+# line    3:
+# E117: Unknown function: coc#status
+# [coc.nvim] build/index.js not found, please install dependencies and compile coc
+# .nvim by: yarn install
+# [coc.nvim] build/index.js not found, please install dependencies and compile coc
+# .nvim by: yarn install
+
+		# TODO we need to move to vim-plug I think so that we can check out the release branch of coc
+		# TODO what are you meant to do after installing coc? Is there stuff I need to put into a config file?
+
+		git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	fi
+
+	log "Installing Vundle.vim packages."
+	vim -c BundleInstall -c q
+
+	log "Rebuilding Command-T extension."
+	~/dotfiles/bin/rebuild_commandt_extension
+}
+
+set_up_dotfiles_ruby() {
+	pushd .
+
+	log "Setting up dotfiles’s Ruby version and gems."
+	cd ~/dotfiles
+	rbenv install
+	bundle install
+	rbenv rehash
+
+	popd
+}
+
+set_up_git_update_messages() {
+	pushd .
+
+	log "Setting up git-update-messages’s Ruby version and gems."
+	cd ~/code/git-update-messages
+	rbenv install
+	bundle install
+
+	popd
+}
+
+create_local_gitconfig() {
+	if [[ -e ~/.gitconfig_local ]]; then
+		log "~/.gitconfig_local already exists."
+	else
+		log "What email address should be used for creating Git commits?"
+		read git_email_address
+
+		# https://stackoverflow.com/a/17093489
+		tee ~/.gitconfig_local <<GITCONFIG
+[user]
+	email = ${git_email_address}
+GITCONFIG
+
+		log "Created ~/.gitconfig_local."
+	fi
+}
+
+# TODO this means that I need the dotfiles repo locally, also git-update-messages, check those both exist. We need to handle both circumstances - already exists, and doesn't exist (e.g. restoring from a backup at home vs a fresh machine at work).
+# TODO create ~/.dotfiles_env
+# First we install Homebrew, which gives us the developer tools and Git.
+set_up_homebrew
+install_config_files
+set_up_node
+set_up_vim
+set_up_dotfiles_ruby
+set_up_git_update_messages
+create_local_gitconfig
+
+chsh -s /bin/zsh
 open -a Hammerspoon
-
 mkdir ~/.emacs_autosaves
-
-cd ~/dotfiles
-rbenv install
-bundle install
-rbenv rehash
-
-npm -g install typescript
-
-npm -g install wait-on
-npm install --global alfred-currency-conversion
-
-npm install --global npm-merge-driver
-
-cd ~/code/git-update-messages
-rbenv install && bundle install
 
 echo "Now follow the steps in the additional_steps file."

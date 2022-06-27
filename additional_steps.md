@@ -1,16 +1,15 @@
 - TODO how to transfer data over from an old personal machine, and how to set up time machine
+  - What data do and don’t I care about? Do I want source code repos with all their local whatnot?
 - TODO write an install script that means my password manager is installed before I need to start adding SSH keys to GitHub etc
 
 Steps that need to be performed after install.sh. Some of these could probably be automated:
 
-- TODO generating SSH key, adding to accounts
+- TODO generating SSH key, adding to accounts, then switching out the origin on ~/dotfiles
 - TODO what about GPG key?
-- Get dotfiles and run install script
+- Get dotfiles and run install script - TODO how?
 - symlink user.js into Firefox profile
-- create ~/.gitconfig_local
-- clone git-update-messages so that hooks work, and rbenv / bundle install there
 - set up time machine
-- TODO what about stuff in keychain from old machine? There should be nothing that’s only there hopefully. Also what about Wi-Fi passwords? Perhaps export Perhaps just copy over keychain from old machine.
+- TODO what about stuff in keychain from old machine? There should be nothing that’s only there hopefully. Also what about Wi-Fi passwords? Perhaps just copy over keychain from old machine.
 
 ## macOS preferences
 
@@ -26,15 +25,20 @@ Steps that need to be performed after install.sh. Some of these could probably b
 
 ## Setup of other software
 
+- Log in to Bitwarden
 - Add email accounts
 - Install and set up Backblaze
-- Log in to Bitwarden
 - Set up Alfred (preferences sync) and add Powerpack licence
 - Log in to:
   - Slack
   - Spotify
   - Firefox Sync
   - WhatsApp
+  - Nextcloud
+
+## Processing
+
+- Wait for Backblaze to finish backing up
 
 ## Preferences of other software
 
@@ -45,13 +49,16 @@ Steps that need to be performed after install.sh. Some of these could probably b
 
 After switching to zsh, you might notice that you get:
 
+```
 zsh compinit: insecure directories, run compaudit for list.
 Ignore insecure directories and continue [y] or abort compinit [n]? ccompinit: initialization aborted
+```
 
 This comment is what I did: https://github.com/zsh-users/zsh-completions/issues/433#issuecomment-600582607
 
 But then Homebrew spat out an error, which I followed:
 
+```
 Error: The following directories are not writable by your user:
 /usr/local/share/zsh
 /usr/local/share/zsh/site-functions
@@ -61,5 +68,16 @@ You should change the ownership of these directories to your user.
 
 And make sure that your user has write permission.
   chmod u+w /usr/local/share/zsh /usr/local/share/zsh/site-functions
+```
 
-and now everything seems happy
+and now everything seems happy.
+
+## Emacs
+
+(Not using it at the moment, just keeping here in case)
+
+M-x package-install:
+- evil
+- evil-escape
+- use-package
+- ox-jira
