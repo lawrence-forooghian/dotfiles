@@ -1,10 +1,10 @@
-- TODO how to transfer data over from an old personal machine, and how to set up time machine
-  - What data do and don’t I care about? Do I want source code repos with all their local whatnot?
 
 Steps that need to be performed after install.sh. Some of these could probably be automated:
 
-- Get dotfiles and run install script - TODO how?
-- TODO what about stuff in keychain from old machine? There should be nothing that’s only there hopefully. Also what about Wi-Fi passwords? Perhaps just copy over keychain from old machine.
+- TODO how to transfer data over from an old personal machine
+  - I think the easiest thing to do is to just plug in Time Machine drive from old machine, copy home directory over to Desktop, and then transfer whatever I want to keep into the new home directory.
+- How to set up Time Machine (inherit previous backup?)
+- TODO what about stuff in keychain from old machine? There should be nothing that’s only there hopefully, other than Wi-Fi passwords.
 
 ## macOS preferences
 
