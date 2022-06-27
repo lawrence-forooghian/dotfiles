@@ -1,7 +1,4 @@
 # TODO runnable from a web command
-# TODO what if I've copied this over from another machine? Is any of this necessary?
-# TODO this means that I need the dotfiles repo locally, also git-update-messages, check those both exist. We need to handle both circumstances - already exists, and doesn't exist (e.g. restoring from a backup at home vs a fresh machine at work).
-# TODO switch out the origin of dotfiles from HTTP to SSH at the end
 
 set -e
 
@@ -28,6 +25,20 @@ set_up_homebrew() {
 	brew bundle
 
 	popd
+}
+
+get_dotfiles() {
+	if [[ -e ~/dotfiles ]]; then
+		log "~/dotfiles already exists."
+	else
+		pushd .
+
+		cd ~
+		log "Cloning dotfiles."
+		git clone https://github.com/lawrence-forooghian/dotfiles.git
+
+		popd
+	fi
 }
 
 install_config_files() {
@@ -204,6 +215,7 @@ create_dotfiles_env() {
 
 # First we install Homebrew, which gives us the developer tools and Git.
 set_up_homebrew
+get_dotfiles
 install_config_files
 set_up_node
 set_up_vim

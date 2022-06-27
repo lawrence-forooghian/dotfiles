@@ -1,14 +1,9 @@
 - TODO how to transfer data over from an old personal machine, and how to set up time machine
   - What data do and don’t I care about? Do I want source code repos with all their local whatnot?
-- TODO write an install script that means my password manager is installed before I need to start adding SSH keys to GitHub etc
 
 Steps that need to be performed after install.sh. Some of these could probably be automated:
 
-- TODO generating SSH key, adding to accounts, then switching out the origin on ~/dotfiles
-- TODO what about GPG key?
 - Get dotfiles and run install script - TODO how?
-- symlink user.js into Firefox profile
-- set up time machine
 - TODO what about stuff in keychain from old machine? There should be nothing that’s only there hopefully. Also what about Wi-Fi passwords? Perhaps just copy over keychain from old machine.
 
 ## macOS preferences
@@ -35,6 +30,12 @@ Steps that need to be performed after install.sh. Some of these could probably b
   - Firefox Sync
   - WhatsApp
   - Nextcloud
+
+## Setup of credentials
+
+- [Generate SSH key and add to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), adding the passphrase to Bitwarden
+- Switch the origin on ~/dotfiles and ~/code/git-update-messages to use SSH, not HTTPS
+- Import GPG key to my GPG keychain (`gpg --import` with the `private.key` stored in Bitwarden)
 
 ## Processing
 
