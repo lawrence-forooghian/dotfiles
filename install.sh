@@ -189,6 +189,7 @@ set_up_dotfiles_ruby
 set_up_git_update_messages
 create_local_gitconfig
 change_shell
+create_emacs_autosaves_dir
 install_xcode
 
 open -a Hammerspoon
