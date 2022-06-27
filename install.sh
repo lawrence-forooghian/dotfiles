@@ -114,15 +114,27 @@ set_up_vim() {
 	~/dotfiles/bin/rebuild_commandt_extension
 }
 
+install_ruby_version() {
+	ruby_version=$(cat .ruby-version)
+	# We do this check since replying no to the below makes it exit with 1:
+	# rbenv: /Users/lawrence/.rbenv/versions/2.7.0 already exists continue with
+	# installation? (y/N)
+	if rbenv versions | grep $ruby_version; then
+		log "Ruby version ${ruby_version} is already installed."
+	else
+		log "Installing Ruby version ${ruby_version}."
+		rbenv install
+	fi
+}
+
 set_up_dotfiles_ruby() {
 	pushd .
 
 	log "Setting up dotfiles’s Ruby version and gems."
 	cd ~/dotfiles
-	# TODO slight problem here: replying no below makes it exit with 1
-	# rbenv: /Users/lawrence/.rbenv/versions/2.7.0 already exists
-	# continue with installation? (y/N)
-	rbenv install
+
+	install_ruby_version
+
 	bundle install
 	rbenv rehash
 
@@ -144,7 +156,7 @@ set_up_git_update_messages() {
 
 	log "Setting up git-update-messages’s Ruby version and gems."
 	cd ~/code/git-update-messages
-	rbenv install
+	install_ruby_version
 	bundle install
 
 	popd
@@ -190,11 +202,11 @@ create_emacs_autosaves_dir() {
 
 install_xcode() {
 	if [[ $(xcodes installed | wc -l) -eq 0 ]]; then
-		log "Xcode is already installed."
+		log "Installing latest release version of Xcode."
 		xcodes install --latest --experimental-unxip
 		# TODO do we need to do xcode-select?
 	else
-		log "Installing latest release version of Xcode."
+		log "Xcode is already installed."
 	fi
 }
 
