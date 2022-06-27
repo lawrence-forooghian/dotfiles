@@ -123,6 +123,16 @@ set_up_dotfiles_ruby() {
 set_up_git_update_messages() {
 	pushd .
 
+	if [[ -e ~/code/git-update-messages ]]; then
+		log "~/code/git-update-messages already exists."
+	else
+		mkdir -p ~/code
+		cd ~/code
+		log "Cloning git-update-messages."
+		# We clone with HTTPS because SSH key might not have been set up yet.
+		git clone https://github.com/lawrence-forooghian/git-update-messages.git
+	fi
+
 	log "Setting up git-update-messages’s Ruby version and gems."
 	cd ~/code/git-update-messages
 	rbenv install
