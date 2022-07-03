@@ -223,6 +223,15 @@ create_dotfiles_env() {
 	fi
 }
 
+launch_hammerspoon() {
+	if pgrep Hammerspoon; then
+		log "Hammerspoon is already running."
+	else
+		open -a Hammerspoon
+		log "Launched Hammerspoon."
+	fi
+}
+
 # First we install Homebrew, which gives us the developer tools and Git.
 set_up_homebrew
 get_dotfiles
@@ -236,7 +245,6 @@ change_shell
 create_emacs_autosaves_dir
 install_xcode
 create_dotfiles_env
-
-open -a Hammerspoon
+launch_hammerspoon
 
 echo "Now follow the steps in the additional_steps file."
