@@ -3,8 +3,10 @@ Steps that need to be performed after install.sh. Some of these could probably b
 
 - TODO how to transfer data over from an old personal machine
   - I think the easiest thing to do is to just plug in Time Machine drive from old machine, copy home directory over to Desktop, and then transfer whatever I want to keep into the new home directory.
+- TODO what about Stickies? I have a bunch of stuff there at the moment
 - How to set up Time Machine (inherit previous backup?)
 - TODO what about stuff in keychain from old machine? There should be nothing that’s only there hopefully, other than Wi-Fi passwords.
+- TODO adding SSH key to OptiPlex
 
 ## macOS preferences
 
@@ -36,6 +38,7 @@ Steps that need to be performed after install.sh. Some of these could probably b
 - [Generate SSH key and add to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), adding the passphrase to Bitwarden
 - Switch the origin on ~/dotfiles and ~/code/git-update-messages to use SSH, not HTTPS
 - Import GPG key to my GPG keychain (`gpg --import` with the `private.key` stored in Bitwarden)
+- Add Brazil digital certificate to keychain
 
 ## Processing
 
