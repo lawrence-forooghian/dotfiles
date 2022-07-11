@@ -84,6 +84,7 @@ brew "fnm"
 brew "gh"
 brew "git" # More up to date than the Apple version
 brew "git-absorb"
+brew "gnu-sed" # I don’t want to try and learn two seds right now
 brew "heroku"
 brew "jakehilborn/jakehilborn/displayplacer" if env.home?
 brew "jq" # At least, it does pretty-printing of JSON
