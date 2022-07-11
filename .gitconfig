@@ -16,7 +16,7 @@
 [include]
 	path = ~/.gitconfig_local
 [absorb]
-	maxStack = 100
+	maxStack = 1000
 [grep]
 	patternType = perl
 
