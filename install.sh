@@ -239,6 +239,7 @@ launch_hammerspoon() {
 # First we install Homebrew, which gives us the developer tools and Git.
 set_up_homebrew
 get_dotfiles
+create_dotfiles_env
 install_homebrew_packages
 install_config_files
 set_up_node
@@ -249,7 +250,6 @@ create_local_gitconfig
 change_shell
 create_emacs_autosaves_dir
 install_xcode
-create_dotfiles_env
 launch_hammerspoon
 
 echo "Now follow the steps in the additional_steps file."
