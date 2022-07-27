@@ -27,7 +27,7 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 export HISTFILE=~/.zsh_history
 
-# init rbenv
+eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(rbenv init -)"
 
 ## Aliases
