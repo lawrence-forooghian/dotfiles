@@ -19,6 +19,10 @@ set_up_homebrew() {
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 }
 
+install_rosetta() {
+	softwareupdate --install-rosetta --agree-to-license
+}
+
 install_homebrew_packages() {
 	pushd .
 
@@ -238,6 +242,7 @@ launch_hammerspoon() {
 
 # First we install Homebrew, which gives us the developer tools and Git.
 set_up_homebrew
+install_rosetta
 get_dotfiles
 create_dotfiles_env
 install_homebrew_packages
