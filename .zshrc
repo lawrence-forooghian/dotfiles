@@ -29,6 +29,7 @@ export HISTFILE=~/.zsh_history
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(rbenv init -)"
+eval "$(fnm env --use-on-cd)"
 
 ## Aliases
 
@@ -120,5 +121,3 @@ alias tnr="${DOTFILES_DIR}/bin/dotfiles-bundle-exec tmuxinator start --attach fa
 
 # Open in the running Emacs server and then detach.
 alias ec="emacsclient -n"
-
-eval "$(fnm env --use-on-cd)"
