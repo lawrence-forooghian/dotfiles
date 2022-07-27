@@ -15,6 +15,8 @@ set_up_homebrew() {
 
 		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	fi
+
+	eval "$(/opt/homebrew/bin/brew shellenv)"
 }
 
 install_homebrew_packages() {
