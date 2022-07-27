@@ -11,14 +11,28 @@ Steps that need to be performed after install.sh. Some of these could probably b
 ## macOS preferences
 
 - Disable iCloud stuff I don’t want
-- Turn on FileVault
-    - TODO what to do with recovery key?
+- Turn on Messages in iCloud
+- Turn on FileVault (seems like it’s asked as part of initial setup)
+    - TODO what to do with recovery key? Also, it seems that macOS is adding it to iCloud by default (confirm by running `sudo fdesetup list -verbose -extended`) and not telling you it during initial setup
 - Disable spellchecking
 - Disable guest user
 - Whack up the keyboard, trackpad, and mouse speed in OS X
 - Set Dock to auto-hide
 - Remove default stuff from Dock
 - Exclude Terminal from Spotlight -> Privacy
+- Disable saving of passwords in Safari (under AutoFill)
+- Menu bar icons to turn on:
+  - Bluetooth
+  - Sound (always)
+- Turn on “Use Touch ID for purchases”
+- Turn off quick note hot corner
+- Set it to lock as soon as lid closed
+- Mail: set it to move discarded messages into archive
+- Turn off Screen Time (sometimes gets turned on as part of initial setup?)
+- Add São Paulo timezone to Calendar
+- Disable Holidays calendar
+- Set default calendar in Calendar
+- Add home dir to sidebar
 
 ## Setup of other software
 
@@ -26,12 +40,16 @@ Steps that need to be performed after install.sh. Some of these could probably b
 - Add email accounts
 - Install and set up Backblaze
 - Set up Alfred (preferences sync) and add Powerpack licence
+- Set up Bartender and add licence
 - Log in to:
   - Slack
   - Spotify
   - Firefox Sync
   - WhatsApp
   - Nextcloud
+  - Zoom
+  - Anki
+- Add Portuguese as a second language
 
 ## Setup of credentials
 
@@ -48,33 +66,6 @@ Steps that need to be performed after install.sh. Some of these could probably b
 
 - Tell Spotify not to start at login
 - Set iTerm2 to sync preferences with dotfiles dir
-
-## A possible error
-
-After switching to zsh, you might notice that you get:
-
-```
-zsh compinit: insecure directories, run compaudit for list.
-Ignore insecure directories and continue [y] or abort compinit [n]? ccompinit: initialization aborted
-```
-
-This comment is what I did: https://github.com/zsh-users/zsh-completions/issues/433#issuecomment-600582607
-
-But then Homebrew spat out an error, which I followed:
-
-```
-Error: The following directories are not writable by your user:
-/usr/local/share/zsh
-/usr/local/share/zsh/site-functions
-
-You should change the ownership of these directories to your user.
-  sudo chown -R $(whoami) /usr/local/share/zsh /usr/local/share/zsh/site-functions
-
-And make sure that your user has write permission.
-  chmod u+w /usr/local/share/zsh /usr/local/share/zsh/site-functions
-```
-
-and now everything seems happy.
 
 ## Emacs
 
