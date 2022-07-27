@@ -66,7 +66,6 @@ cask "transmission-remote-gui"
 cask "tunnelblick" if env.home?
 cask "vagrant"
 cask "vapor"
-cask "virtualbox" if env.home?
 cask "visual-studio-code" if env.work? # Playing around with JS, not committed to sorting out tooling yet
 cask "vlc" if env.home?
 cask "vmware-fusion" # I have a free licence
