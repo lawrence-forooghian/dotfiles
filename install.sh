@@ -8,8 +8,6 @@ log() {
 }
 
 set_up_homebrew() {
-	pushd .
-
 	if which brew >/dev/null; then
 		log "Homebrew is already installed."
 	else
@@ -17,6 +15,10 @@ set_up_homebrew() {
 
 		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	fi
+}
+
+install_homebrew_packages() {
+	pushd .
 
 	cd ~/dotfiles
 	log "Installing Homebrew packages."
@@ -235,6 +237,7 @@ launch_hammerspoon() {
 # First we install Homebrew, which gives us the developer tools and Git.
 set_up_homebrew
 get_dotfiles
+install_homebrew_packages
 install_config_files
 set_up_node
 set_up_vim
