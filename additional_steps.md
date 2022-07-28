@@ -1,12 +1,13 @@
+# Additional steps after `install.sh`
 
-Steps that need to be performed after install.sh. Some of these could probably be automated:
+Steps that need to be performed after `install.sh`. Some of these could probably be automated:
 
-- TODO how to transfer data over from an old personal machine
+- Transfer data over from old machine
   - I think the easiest thing to do is to just plug in Time Machine drive from old machine, copy home directory over to Desktop, and then transfer whatever I want to keep into the new home directory.
-- TODO what about Stickies? I have a bunch of stuff there at the moment
-- How to set up Time Machine (inherit previous backup?)
-- TODO what about stuff in keychain from old machine? There should be nothing that’s only there hopefully, other than Wi-Fi passwords.
-- TODO adding SSH key to OptiPlex
+- Set up Time Machine (use `tmutil inherit '/Volumes/Time Machine'` and then turn on Time Machine, need to give Full Disk Access to iTerm first)
+- Check there’s nothing in Stickies on old machine
+- Check Keychain on old machine. There should be nothing that’s only there hopefully, other than Wi-Fi passwords.
+- Copy over SSH key used for OptiPlex (from Time Machine’s backup) until can set up a new one.
 
 ## macOS preferences
 
@@ -33,6 +34,7 @@ Steps that need to be performed after install.sh. Some of these could probably b
 - Disable Holidays calendar
 - Set default calendar in Calendar
 - Add home dir to sidebar
+- Add Portuguese as a second language
 
 ## Setup of other software
 
@@ -49,7 +51,7 @@ Steps that need to be performed after install.sh. Some of these could probably b
   - Nextcloud
   - Zoom
   - Anki
-- Add Portuguese as a second language
+- Sign in to Apple Developer account in Xcode
 
 ## Setup of credentials
 
