@@ -6,7 +6,7 @@ windows:
       root: ~/Documents/org
   - notes:
       root: ~/Nextcloud/notes
-  <%- if ENV['DOTFILES_ENV'] == 'home' %>
+  <%- if %w(home all).include? ENV['DOTFILES_ENV'] %>
   - website:
       root: ~/code/website
   - website-server:
