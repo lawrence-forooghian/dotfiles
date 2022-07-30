@@ -115,4 +115,5 @@ if env.home?
   mas "Bitwarden", id: 1352778147
   mas "DevCleaner", id: 1388020431
   mas "Yubico Authenticator", id: 1497506650
+  mas "Kindle", id: 405399194
 end
