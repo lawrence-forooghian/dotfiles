@@ -31,10 +31,12 @@ tap "homebrew/core"
 tap "jakehilborn/jakehilborn"
 tap "heroku/brew"
 
+cask "adobe-acrobat-reader"
 cask "alfred"
 cask "android-studio" # For Ably Android stuff
 cask "anki" if env.home?
 cask "arduino"
+cask "assinador-serpro"
 cask "bartender"
 cask "calibre" if env.home?
 cask "chef-workstation"
