@@ -35,6 +35,7 @@ Steps that need to be performed after `install.sh`. Some of these could probably
 - Set default calendar in Calendar
 - Add home dir to sidebar
 - Add Portuguese as a second language
+- Turn off “Today Notification” in Reminders
 
 ## Setup of other software
 
