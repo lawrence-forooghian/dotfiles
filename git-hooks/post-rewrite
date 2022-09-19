@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
-# e.g. TOOL_PATH=~/code/git-update-messages
-TOOL_PATH=~/code/git-update-messages
+# e.g. TOOL_PATH=~/code/personal/git-update-messages
+TOOL_PATH=~/code/personal/git-update-messages
 COMMAND_PATH="bin/hooks/post-rewrite"
 
 if [[ -z  "${TOOL_PATH}" ]]

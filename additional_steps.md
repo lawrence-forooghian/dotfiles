@@ -57,7 +57,7 @@ Steps that need to be performed after `install.sh`. Some of these could probably
 ## Setup of credentials
 
 - [Generate SSH key and add to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), adding the passphrase to Bitwarden
-- Switch the origin on ~/dotfiles and ~/code/git-update-messages to use SSH, not HTTPS
+- Switch the origin on ~/dotfiles and ~/code/personal/git-update-messages to use SSH, not HTTPS
 - Import GPG key to my GPG keychain (`gpg --import` with the `private.key` stored in Bitwarden)
 - Add Brazil digital certificate to keychain
 

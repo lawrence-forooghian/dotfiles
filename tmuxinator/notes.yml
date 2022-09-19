@@ -8,9 +8,9 @@ windows:
       root: ~/Nextcloud/notes
   <%- if %w(home all).include? ENV['DOTFILES_ENV'] %>
   - website:
-      root: ~/code/website
+      root: ~/code/personal/website
   - website-server:
-      root: ~/code/website
+      root: ~/code/personal/website
       panes:
         - script/server
   <%- end %>

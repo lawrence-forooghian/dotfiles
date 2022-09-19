@@ -152,8 +152,8 @@ set_up_dotfiles_ruby() {
 set_up_git_update_messages() {
 	pushd .
 
-	if [[ -e ~/code/git-update-messages ]]; then
-		log "~/code/git-update-messages already exists."
+	if [[ -e ~/code/personal/git-update-messages ]]; then
+		log "~/code/personal/git-update-messages already exists."
 	else
 		mkdir -p ~/code
 		cd ~/code
@@ -163,7 +163,7 @@ set_up_git_update_messages() {
 	fi
 
 	log "Setting up git-update-messages’s Ruby version and gems."
-	cd ~/code/git-update-messages
+	cd ~/code/personal/git-update-messages
 	install_ruby_version
 	bundle install
 

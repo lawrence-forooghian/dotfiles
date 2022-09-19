@@ -2,8 +2,8 @@ name: ably-extras
 
 windows:
   - docs:
-      root: ~/code/ably/docs
+      root: ~/code/work/ably/docs
   - js:
-      root: ~/code/ably/ably-js
+      root: ~/code/work/ably/ably-js
   - java:
-      root: ~/code/ably/ably-java
+      root: ~/code/work/ably/ably-java

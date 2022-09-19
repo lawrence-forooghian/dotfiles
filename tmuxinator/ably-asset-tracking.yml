@@ -1,0 +1,15 @@
+name: ably-asset-tracking
+
+windows:
+  - swift-editor:
+      root: ~/code/work/ably/ably-asset-tracking-swift
+      panes:
+          - vim
+  - swift-console:
+      root: ~/code/work/ably/ably-asset-tracking-swift
+  - android-editor:
+      root: ~/code/work/ably/ably-asset-tracking-android
+      panes:
+          - vim
+  - android-console:
+      root: ~/code/work/ably/ably-asset-tracking-android

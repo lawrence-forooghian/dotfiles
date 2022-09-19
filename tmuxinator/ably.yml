@@ -2,20 +2,20 @@ name: ably
 
 windows:
   - sdk-ed:
-      root: ~/code/ably/ably-cocoa
+      root: ~/code/work/ably/ably-cocoa
       panes:
         - vim
   - sdk-con:
-      root: ~/code/ably/ably-cocoa
+      root: ~/code/work/ably/ably-cocoa
   - aat-ed:
-      root: ~/code/ably/ably-asset-tracking-swift
+      root: ~/code/work/ably/ably-asset-tracking-swift
       panes:
         - vim
   - aat-con:
-      root: ~/code/ably/ably-asset-tracking-swift
+      root: ~/code/work/ably/ably-asset-tracking-swift
   - obs-con:
-      root: ~/code/ably/test-observability
+      root: ~/code/work/ably/test-observability
   - obs-serv:
-      root: ~/code/ably/test-observability
+      root: ~/code/work/ably/test-observability
       panes:
         - npm run-script start:dev
