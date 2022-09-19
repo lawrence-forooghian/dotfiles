@@ -36,12 +36,18 @@ Steps that need to be performed after `install.sh`. Some of these could probably
 - Add home dir to sidebar
 - Add Portuguese as a second language
 - Turn off “Today Notification” in Reminders
+- Change “New Finder windows show” Finder preference to home directory
+- Remove Recents from Finder’s sidebar preferences
+- Add `~/code` to Finder’s sidebar preferences
+- Delete all tags in Finder preferences
+- Remove tags from Finder’s sidebar preferences
 
 ## Setup of other software
 
 - Log in to Bitwarden
 - Add email accounts
 - Install and set up Backblaze
+- Install Logitech Options (to get battery level of keyboard)
 - Set up Alfred (preferences sync) and add Powerpack licence
 - Set up Bartender and add licence
 - Log in to:
