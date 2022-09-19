@@ -72,4 +72,7 @@ Plug 'udalov/kotlin-vim'
 " Textile
 Plug 'timcharper/textile.vim'
 
+" Twig (templating language used by Kimai 2 for invoices)
+Plug 'nelsyeung/twig.vim'
+
 call plug#end()
