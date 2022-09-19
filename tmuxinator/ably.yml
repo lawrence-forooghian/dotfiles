@@ -7,15 +7,3 @@ windows:
         - vim
   - sdk-con:
       root: ~/code/work/ably/ably-cocoa
-  - aat-ed:
-      root: ~/code/work/ably/ably-asset-tracking-swift
-      panes:
-        - vim
-  - aat-con:
-      root: ~/code/work/ably/ably-asset-tracking-swift
-  - obs-con:
-      root: ~/code/work/ably/test-observability
-  - obs-serv:
-      root: ~/code/work/ably/test-observability
-      panes:
-        - npm run-script start:dev

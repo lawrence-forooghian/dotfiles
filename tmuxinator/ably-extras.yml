@@ -7,3 +7,9 @@ windows:
       root: ~/code/work/ably/ably-js
   - java:
       root: ~/code/work/ably/ably-java
+  - obs-con:
+      root: ~/code/work/ably/test-observability
+  - obs-serv:
+      root: ~/code/work/ably/test-observability
+      panes:
+        - npm run-script start:dev
