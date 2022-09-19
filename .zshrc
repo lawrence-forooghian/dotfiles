@@ -85,6 +85,7 @@ alias lsa='ls -alh'
 alias less='less -R' # colors
 
 alias notes='tnr notes && tmux at -t notes'
+alias ably='tnr ably && tnr ably-extras && tnr ably-asset-tracking && tmux at -t ably'
 
 # Set up resolution / refresh rate / scaling for my Samsung TV.
 alias tv='displayplacer "id:5AB97DBE-C0BC-A81D-C1D2-7208ABDAD0D0+1A59AF89-04EA-AF12-1259-72A4A3F904C6 res:1920x1080 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0"'
