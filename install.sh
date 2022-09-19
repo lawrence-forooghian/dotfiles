@@ -240,6 +240,30 @@ launch_hammerspoon() {
 	fi
 }
 
+install_python_version_for_icloud_photos_downloader() {
+	eval "$(pyenv init --path)"
+
+	python_version="3.10.5"
+	# We do this check since replying no to the below makes it exit with 1:
+    # pyenv: /Users/lawrence/.pyenv/versions/3.10.5 already exists
+    # continue with installation? (y/N)
+	if pyenv versions | grep $python_version; then
+		log "Python version ${python_version} is already installed."
+	else
+		log "Installing Python version ${python_version}."
+		pyenv install $python_version
+	fi
+
+	pyenv global $python_version
+	pyenv rehash
+}
+
+install_icloud_photos_downloader() {
+	package_name="icloudpd"
+	log "Installing Python package ${package_name}."
+	pip install ${package_name}
+}
+
 # First we install Homebrew, which gives us the developer tools and Git.
 set_up_homebrew
 install_rosetta
@@ -256,5 +280,7 @@ change_shell
 create_emacs_autosaves_dir
 install_xcode
 launch_hammerspoon
+install_python_version_for_icloud_photos_downloader
+install_icloud_photos_downloader
 
 echo "Now follow the steps in the additional_steps file."
