@@ -44,15 +44,18 @@ cask "coconutbattery"
 cask "discord"
 cask "docker"
 cask "emacs" # This takes over the `emacs` command line and replaces with GUI
+cask "element" # For Bitwarden discussion
 cask "firefox"
 cask "google-chrome" if env.work? # Best WebRTC experience (e.g. whereby.com)
 cask "gpg-suite"
 cask "hammerspoon"
+cask "hakuneko" if env.home?
 cask "iterm2"
 cask "librecad"
 cask "libreoffice" if env.home?
 cask "macdown"
 cask "mactex" if env.home?
+cask "microsoft-office"
 cask "mos" # smooth scrolling with 3rd party mouse
 cask "netnewswire" if env.home?
 cask "nextcloud"
@@ -93,7 +96,7 @@ brew "mp4v2" # For converting Audible books
 brew "msgpack-tools"
 brew "ncdu"
 brew "plantuml" if env.work?
-brew "postgres" if env.work?
+brew "postgresql@14" if env.work?
 brew "pyenv"
 brew "q" # SQL-like querying of CSV
 brew "qpdf" # Used for removing passwords on PDFs: `qpdf --decrypt --replace-input --password=<password> 2020-04.pdf`
