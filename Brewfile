@@ -95,6 +95,7 @@ brew "jq" # At least, it does pretty-printing of JSON
 brew "mp4v2" # For converting Audible books
 brew "msgpack-tools"
 brew "ncdu"
+brew "ocrmypdf"
 brew "plantuml" if env.work?
 brew "postgresql@14" if env.work?
 brew "pyenv"
@@ -104,6 +105,7 @@ brew "rbenv"
 brew "reattach-to-user-namespace"
 brew "rename" # Used this to rename wedding pics to zero-pad them - https://stackoverflow.com/a/5418035
 brew "robotsandpencils/made/xcodes" # TODO fix – You need Xcode installed to install xcodes on M1: https://github.com/RobotsAndPencils/homebrew-made/issues/3, so to bootstrap things on a new machine I downloaded the xcodes binary from GitHub, put it in ~/dotfiles/bin, installed Xcode, then removed from ~/dotfiles/bin and installed using Homebrew.
+brew "tesseract-lang" # All languages for OCRmyPDF
 brew "tmux"
 brew "tree"
 brew "vim"
