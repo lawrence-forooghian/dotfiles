@@ -90,6 +90,7 @@ brew "git" # More up to date than the Apple version
 brew "git-absorb"
 brew "gnu-sed" # I don’t want to try and learn two seds right now
 brew "heroku"
+brew "inetutils" # ftp, telnet
 brew "jakehilborn/jakehilborn/displayplacer" if env.home?
 brew "jq" # At least, it does pretty-printing of JSON
 brew "mp4v2" # For converting Audible books
