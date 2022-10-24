@@ -112,6 +112,7 @@ brew "tmux"
 brew "tree"
 brew "vim"
 brew "watchman" # For Command-T
+brew "xcbeautify" # Used by ably-cocoa build
 brew "youtube-dl" if env.home?
 brew "yq" # jq but for YAML
 
