@@ -50,6 +50,7 @@ Steps that need to be performed after `install.sh`. Some of these could probably
 - Install Logitech Options (to get battery level of keyboard)
 - Set up Alfred (preferences sync) and add Powerpack licence
 - Set up Bartender and add licence
+- Add Cyberduck licence
 - Log in to:
   - Slack
   - Spotify
