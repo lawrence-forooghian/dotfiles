@@ -76,6 +76,7 @@ cask "visual-studio-code" if env.work? # Playing around with JS, not committed t
 cask "vlc" if env.home?
 cask "vmware-fusion" # I have a free licence
 cask "whatsapp" if env.home?
+cask "xcodes"
 cask "zoom"
 
 brew "ack"
