@@ -13,3 +13,5 @@ windows:
           - vim
   - android-console:
       root: ~/code/work/ably/ably-asset-tracking-android
+  - common:
+      root: ~/code/work/ably/ably-asset-tracking-common

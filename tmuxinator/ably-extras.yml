@@ -1,6 +1,10 @@
 name: ably-extras
 
 windows:
+  - spec:
+      root: ~/code/work/ably/specification
+  - canonical:
+      root: ~/code/work/ably/sdk-api-reference
   - docs:
       root: ~/code/work/ably/docs
   - js:
@@ -13,3 +17,5 @@ windows:
       root: ~/code/work/ably/test-observability
       panes:
         - npm run-script start:dev
+  - obs-action:
+      root: ~/code/work/ably/test-observability-action
