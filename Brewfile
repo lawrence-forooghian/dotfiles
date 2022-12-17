@@ -61,6 +61,7 @@ cask "netnewswire" if env.home?
 cask "nextcloud"
 cask "nordvpn"
 cask "obs" # Useful for cropping and zooming webcam
+cask "qlmarkdown" # Quick Look for Markdown
 cask "sf-symbols"
 cask "skype" if env.home?
 cask "slack" if env.home?
