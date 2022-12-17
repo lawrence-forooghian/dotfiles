@@ -2,10 +2,10 @@ name: notes
 root: ~/
 
 windows:
-  - org:
-      root: ~/Documents/org
   - notes:
       root: ~/Documents/Notes
+  - org:
+      root: ~/Documents/org
   <%- if %w(home all).include? ENV['DOTFILES_ENV'] %>
   - website:
       root: ~/code/personal/website
