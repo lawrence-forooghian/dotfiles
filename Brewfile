@@ -127,4 +127,9 @@ if env.home?
   mas "DevCleaner", id: 1388020431
   mas "Yubico Authenticator", id: 1497506650
   mas "Kindle", id: 405399194
+  mas "Broadcasts", id: 1469995354
+
+  # mas doesn’t currently support installing iOS apps (https://github.com/mas-cli/mas/issues/321#issuecomment-804546339);
+  # macOS gives a "Current Version Not Compatible" error
+  # mas "Overcast", id: 888422857
 end
