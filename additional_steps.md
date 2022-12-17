@@ -32,6 +32,7 @@ Steps that need to be performed after `install.sh`. Some of these could probably
 - Turn off Screen Time (sometimes gets turned on as part of initial setup?)
 - Add São Paulo timezone to Calendar
 - Disable Holidays calendar
+- Disable Siri suggestions in calendar
 - Set default calendar in Calendar
 - Add home dir to sidebar
 - Add Portuguese as a second language
