@@ -71,7 +71,6 @@ cask "transmission" if env.home?
 cask "transmission-remote-gui"
 cask "tunnelblick" if env.home?
 cask "vagrant"
-cask "vapor"
 cask "visual-studio-code" if env.work? # Playing around with JS, not committed to sorting out tooling yet
 cask "vlc" if env.home?
 cask "vmware-fusion" # I have a free licence
@@ -111,6 +110,7 @@ brew "robotsandpencils/made/xcodes" # TODO fix – You need Xcode installed to i
 brew "tesseract-lang" # All languages for OCRmyPDF
 brew "tmux"
 brew "tree"
+brew "vapor"
 brew "vim"
 brew "watchman" # For Command-T
 brew "xcbeautify" # Used by ably-cocoa build
