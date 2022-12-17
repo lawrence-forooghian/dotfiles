@@ -39,7 +39,6 @@ cask "arduino"
 cask "assinador-serpro"
 cask "bartender"
 cask "calibre" if env.home?
-cask "chef-workstation"
 cask "coconutbattery"
 cask "cyberduck" # GUI for FTP uploads (built-in macOS FTP is read-only)
 cask "discord"
