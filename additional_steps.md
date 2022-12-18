@@ -42,6 +42,12 @@ Steps that need to be performed after `install.sh`. Some of these could probably
 - Add `~/code` to Finder’s sidebar preferences
 - Delete all tags in Finder preferences
 - Remove tags from Finder’s sidebar preferences
+- Set Finder to always show in List view
+
+  1. Browse to any folder
+  2. Choose "Show View Options" in View Menu
+  3. Tick "Always open in list view" and "Browse in list view"
+  4. Click "Use as Defaults"
 
 ## Setup of other software
 
