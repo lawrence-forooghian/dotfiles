@@ -38,7 +38,7 @@ cask "anki" if env.home?
 cask "arduino"
 cask "assinador-serpro"
 cask "bartender"
-cask "calibre" if env.home?
+cask "calibre" if env.home? # For some reason this is downloading _really_ slowly
 cask "coconutbattery"
 cask "cyberduck" # GUI for FTP uploads (built-in macOS FTP is read-only)
 cask "discord"
