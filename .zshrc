@@ -122,3 +122,7 @@ alias tnr="${DOTFILES_DIR}/bin/dotfiles-bundle-exec tmuxinator start --attach fa
 
 # Open in the running Emacs server and then detach.
 alias ec="emacsclient -n"
+
+# From https://developer.android.com/studio/command-line/variables
+export ANDROID_HOME=~/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
