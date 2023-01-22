@@ -76,6 +76,7 @@ cask "visual-studio-code" if env.work? # Playing around with JS, not committed t
 cask "vlc" if env.home?
 cask "vmware-fusion" # I have a free licence
 cask "whatsapp" if env.home?
+cask "wireshark"
 cask "xcodes"
 cask "zoom"
 
@@ -93,12 +94,14 @@ brew "git-absorb"
 brew "gnu-sed" # I don’t want to try and learn two seds right now
 brew "heroku"
 brew "inetutils" # ftp, telnet
+brew "iperf" # Measuring transfer speed between two hosts (the other running an iperf server)
 brew "jakehilborn/jakehilborn/displayplacer" if env.home?
 brew "jq" # At least, it does pretty-printing of JSON
 brew "mp4v2" # For converting Audible books
 brew "msgpack-tools"
 brew "ncdu"
 brew "ocrmypdf"
+brew "pandoc" # Used for my CV
 brew "plantuml" if env.work?
 brew "postgresql@14" if env.work?
 brew "pyenv"
@@ -115,6 +118,7 @@ brew "vapor"
 brew "vim"
 brew "watchman" # For Command-T
 brew "xcbeautify" # Used by ably-cocoa build
+brew "ykman" # YubiKey Manager CLI
 brew "youtube-dl" if env.home?
 brew "yq" # jq but for YAML
 
