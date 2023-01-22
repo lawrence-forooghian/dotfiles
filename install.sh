@@ -28,7 +28,7 @@ install_homebrew_packages() {
 
 	cd ~/dotfiles
 	log "Installing Homebrew packages."
-	brew bundle
+	brew bundle --verbose
 
 	popd
 }
