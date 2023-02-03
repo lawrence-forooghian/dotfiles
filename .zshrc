@@ -87,8 +87,6 @@ alias less='less -R' # colors
 alias notes='tnr notes && tmux at -t notes'
 alias ably='tnr ably/ably && tnr ably/ably-extras && tnr ably/ably-asset-tracking && tmux at -t ably'
 
-# Set up resolution / refresh rate / scaling for my Samsung TV.
-alias tv='displayplacer "id:5AB97DBE-C0BC-A81D-C1D2-7208ABDAD0D0+1A59AF89-04EA-AF12-1259-72A4A3F904C6 res:1920x1080 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0"'
 
 # https://github.com/pyenv/pyenv#basic-github-checkout
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -103,23 +101,12 @@ BASE16_SHELL="${DOTFILES_DIR}/vendor/base16-shell/"
 
 base16_default-dark
 
-export PATH="${PATH}:/Applications/Postgres.app/Contents/Versions/latest/bin:${DOTFILES_DIR}/git-commands"
-# When using PlantUML installed via Homebrew we want org-babel’s
-# invocation of `java` to use the Homebrew-provided OpenJDK – TODO
-# this is nasty because it essentially overrides the java command,
-# which Homebrew doesn’t want to do.
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-
-# This is suggested by the Firefox bootstrap script
-export PATH="${HOME}/.mozbuild/git-cinnabar:$PATH"
-
 export PATH="${HOME}/dotfiles/bin:$PATH"
 
 export TMUXINATOR_CONFIG="${DOTFILES_DIR}/tmuxinator"
 source "${DOTFILES_DIR}/vendor/tmuxinator.zsh"
 # For starting multiple sessions in one go.
 alias tnr="${DOTFILES_DIR}/bin/dotfiles-bundle-exec tmuxinator start --attach false"
-
 
 # From https://developer.android.com/studio/command-line/variables
 export ANDROID_HOME=~/Library/Android/sdk
