@@ -42,6 +42,7 @@ cask "bartender"
 cask "calibre" if env.home? # For some reason this is downloading _really_ slowly
 cask "coconutbattery"
 cask "cyberduck" # GUI for FTP uploads (built-in macOS FTP is read-only)
+cask "darktable"
 cask "discord"
 cask "docker"
 cask "element" # For Bitwarden discussion
@@ -49,7 +50,6 @@ cask "firefox"
 cask "google-chrome" if env.work? # Best WebRTC experience (e.g. whereby.com)
 cask "gpg-suite"
 cask "hammerspoon"
-cask "hakuneko" if env.home?
 cask "iterm2"
 cask "librecad"
 cask "libreoffice" if env.home?
@@ -58,7 +58,6 @@ cask "mactex" if env.home?
 cask "microsoft-office"
 cask "mos" # smooth scrolling with 3rd party mouse
 cask "netnewswire" if env.home?
-cask "nextcloud"
 cask "nordvpn"
 cask "obs" # Useful for cropping and zooming webcam
 cask "qlmarkdown" # Quick Look for Markdown
