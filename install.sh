@@ -255,6 +255,25 @@ install_icloud_photos_downloader() {
 	pip install ${package_name}
 }
 
+install_asdf() {
+	if [[ -e ~/.asdf ]]; then
+		log "asdf is already installed."
+	else
+		log "Installing asdf."
+
+		git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.1
+	fi
+
+	if asdf plugin list | grep '\bjava\b'
+	then
+		log "asdf Java plugin is already installed."
+	else
+		log "Installing asdf Java plugin."
+
+		asdf plugin add java https://github.com/halcyon/asdf-java.git
+	fi
+}
+
 # First we install Homebrew, which gives us the developer tools and Git.
 set_up_homebrew
 install_rosetta
@@ -272,5 +291,6 @@ install_xcode
 launch_hammerspoon
 install_python_version_for_icloud_photos_downloader
 install_icloud_photos_downloader
+install_asdf
 
 echo "Now follow the steps in the additional_steps file."

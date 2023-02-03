@@ -33,6 +33,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(rbenv init -)"
 eval "$(fnm env --use-on-cd)"
 
+# https://asdf-vm.com/guide/getting-started.html#_3-install-asdf
+. $HOME/.asdf/asdf.sh
+fpath=(${ASDF_DIR}/completions $fpath)
+
 # https://github.com/pyenv/pyenv#basic-github-checkout
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init --path)"
