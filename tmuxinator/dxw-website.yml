@@ -1,8 +1,0 @@
-name: dxw-website
-root: ~/code/dxw-website/app
-
-windows:
-  - editor: vim
-  - console:
-  #- server: bundle exec foreman start
-  #- logs: tail -f log/development.log

@@ -1,8 +1,0 @@
-name: transition
-root: ~/code/ukri-transition/transition
-
-windows:
-  - editor: vim
-  - console:
-  - server: bundle exec rails server
-  - logs: tail -f log/development.log

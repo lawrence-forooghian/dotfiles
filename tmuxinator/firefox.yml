@@ -1,5 +1,0 @@
-name: firefox
-
-windows:
-  - firefox:
-      root: ~/code/firefox

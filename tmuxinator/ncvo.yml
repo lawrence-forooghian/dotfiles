@@ -1,8 +1,0 @@
-name: ncvo
-root: ~/code/NCVO-training-events
-
-windows:
-  - editor: vim
-  - console:
-  - server: bundle exec rails server
-  - logs: tail -f log/development.log

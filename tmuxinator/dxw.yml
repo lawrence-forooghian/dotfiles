@@ -1,8 +1,0 @@
-name: dxw
-root: ~/
-
-windows:
-  - tech-team-rfcs:
-      root: ~/code/tech-team-rfcs
-  - playbook:
-      root: ~/code/playbook
