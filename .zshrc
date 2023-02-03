@@ -19,9 +19,6 @@ export KEYTIMEOUT=1
 autoload colors; colors
 export PS1="%B[%{$fg[white]%}%n%{$reset_color%}%b@%B%{$fg[white]%}%m%b%{$reset_color%}:%~%B]%b "
 
-# This apparently gives me git completion... erm.
-autoload -U compinit && compinit
-
 # Set up history.
 export HISTSIZE=10000
 export SAVEHIST=10000
@@ -41,6 +38,9 @@ fpath=(${ASDF_DIR}/completions $fpath)
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init --path)"
 fi
+
+# Set up completions (this is an incantantion copied from various places).
+autoload -Uz compinit && compinit
 
 ## Aliases
 
