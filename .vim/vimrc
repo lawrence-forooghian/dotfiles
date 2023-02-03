@@ -147,6 +147,7 @@ let g:instant_markdown_autostart = 0
 "let test#ruby#rspec#executable = 'bin/dspec'
 
 " --- Filetypes for some common files ---
+" TODO why is this not working, e.g. on Matchfile?
 augroup ios
     autocmd!
     autocmd BufRead *.stringsdict :set filetype=xml
