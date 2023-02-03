@@ -27,9 +27,16 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 export HISTFILE=~/.zsh_history
 
+## Package managers and tool managers
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(rbenv init -)"
 eval "$(fnm env --use-on-cd)"
+
+# https://github.com/pyenv/pyenv#basic-github-checkout
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init --path)"
+fi
 
 ## Aliases
 
@@ -86,12 +93,6 @@ alias less='less -R' # colors
 
 alias notes='tnr notes && tmux at -t notes'
 alias ably='tnr ably/ably && tnr ably/ably-extras && tnr ably/ably-asset-tracking && tmux at -t ably'
-
-
-# https://github.com/pyenv/pyenv#basic-github-checkout
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init --path)"
-fi
 
 # Base16 Shell
 BASE16_SHELL="${DOTFILES_DIR}/vendor/base16-shell/"
