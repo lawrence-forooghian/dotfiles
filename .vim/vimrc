@@ -205,4 +205,6 @@ runtime interventions.vim
 highlight SelectedSearchResult term=bold cterm=bold ctermfg=DarkBlue ctermbg=LightMagenta guifg=#80a0ff gui=bold
 highlight link Searchlight SelectedSearchResult
 
-runtime coc_config.vim
+" TODO removing this til I understand better how it works, since it’s a
+" nuisance to deal with its confusing popup menu
+"runtime coc_config.vim
