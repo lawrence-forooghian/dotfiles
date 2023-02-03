@@ -45,13 +45,7 @@ source "${DOTFILES_DIR}/zsh/alias/ios.sh"
 source "${DOTFILES_DIR}/zsh/alias/ruby.sh"
 source "${DOTFILES_DIR}/zsh/alias/other.sh"
 
-# Base16 Shell
-BASE16_SHELL="${DOTFILES_DIR}/vendor/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
-
-base16_default-dark
+source "${DOTFILES_DIR}/zsh/base16-shell.sh"
 
 export PATH="${HOME}/dotfiles/bin:$PATH"
 
