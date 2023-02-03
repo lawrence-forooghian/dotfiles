@@ -43,7 +43,6 @@ cask "coconutbattery"
 cask "cyberduck" # GUI for FTP uploads (built-in macOS FTP is read-only)
 cask "discord"
 cask "docker"
-cask "emacs" # This takes over the `emacs` command line and replaces with GUI
 cask "element" # For Bitwarden discussion
 cask "firefox"
 cask "google-chrome" if env.work? # Best WebRTC experience (e.g. whereby.com)

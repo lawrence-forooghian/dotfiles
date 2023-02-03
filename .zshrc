@@ -120,8 +120,6 @@ source "${DOTFILES_DIR}/vendor/tmuxinator.zsh"
 # For starting multiple sessions in one go.
 alias tnr="${DOTFILES_DIR}/bin/dotfiles-bundle-exec tmuxinator start --attach false"
 
-# Open in the running Emacs server and then detach.
-alias ec="emacsclient -n"
 
 # From https://developer.android.com/studio/command-line/variables
 export ANDROID_HOME=~/Library/Android/sdk

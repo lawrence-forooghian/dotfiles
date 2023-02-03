@@ -54,7 +54,7 @@ install_config_files() {
 
 	cd ~
 
-	for i in .tmux.conf .vim .zsh_profile .zshrc .inputrc .emacs .ackrc .gitconfig .hammerspoon; do
+	for i in .tmux.conf .vim .zsh_profile .zshrc .inputrc .ackrc .gitconfig .hammerspoon; do
 		if [[ -e $i ]]; then
 			log "~/$i already exists."
 		else
@@ -199,15 +199,6 @@ change_shell() {
 	fi
 }
 
-create_emacs_autosaves_dir() {
-	if [[ -e ~/.emacs_autosaves ]]; then
-		log "~/.emacs_autosaves already exists."
-	else
-		log "Creating ~/.emacs_autosaves."
-		mkdir ~/.emacs_autosaves
-	fi
-}
-
 install_xcode() {
 	if [[ $(xcodes installed | wc -l) -eq 0 ]]; then
 		log "Installing latest release version of Xcode."
@@ -277,7 +268,6 @@ set_up_dotfiles_ruby
 set_up_git_update_messages
 create_local_gitconfig
 change_shell
-create_emacs_autosaves_dir
 install_xcode
 launch_hammerspoon
 install_python_version_for_icloud_photos_downloader
