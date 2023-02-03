@@ -204,3 +204,5 @@ runtime interventions.vim
 " term=bold doesn’t seem to do anything, cterm=bold does
 highlight SelectedSearchResult term=bold cterm=bold ctermfg=DarkBlue ctermbg=LightMagenta guifg=#80a0ff gui=bold
 highlight link Searchlight SelectedSearchResult
+
+runtime coc_config.vim
