@@ -40,59 +40,10 @@ fi
 
 ## Aliases
 
-# Git aliases
-default_remote_branch () {
-  # If the origin/HEAD ref doesn’t exist, try creating it from the remote
-  # repo’s head by running `git remote set-head origin --auto`
-  git rev-parse --abbrev-ref origin/HEAD
-}
-alias ga="git add"
-alias gab='git absorb'
-alias gam='git commit --amend'
-# "git branch history" - when checking out master to do something and then
-# forgetting the name of my previous branch
-alias gbh="git reflog | grep 'checkout:' | head -n 20"
-alias gc="git commit"
-alias gco="git checkout"
-alias gd="git diff"
-alias gf='git fetch origin'
-alias gg='git grep'
-alias gl='git log'
-alias gp='git push -u origin HEAD'
-alias gpf='git push --force-with-lease'
-alias gpu='git pull'
-alias grc='git rebase --continue'
-alias gr="git rebase \`default_remote_branch\`"
-alias gri="git rebase -i \`default_remote_branch\`"
-# This is "git review" - a thing to do before PRs, e.g. for finding TODOs. I
-# haven’t included -p because sometimes it’s useful to just see the commits.
-# But can add -p on when calling it
-alias grv="git log \`default_remote_branch\`..HEAD"
-# "git repository root" - cd to repo root
-alias grr="cd \`git rev-parse --show-toplevel\`"
-alias gs='git status'
-alias gsh='git show'
-alias gsu='git submodule update --init --recursive'
-
-# Ruby aliases
-alias be='bundle exec'
-alias br='bundle exec rake'
-alias bs='bundle exec rspec'
-alias rc='bundle exec rubocop -a'
-alias sf='bundle exec standardrb --fix'
-alias rt="${DOTFILES_DIR}/bin/dotfiles-bundle-exec ripper-tags -R --exclude=vendor"
-
-# iOS aliases
-alias pi='bundle exec pod install'
-
-# Universal aliases
-alias grep='grep --color=auto'
-alias rm='rm -i'
-alias lsa='ls -alh'
-alias less='less -R' # colors
-
-alias notes='tnr notes && tmux at -t notes'
-alias ably='tnr ably/ably && tnr ably/ably-extras && tnr ably/ably-asset-tracking && tmux at -t ably'
+source "${DOTFILES_DIR}/zsh/alias/git.sh"
+source "${DOTFILES_DIR}/zsh/alias/ios.sh"
+source "${DOTFILES_DIR}/zsh/alias/ruby.sh"
+source "${DOTFILES_DIR}/zsh/alias/other.sh"
 
 # Base16 Shell
 BASE16_SHELL="${DOTFILES_DIR}/vendor/base16-shell/"
@@ -106,8 +57,6 @@ export PATH="${HOME}/dotfiles/bin:$PATH"
 
 export TMUXINATOR_CONFIG="${DOTFILES_DIR}/tmuxinator"
 source "${DOTFILES_DIR}/vendor/tmuxinator.zsh"
-# For starting multiple sessions in one go.
-alias tnr="${DOTFILES_DIR}/bin/dotfiles-bundle-exec tmuxinator start --attach false"
 
 # From https://developer.android.com/studio/command-line/variables
 export ANDROID_HOME=~/Library/Android/sdk
