@@ -27,6 +27,7 @@ env = DotfilesEnv.new
 
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-versions" # for whatsapp-alpha
 tap "homebrew/core"
 tap "jakehilborn/jakehilborn"
 tap "heroku/brew"
@@ -74,7 +75,7 @@ cask "vagrant"
 cask "visual-studio-code" if env.work? # Playing around with JS, not committed to sorting out tooling yet
 cask "vlc" if env.home?
 cask "vmware-fusion" # I have a free licence
-cask "whatsapp" if env.home?
+cask "whatsapp-alpha" if env.home?
 cask "wireshark"
 cask "xcodes"
 cask "zoom"
