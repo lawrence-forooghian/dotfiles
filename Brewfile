@@ -115,7 +115,6 @@ brew "tmux"
 brew "tree"
 brew "vapor"
 brew "vim"
-brew "watchman" # For Command-T
 brew "xcbeautify" # Used by ably-cocoa build
 brew "ykman" # YubiKey Manager CLI
 brew "youtube-dl" if env.home?

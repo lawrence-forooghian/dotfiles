@@ -96,7 +96,7 @@ map <leader>un :TestNearest<CR>
 map <leader>uf :TestFile<CR>
 map <leader>us :TestSuite<CR>
 
-nnoremap <silent> <leader>b :CommandTMRU<CR>
+nnoremap <silent> <leader>t :FZF<CR>
 
 nnoremap <Leader>ns :nohlsearch<cr>
 nnoremap <Leader>nt :NERDTreeToggle<cr>
@@ -125,8 +125,6 @@ let g:NERDTreeShowHidden=1
 " and InsertLeave may suffice
 set autoread
 autocmd CursorHold,CursorHoldI,CursorMoved,InsertEnter,InsertLeave * checktime
-
-let g:CommandTFileScanner = "watchman"
 
 let g:airline#extensions#branch#enabled = 0
 

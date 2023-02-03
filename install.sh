@@ -117,9 +117,6 @@ set_up_vim() {
 	# takes effect on startup it means it doesn’t run synchronously and there’s
 	# no way to quit once it’s complete, so hard to use in a script.
 	vim -c 'CocInstall -sync coc-tsserver coc-prettier coc-eslint coc-sourcekit' -c 'qa'
-
-	log "Rebuilding Command-T extension."
-	~/dotfiles/bin/rebuild_commandt_extension
 }
 
 install_ruby_version() {

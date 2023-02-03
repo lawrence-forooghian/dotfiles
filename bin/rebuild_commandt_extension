@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# Run this after Homebrew upgrades Ruby.
-
-set -e
-
-cd ~/.vim/plugged/command-t/ruby/command-t/ext/command-t
-/opt/homebrew/opt/ruby/bin/ruby extconf.rb
-make install

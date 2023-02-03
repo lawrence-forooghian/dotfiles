@@ -23,7 +23,7 @@ Plug 'weilbith/nerdtree_choosewin-plugin'
 Plug 'scrooloose/nerdtree'
 Plug 'mileszs/ack.vim'
 Plug 'vim-scripts/a.vim'
-Plug 'wincent/command-t'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 " Git
 " I am using this for :Gbrowse
