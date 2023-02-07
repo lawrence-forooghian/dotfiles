@@ -51,6 +51,7 @@ cask "google-chrome" if env.work? # Best WebRTC experience (e.g. whereby.com)
 cask "gpg-suite"
 cask "hammerspoon"
 cask "iterm2"
+cask "keyboardcleantool"
 cask "librecad"
 cask "libreoffice" if env.home?
 cask "macdown"
