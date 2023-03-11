@@ -49,6 +49,8 @@ Steps that need to be performed after `install.sh`. Some of these could probably
   3. Tick "Always open in list view" and "Browse in list view"
   4. Click "Use as Defaults"
 
+- [Stop Option-Space from inserting a non-breaking space](https://superuser.com/a/142573) — these are annoying because they sometimes cause a non-breaking space to be inserting after doing e.g. Option-3 to insert a Markdown heading and then typing a space. (Could automate this one sometime.)
+
 ## Setup of other software
 
 - Log in to Bitwarden
