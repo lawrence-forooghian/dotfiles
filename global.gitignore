@@ -7,6 +7,5 @@
 
 ## Files I use to control per-repo behaviour of tools that aren’t widely used
 
-.watchmanconfig
 .ackrc
 .projections.json
