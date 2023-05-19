@@ -150,7 +150,6 @@ let g:choosewin_overlay_enable = 1
 "let test#ruby#rspec#executable = 'bin/dspec'
 
 " --- Filetypes for some common files ---
-" TODO why is this not working, e.g. on Matchfile?
 augroup ios
     autocmd!
     autocmd BufRead *.stringsdict :set filetype=xml
@@ -182,7 +181,7 @@ augroup json
 augroup END
 
 " --- Recognise .gitconfig_local
-augroup ios
+augroup git
     autocmd!
     autocmd BufRead .gitconfig_local :set filetype=gitconfig
 augroup END
