@@ -123,6 +123,9 @@ command! GrabUUID let @u = system("uuidgen | tr '[:upper:]' '[:lower:]' | tr -d 
 
 let g:NERDTreeShowLineNumbers=1
 let g:NERDTreeShowHidden=1
+" Ignore the same 'junk' files as global.gitignore (not sure if there’s an
+" easy way to DRY this, since they use different syntax)
+let g:NERDTreeIgnore=['\.sw\w$', '.DS_Store']
 
 " Testing - want console vim to warn me like MacVim does when an open file
 " changes externally
