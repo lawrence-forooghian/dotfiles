@@ -96,7 +96,11 @@ map <leader>un :TestNearest<CR>
 map <leader>uf :TestFile<CR>
 map <leader>us :TestSuite<CR>
 
-nnoremap <silent> <leader>t :FZF<CR>
+" Use git ls-files. Of the list of commands that fzf.vim provides, I think
+" this gives what I want — allows me to access important hidden files e.g.
+" .github/workflows (which :Files doesn’t), whilst excluding .gitignore stuff
+" like node_modules.
+nnoremap <silent> <leader>t :GitFiles<CR>
 
 nnoremap <Leader>ns :nohlsearch<cr>
 nnoremap <Leader>nt :NERDTreeToggle<cr>

@@ -24,6 +24,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'mileszs/ack.vim'
 Plug 'vim-scripts/a.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Handy commands on top of the core fzf integration — e.g. for listing
+" buffers, or doing git ls-files
+Plug 'junegunn/fzf.vim'
 
 " Git
 " I am using this for :Gbrowse
