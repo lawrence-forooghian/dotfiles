@@ -91,6 +91,7 @@ brew "gh"
 brew "git" # More up to date than the Apple version
 brew "git-absorb"
 brew "gnu-sed" # I don’t want to try and learn two seds right now
+brew "graphviz"
 brew "heroku"
 brew "inetutils" # ftp, telnet
 brew "iperf" # Measuring transfer speed between two hosts (the other running an iperf server)
@@ -110,6 +111,7 @@ brew "rbenv"
 brew "reattach-to-user-namespace"
 brew "rename" # Used this to rename wedding pics to zero-pad them - https://stackoverflow.com/a/5418035
 brew "robotsandpencils/made/xcodes" # TODO fix – You need Xcode installed to install xcodes on M1: https://github.com/RobotsAndPencils/homebrew-made/issues/3, so to bootstrap things on a new machine I downloaded the xcodes binary from GitHub, put it in ~/dotfiles/bin, installed Xcode, then removed from ~/dotfiles/bin and installed using Homebrew.
+brew "streamlink" # For downloading e.g. HLS streams
 brew "tesseract-lang" # All languages for OCRmyPDF
 brew "tmux"
 brew "tree"
