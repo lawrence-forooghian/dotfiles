@@ -3,5 +3,7 @@
     "coc.source.around.enable": false,
     "coc.source.buffer.enable": false,
     "coc.source.file.enable": false,
-    "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact"]
+
+    // This is a nice idea but it has problems — sometimes you don’t want to mess with the formatting of a repo that doesn’t use linter / Prettier. Sometimes you’re in the middle of a refactor that introduces nesting, and don’t want to format yet so that the diff is more readable.
+    // "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact"]
 }
