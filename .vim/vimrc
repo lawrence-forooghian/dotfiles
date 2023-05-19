@@ -198,6 +198,13 @@ source ~/.vim/plugins.vim
 if filereadable(expand("~/.vimrc_background"))
     let base16colorspace=256
     source ~/.vimrc_background
+
+    " Fix indistinguishable CoC popup menu selection highlight, copied from
+    " https://github.com/neoclide/coc.nvim/wiki/F.A.Q#the-selection-highlight-does-not-look-good
+    " That comment suggests it might be an issue with the colour scheme I’m
+    " using 🤷
+    hi CocMenuSel ctermbg=237 guibg=#13354A
+    autocmd ColorScheme * hi CocMenuSel ctermbg=237 guibg=#13354A
 endif
 
 filetype plugin indent on " Required by Vundle
@@ -209,6 +216,4 @@ runtime interventions.vim
 highlight SelectedSearchResult term=bold cterm=bold ctermfg=DarkBlue ctermbg=LightMagenta guifg=#80a0ff gui=bold
 highlight link Searchlight SelectedSearchResult
 
-" TODO removing this til I understand better how it works, since it’s a
-" nuisance to deal with its confusing popup menu
-"runtime coc_config.vim
+runtime coc_config.vim
