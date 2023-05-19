@@ -1,0 +1,5 @@
+name: ably-personal
+
+windows:
+  - swift:
+      root: ~/code/personal/ably-swift
