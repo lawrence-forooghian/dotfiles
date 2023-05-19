@@ -101,6 +101,7 @@ map <leader>us :TestSuite<CR>
 " .github/workflows (which :Files doesn’t), whilst excluding .gitignore stuff
 " like node_modules.
 nnoremap <silent> <leader>t :GitFiles<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
 
 nnoremap <Leader>ns :nohlsearch<cr>
 nnoremap <Leader>nt :NERDTreeToggle<cr>
