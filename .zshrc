@@ -23,6 +23,10 @@ export PS1="%B[%{$fg[white]%}%n%{$reset_color%}%b@%B%{$fg[white]%}%m%b%{$reset_c
 export HISTSIZE=10000
 export SAVEHIST=10000
 export HISTFILE=~/.zsh_history
+# > This option works like APPEND_HISTORY except that new history
+# > lines are added to the $HISTFILE incrementally (as soon as they
+# > are entered), rather than waiting until the shell exits.
+setopt INC_APPEND_HISTORY
 
 ## Package managers and tool managers
 
