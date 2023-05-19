@@ -117,7 +117,7 @@ brew "vapor"
 brew "vim"
 brew "xcbeautify" # Used by ably-cocoa build
 brew "ykman" # YubiKey Manager CLI
-brew "youtube-dl" if env.home?
+brew "yt-dlp" if env.home?
 brew "yq" # jq but for YAML
 
 # TODO if I like Seamly2D / Valentina, create a cask for it
