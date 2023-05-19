@@ -54,7 +54,6 @@ cask "iterm2"
 cask "keyboardcleantool"
 cask "librecad"
 cask "libreoffice" if env.home?
-cask "macdown"
 cask "mactex" if env.home?
 cask "microsoft-office"
 cask "mos" # smooth scrolling with 3rd party mouse
