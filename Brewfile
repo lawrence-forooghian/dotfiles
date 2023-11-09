@@ -32,41 +32,41 @@ tap "jakehilborn/jakehilborn"
 tap "heroku/brew"
 tap "teamookla/speedtest"
 
-cask "adobe-acrobat-reader"
 cask "alfred"
 cask "android-studio" # For Ably Android stuff
 cask "anki" if env.home?
 cask "arduino"
 cask "assinador-serpro"
 cask "bartender"
+cask "backblaze-downloader"
+cask "bbc-iplayer-downloads"
 cask "calibre" if env.home? # For some reason this is downloading _really_ slowly
 cask "coconutbattery"
 cask "cyberduck" # GUI for FTP uploads (built-in macOS FTP is read-only)
-cask "darktable"
-cask "discord"
 cask "docker"
-cask "element" # For Bitwarden discussion
+cask "drawio"
 cask "firefox"
 cask "google-chrome" if env.work? # Best WebRTC experience (e.g. whereby.com)
 cask "gpg-suite"
 cask "hammerspoon"
+cask "horos" # DICOM viewer (medical exams)
 cask "iina" # Like VLC but more Mac-like (PIP etc)
+cask "imagemagick"
 cask "iterm2"
 cask "keyboardcleantool"
-cask "librecad"
 cask "libreoffice" if env.home?
 cask "mactex" if env.home?
 cask "microsoft-office"
-cask "mos" # smooth scrolling with 3rd party mouse
-cask "netnewswire" if env.home?
 cask "nordvpn"
-cask "obs" # Useful for cropping and zooming webcam
 cask "parallels"
+cask "qflipper"
 cask "qlmarkdown" # Quick Look for Markdown
 cask "sf-symbols"
 cask "skype" if env.home?
 cask "slack" if env.home?
+cask "sony-ps-remote-play"
 cask "spotify"
+cask "steam"
 cask "the-unarchiver" if env.home?
 cask "tomighty"
 cask "transmission" if env.home?
@@ -93,6 +93,7 @@ brew "gh"
 brew "ghcup" # Haskell version manager (for Haskell School of Music book)
 brew "git" # More up to date than the Apple version
 brew "git-absorb"
+brew "go"
 brew "gnu-sed" # I don’t want to try and learn two seds right now
 brew "graphviz"
 brew "heroku"
