@@ -61,6 +61,7 @@ cask "mos" # smooth scrolling with 3rd party mouse
 cask "netnewswire" if env.home?
 cask "nordvpn"
 cask "obs" # Useful for cropping and zooming webcam
+cask "parallels"
 cask "qlmarkdown" # Quick Look for Markdown
 cask "sf-symbols"
 cask "skype" if env.home?
@@ -74,7 +75,6 @@ cask "tunnelblick" if env.home?
 cask "vagrant"
 cask "visual-studio-code" if env.work? # Playing around with JS, not committed to sorting out tooling yet
 cask "vlc" if env.home?
-cask "vmware-fusion" # I have a free licence
 cask "whatsapp" if env.home?
 cask "wireshark"
 cask "xcodes"
