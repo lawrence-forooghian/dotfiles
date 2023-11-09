@@ -7,8 +7,6 @@ windows:
       root: ~/code/work/ably/sdk-api-reference
   - docs:
       root: ~/code/work/ably/docs
-  - js:
-      root: ~/code/work/ably/ably-js
   - java:
       root: ~/code/work/ably/ably-java
   - obs-con:

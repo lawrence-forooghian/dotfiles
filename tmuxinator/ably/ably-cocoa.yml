@@ -1,0 +1,8 @@
+name: ably-cocoa
+root: ~/code/work/ably/ably-cocoa
+
+windows:
+  - editor:
+      panes:
+        - vim
+  - console:

@@ -1,9 +1,0 @@
-name: ably
-
-windows:
-  - sdk-ed:
-      root: ~/code/work/ably/ably-cocoa
-      panes:
-        - vim
-  - sdk-con:
-      root: ~/code/work/ably/ably-cocoa
