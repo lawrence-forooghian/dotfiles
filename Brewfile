@@ -30,6 +30,7 @@ tap "homebrew/cask"
 tap "homebrew/core"
 tap "jakehilborn/jakehilborn"
 tap "heroku/brew"
+tap "teamookla/speedtest"
 
 cask "adobe-acrobat-reader"
 cask "alfred"
@@ -104,6 +105,7 @@ brew "pandoc" # Used for my CV
 brew "plantuml" if env.work?
 brew "postgresql@14" if env.work?
 brew "pyenv"
+brew "speedtest"
 brew "q" # SQL-like querying of CSV
 brew "qpdf" # Used for removing passwords on PDFs: `qpdf --decrypt --replace-input --password=<password> 2020-04.pdf`
 brew "rbenv"
