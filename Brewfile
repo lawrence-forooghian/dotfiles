@@ -131,7 +131,7 @@ if env.home?
   mas "Bitwarden", id: 1352778147
   mas "DevCleaner", id: 1388020431
   mas "Yubico Authenticator", id: 1497506650
-  mas "Kindle", id: 405399194
+  mas "Kindle", id: 302584613
   mas "Broadcasts", id: 1469995354
 
   # mas doesn’t currently support installing iOS apps (https://github.com/mas-cli/mas/issues/321#issuecomment-804546339);
