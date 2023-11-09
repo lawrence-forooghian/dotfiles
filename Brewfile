@@ -50,6 +50,7 @@ cask "firefox"
 cask "google-chrome" if env.work? # Best WebRTC experience (e.g. whereby.com)
 cask "gpg-suite"
 cask "hammerspoon"
+cask "iina" # Like VLC but more Mac-like (PIP etc)
 cask "iterm2"
 cask "keyboardcleantool"
 cask "librecad"

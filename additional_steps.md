@@ -69,6 +69,7 @@ Steps that need to be performed after `install.sh`. Some of these could probably
   - Zoom
   - Anki
 - Sign in to Apple Developer account in Xcode
+- Set IINA as default (it's in its settings)
 
 ## Setup of credentials
 
