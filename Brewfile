@@ -108,7 +108,10 @@ brew "postgresql@14" if env.work?
 brew "pyenv"
 brew "speedtest"
 brew "q" # SQL-like querying of CSV
-brew "qpdf" # Used for removing passwords on PDFs: `qpdf --decrypt --replace-input --password=<password> 2020-04.pdf`
+# Used for:
+# - removing passwords on PDFs: `qpdf --decrypt --replace-input --password=<password> 2020-04.pdf`
+# - merging PDFs: `qpdf --empty --pages *.pdf -- merged.pdf`
+brew "qpdf"
 brew "rbenv"
 brew "reattach-to-user-namespace"
 brew "rename" # Used this to rename wedding pics to zero-pad them - https://stackoverflow.com/a/5418035
