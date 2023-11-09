@@ -87,8 +87,10 @@ brew "cloc"
 brew "cmake" # to install Rugged
 brew "exiftool" # https://exiftool.org/forum/index.php?topic=8652.0
 brew "ffmpeg" # Allows youtube-dl to merge best quality audio and video
+brew "fluidsynth" # For Haskell School of Music book
 brew "fnm"
 brew "gh"
+brew "ghcup" # Haskell version manager (for Haskell School of Music book)
 brew "git" # More up to date than the Apple version
 brew "git-absorb"
 brew "gnu-sed" # I don’t want to try and learn two seds right now
