@@ -49,6 +49,7 @@ cask "firefox"
 cask "google-chrome" if env.work? # Best WebRTC experience (e.g. whereby.com)
 cask "gpg-suite"
 cask "hammerspoon"
+cask "hex-fiend" # Hex editor, also gives `hexf` CLI tool
 cask "horos" # DICOM viewer (medical exams)
 cask "iina" # Like VLC but more Mac-like (PIP etc)
 cask "imagemagick"
