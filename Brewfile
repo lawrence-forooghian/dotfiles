@@ -103,7 +103,7 @@ brew "iperf" # Measuring transfer speed between two hosts (the other running an 
 brew "jakehilborn/jakehilborn/displayplacer" if env.home?
 brew "jq" # At least, it does pretty-printing of JSON
 brew "mp4v2" # For converting Audible books
-brew "msgpack-tools"
+brew "msgpack-tools" # msgpack2json, json2msgpack
 brew "ncdu"
 brew "ocrmypdf"
 brew "pandoc" # Used for my CV
