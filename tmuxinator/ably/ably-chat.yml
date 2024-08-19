@@ -1,0 +1,10 @@
+name: ably-chat
+root: ~/code/work/ably/ably-chat-swift
+
+windows:
+  - editor:
+      panes:
+        - vim
+  - console:
+  - js:
+      root: ~/code/work/ably/ably-chat-js
