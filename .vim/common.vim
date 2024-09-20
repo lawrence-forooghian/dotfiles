@@ -67,3 +67,33 @@ set nofoldenable
 " allow backspacing over everything in insert mode; this was in a default
 " .vimrc; upon removing it I wished I hadn't
 set backspace=indent,eol,start
+
+" --- Keyboard mappings ---
+
+" Make it easy to close the window
+map <leader>cx <C-w>c
+
+" Use git ls-files. Of the list of commands that fzf.vim provides, I think
+" this gives what I want — allows me to access important hidden files e.g.
+" .github/workflows (which :Files doesn’t), whilst excluding .gitignore stuff
+" like node_modules.
+nnoremap <silent> <leader>t :GitFiles<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
+
+nnoremap <Leader>ns :nohlsearch<cr>
+nnoremap <Leader>nt :NERDTreeToggle<cr>
+nnoremap <Leader>nf :NERDTreeFind<cr>
+
+nnoremap <Leader>g :Ack<cr>
+
+inoremap jk <esc>
+cnoremap jk <esc>
+inoremap <c-[> <nop>
+
+" --- External options ---
+
+let g:NERDTreeShowLineNumbers=1
+let g:NERDTreeShowHidden=1
+" Ignore the same 'junk' files as global.gitignore (not sure if there’s an
+" easy way to DRY this, since they use different syntax)
+let g:NERDTreeIgnore=['\.sw\w$', '.DS_Store']
