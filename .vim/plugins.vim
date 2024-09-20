@@ -20,7 +20,7 @@ Plug 't9md/vim-choosewin'
 Plug 'weilbith/nerdtree_choosewin-plugin'
 
 " File system navigation
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'mileszs/ack.vim'
 Plug 'vim-scripts/a.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
