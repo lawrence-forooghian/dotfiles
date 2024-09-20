@@ -67,7 +67,10 @@ set cursorline
 " Allow switching out of a buffer with unsaved changes
 set hidden
 
+" This uses relative line numbers but shows the current line number instead of
+" 0.
 set relativenumber
+set number
 
 " Set last window to always have a status line
 set laststatus=2

@@ -29,7 +29,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Git
-" I am using this for :Gbrowse
+" I am using this for :GBrowse and :Ggrep
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
