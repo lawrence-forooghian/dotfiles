@@ -79,6 +79,26 @@ install_config_files() {
 		ln -s ../dotfiles/ssh_config config
 	fi
 
+	cd ~
+
+	if [[ -e .config ]]; then
+		log "~/.config already exists."
+	else
+		log "Creating ~/.config."
+		mkdir .config
+	fi
+
+	cd .config
+
+	if [[ -e nvim ]]; then
+		log "~/.config/nvim already exists."
+	else
+		log "Creating symlink ~/.config/nvim."
+		ln -s ../dotfiles/nvim nvim
+	fi
+
+	cd ~
+
 	log "Configuring Git’s global core.excludesfile to be ~/dotfiles/global.gitignore."
 	git config --global core.excludesfile ~/dotfiles/global.gitignore
 

@@ -114,6 +114,7 @@ brew "jq" # At least, it does pretty-printing of JSON
 brew "mp4v2" # For converting Audible books
 brew "msgpack-tools" # msgpack2json, json2msgpack
 brew "ncdu"
+brew "neovim"
 brew "ocrmypdf"
 brew "pandoc" # Used for my CV
 brew "plantuml" if env.work?
