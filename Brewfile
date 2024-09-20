@@ -32,6 +32,7 @@ tap "jakehilborn/jakehilborn"
 tap "heroku/brew"
 tap "teamookla/speedtest"
 
+cask "1password"
 cask "alfred"
 cask "android-studio" # For Ably Android stuff
 cask "anki" if env.home?
@@ -135,8 +136,6 @@ brew "yq" # jq but for YAML
 if env.home?
   mas "Reeder", id: 1529448980
   mas "Dark Noise", id: 1465439395
-  # Bitwarden needs to come from Mac App Store to allow biometric authentication, apparently. This is a pain since it’s not always up to date.
-  mas "Bitwarden", id: 1352778147
   mas "DevCleaner", id: 1388020431
   mas "Yubico Authenticator", id: 1497506650
   mas "Kindle", id: 302584613

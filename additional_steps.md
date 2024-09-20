@@ -53,7 +53,8 @@ Steps that need to be performed after `install.sh`. Some of these could probably
 
 ## Setup of other software
 
-- Log in to Bitwarden
+- 1Password for Safari — install from App Store
+- Log in to 1Password
 - Add email accounts
 - Install and set up Backblaze
 - Install Logitech Options (to get battery level of keyboard)
@@ -73,9 +74,9 @@ Steps that need to be performed after `install.sh`. Some of these could probably
 
 ## Setup of credentials
 
-- [Generate SSH key and add to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), adding the passphrase to Bitwarden
+- [Generate SSH key and add to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent); generate using 1Password
 - Switch the origin on ~/dotfiles and ~/code/personal/git-update-messages to use SSH, not HTTPS
-- Import GPG key to my GPG keychain (`gpg --import` with the `private.key` stored in Bitwarden)
+- Import GPG key to my GPG keychain (`gpg --import` with the `private.key` stored in 1Password)
 - Add Brazil digital certificate to keychain
 
 ## Processing
