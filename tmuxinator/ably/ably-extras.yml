@@ -9,6 +9,8 @@ windows:
       root: ~/code/work/ably/docs
   - java:
       root: ~/code/work/ably/ably-java
+  - ruby:
+      root: ~/code/work/ably/ably-ruby
   - obs-con:
       root: ~/code/work/ably/test-observability
   - obs-serv:
