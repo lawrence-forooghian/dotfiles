@@ -38,27 +38,31 @@ cask "android-studio" # For Ably Android stuff
 cask "anki" if env.home?
 cask "arduino"
 cask "assinador-serpro"
-cask "bartender"
 cask "backblaze-downloader"
 cask "calibre" if env.home? # For some reason this is downloading _really_ slowly
 cask "coconutbattery"
+cask "cog" # open-source music player; plays directly from filesystem, including from zipped albums; seems alright and maintained
 cask "cyberduck" # GUI for FTP uploads (built-in macOS FTP is read-only)
 cask "docker"
 cask "drawio"
-cask "firefox"
-cask "google-chrome" if env.work? # Best WebRTC experience (e.g. whereby.com)
+cask "epic-games" # For Unreal Engine
+cask "firefox" # disabled media.av1.enabled because M1 doesn’t have hardware support and some YouTube videos cause CPU usage to skyrocket. With this disabled YouTube uses VP9 instead (same as Safari uses)
+cask "foobar2000" # free (but not open-source) music player; unlike Cog it indexes your library and lets you search by metadata
 cask "gpg-suite"
 cask "hammerspoon"
 cask "hex-fiend" # Hex editor, also gives `hexf` CLI tool
 cask "horos" # DICOM viewer (medical exams)
 cask "iina" # Like VLC but more Mac-like (PIP etc)
-cask "imagemagick"
+cask "inkscape"
 cask "iterm2"
 cask "keyboardcleantool"
 cask "libreoffice" if env.home?
 cask "mactex" if env.home?
 cask "microsoft-office"
+cask "mitmproxy"
+cask "netnewswire"
 cask "nordvpn"
+cask "obsidian"
 cask "parallels"
 cask "qflipper"
 cask "qlmarkdown" # Quick Look for Markdown
@@ -74,10 +78,12 @@ cask "transmission" if env.home?
 cask "transmission-remote-gui"
 cask "tunnelblick" if env.home?
 cask "vagrant"
+cask "virtualbuddy" # Easy way to make macOS virtual machines
 cask "visual-studio-code" if env.work? # Playing around with JS, not committed to sorting out tooling yet
 cask "vlc" if env.home?
 cask "whatsapp" if env.home?
 cask "wireshark"
+cask "xact" # for e.g. converting to FLAC, adding tags
 cask "xcodes"
 cask "zoom"
 
@@ -96,9 +102,12 @@ brew "git" # More up to date than the Apple version
 brew "git-absorb"
 brew "go"
 brew "gnu-sed" # I don’t want to try and learn two seds right now
+brew "gnu-typist"
 brew "graphviz"
 brew "heroku"
+brew "imagemagick"
 brew "inetutils" # ftp, telnet
+brew "ipcalc" # handy calculator for e.g. deciphering CIDR notation
 brew "iperf" # Measuring transfer speed between two hosts (the other running an iperf server)
 brew "jakehilborn/jakehilborn/displayplacer" if env.home?
 brew "jq" # At least, it does pretty-printing of JSON
@@ -120,6 +129,7 @@ brew "rbenv"
 brew "reattach-to-user-namespace"
 brew "rename" # Used this to rename wedding pics to zero-pad them - https://stackoverflow.com/a/5418035
 brew "robotsandpencils/made/xcodes" # TODO fix – You need Xcode installed to install xcodes on M1: https://github.com/RobotsAndPencils/homebrew-made/issues/3, so to bootstrap things on a new machine I downloaded the xcodes binary from GitHub, put it in ~/dotfiles/bin, installed Xcode, then removed from ~/dotfiles/bin and installed using Homebrew.
+brew "spek" # spectrum analyser, useful for seeing if an audio file is lossless
 brew "streamlink" # For downloading e.g. HLS streams
 brew "tesseract-lang" # All languages for OCRmyPDF
 brew "tmux"
@@ -138,7 +148,6 @@ if env.home?
   mas "Dark Noise", id: 1465439395
   mas "DevCleaner", id: 1388020431
   mas "Yubico Authenticator", id: 1497506650
-  mas "Kindle", id: 302584613
   mas "Broadcasts", id: 1469995354
 
   # mas doesn’t currently support installing iOS apps (https://github.com/mas-cli/mas/issues/321#issuecomment-804546339);

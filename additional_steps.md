@@ -97,3 +97,7 @@ M-x package-install:
 - evil-escape
 - use-package
 - ox-jira
+
+## Other software to install
+
+- Ivory (Mastodon) — install from App Store
