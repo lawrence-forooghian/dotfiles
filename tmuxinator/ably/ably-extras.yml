@@ -15,7 +15,8 @@ windows:
       root: ~/code/work/ably/test-observability
   - obs-serv:
       root: ~/code/work/ably/test-observability
-      panes:
-        - npm run-script start:dev
+      # I sometimes notice Node processes with high energy consumption, not sure if this is one but let’s switch off for now
+      #panes:
+        #- npm run-script start:dev
   - obs-action:
       root: ~/code/work/ably/test-observability-action
