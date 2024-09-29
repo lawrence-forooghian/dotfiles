@@ -1,5 +1,3 @@
-require("config.lazy")
-
 -- # Copied settings
 
 -- Complete options (disable preview scratch window)
@@ -122,3 +120,6 @@ vim.g.NERDTreeShowHidden = 1
 -- Ignore the same 'junk' files as global.gitignore (not sure if there’s an
 -- easy way to DRY this, since they use different syntax)
 vim.g.NERDTreeIgnore = { [[\.sw\w$]], '.DS_Store' }
+
+-- Load package manager
+require("config.lazy")
