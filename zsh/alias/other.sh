@@ -8,3 +8,6 @@ alias ably='tnr ably/ably-cocoa && tnr ably/ably-js && tnr ably/ably-extras && t
 
 # For starting multiple sessions in one go.
 alias tnr="${DOTFILES_DIR}/bin/dotfiles-bundle-exec tmuxinator start --attach false"
+
+# To help me switching over
+alias vim="nvim"
