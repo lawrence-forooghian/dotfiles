@@ -113,6 +113,16 @@ end)
 vim.keymap.set({ "i", "c" }, "jk", "<Esc>")
 vim.keymap.set("i", "<C-[>", "")
 
+-- ## Actions
+
+-- Testing - want console vim to warn me like MacVim does when an open file
+-- changes externally
+-- TODO: Decide whether this is overkill in terms of disk access - InsertEnter
+-- and InsertLeave may suffice
+-- TODO find vim way of doingthis
+vim.cmd("set autoread")
+vim.cmd("autocmd CursorHold,CursorHoldI,CursorMoved,InsertEnter,InsertLeave * checktime")
+
 -- ## External options
 
 vim.g.NERDTreeShowLineNumbers = 1
@@ -120,6 +130,12 @@ vim.g.NERDTreeShowHidden = 1
 -- Ignore the same 'junk' files as global.gitignore (not sure if there’s an
 -- easy way to DRY this, since they use different syntax)
 vim.g.NERDTreeIgnore = { [[\.sw\w$]], '.DS_Store' }
+
+-- term=bold doesn’t seem to do anything, cterm=bold does
+-- TODO find the nvim-y way to do this
+-- Not even sure if this is doing anything
+vim.cmd("highlight SelectedSearchResult term=bold cterm=bold ctermfg=DarkBlue ctermbg=LightMagenta guifg=#80a0ff gui=bold")
+vim.cmd("highlight link Searchlight SelectedSearchResult")
 
 -- Load package manager
 require("config.lazy")
