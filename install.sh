@@ -54,7 +54,7 @@ install_config_files() {
 
 	cd ~
 
-	for i in .tmux.conf .vim .zsh_profile .zshrc .inputrc .ackrc .gitconfig .hammerspoon; do
+	for i in .tmux.conf .vim .zsh_profile .zshrc .zprofile .inputrc .ackrc .gitconfig .hammerspoon; do
 		if [[ -e $i ]]; then
 			log "~/$i already exists."
 		else
