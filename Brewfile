@@ -136,7 +136,6 @@ brew "tesseract-lang" # All languages for OCRmyPDF
 brew "tmux"
 brew "tree"
 brew "vapor"
-brew "vim"
 brew "xcbeautify" # Used by ably-cocoa build
 brew "ykman" # YubiKey Manager CLI
 brew "yt-dlp" if env.home?
