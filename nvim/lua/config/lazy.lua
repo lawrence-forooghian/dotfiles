@@ -25,6 +25,6 @@ require("lazy").setup({
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "habamax" } },
-  -- automatically check for plugin updates
-  checker = { enabled = true },
+  -- don't automatically check for plugin updates (changed by Lawrence because the notification popup each time I started vim was annoying, apparently per https://lazy.folke.io/configuration I could also just turn off checker.notify, but whatever)
+  checker = { enabled = false },
 })
