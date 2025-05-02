@@ -39,6 +39,7 @@ cask "anki" if env.home?
 cask "arduino"
 cask "assinador-serpro"
 cask "backblaze-downloader"
+cask "bitwise" # Handy for viewing numbers in binary, with easy access to the index of each bit (useful for e.g. bitfields). There are a bunch of tools for doing something similar, including macOS’s built-in Calculator app in Programmer mode; see https://news.ycombinator.com/item?id=34577788
 cask "calibre" if env.home? # For some reason this is downloading _really_ slowly
 cask "coconutbattery"
 cask "cog" # open-source music player; plays directly from filesystem, including from zipped albums; seems alright and maintained
@@ -61,6 +62,7 @@ cask "mactex" if env.home?
 cask "microsoft-office"
 cask "mitmproxy"
 cask "netnewswire"
+cask "nmap" # Network scanner; e.g. what devices are on network? OpenWRT recommends this for finding your router when you don’t know its IP
 cask "nordvpn"
 cask "obsidian"
 cask "parallels"
@@ -101,6 +103,7 @@ brew "ghcup" # Haskell version manager (for Haskell School of Music book)
 brew "git" # More up to date than the Apple version
 brew "git-absorb"
 brew "go"
+brew "gramps" # Family tree; after this, install the Graph View addon because it lets you see the whole tree and not just the ancestors of a single person (which is what the default Pedigree view gives you)
 brew "gnu-sed" # I don’t want to try and learn two seds right now
 brew "gnu-typist"
 brew "graphviz"
@@ -111,6 +114,7 @@ brew "ipcalc" # handy calculator for e.g. deciphering CIDR notation
 brew "iperf" # Measuring transfer speed between two hosts (the other running an iperf server)
 brew "jakehilborn/jakehilborn/displayplacer" if env.home?
 brew "jq" # At least, it does pretty-printing of JSON
+brew "mediainfo" # Print information about media files e.g. the Dolby Vision profile
 brew "mp4v2" # For converting Audible books
 brew "msgpack-tools" # msgpack2json, json2msgpack
 brew "ncdu"
