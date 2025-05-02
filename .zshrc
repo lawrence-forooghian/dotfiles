@@ -2,7 +2,7 @@ DOTFILES_DIR="${HOME}/dotfiles"
 export DOTFILES_ENV=$(cat ~/.dotfiles_env)
 
 # Exports
-export EDITOR=vim
+export EDITOR=nvim
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
 
