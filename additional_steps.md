@@ -87,6 +87,7 @@ Steps that need to be performed after `install.sh`. Some of these could probably
 
 - Tell Spotify not to start at login
 - Set iTerm2 to sync preferences with dotfiles dir
+- Set Parallels VM directory to external drive
 
 ## Emacs
 
@@ -101,3 +102,5 @@ M-x package-install:
 ## Other software to install
 
 - Ivory (Mastodon) — install from App Store
+- Focus (for YouTube) — install from App Store (it’s open source; great for blocking all the distracting stuff on YouTube like related videos)
+- Kindle — install from App Store
