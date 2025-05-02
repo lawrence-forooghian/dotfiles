@@ -22,7 +22,8 @@ return {
     -- General editing
     { 'tpope/vim-surround' },
     { 'scrooloose/nerdcommenter' },
-    { 'tpope/vim-sleuth' }, -- apparently this infers indentation
+    -- sleuth turned off because its .editorconfig handling is interfering with my Git commit textwidth; see comment in nvim/init.lua
+    --{ 'tpope/vim-sleuth' }, -- apparently this infers indentation
     { 'tpope/vim-endwise' }, -- inserts `end` for ruby
     { 'sbdchd/neoformat' },
 

@@ -78,6 +78,20 @@ vim.opt.foldenable = false
 -- .vimrc; upon removing it I wished I hadn't
 vim.opt.backspace = { "indent", "eol", "start" }
 
+-- Don't look at .editorconfig files; the one in Ably spec repo is removing the default commit message textwidth of 72, and I don't know how to fix it (maybe I can be more nuanced than just turning it off, but this'll do for now). Quite a few of our Ably repos have the following in .editorconfig, which is messing up Git commit textwidth:
+--
+-- ```
+-- [*]
+-- max_line_length = off
+-- ```
+--
+-- I wonder whether this should be changed?
+--
+-- I've also had to turn off the Sleuth plugin (which infers indentation settings) because that was also reading .editorconfig. Let's see if I miss it. It doesn't seem to let you just turn off the .editorconfig part.
+--
+-- Handy hint for debugging this that I saw on the Internet: `:verbose set tw?` tells you what was the last script that set this option.
+vim.g.editorconfig = false
+
 -- ## Keyboard mappings
 
 -- Make it easy to close the window
