@@ -95,6 +95,10 @@ end)
 vim.keymap.set("n", "<Leader>b", function ()
     vim.cmd.Buffers()
 end)
+-- Useful to have :Files as an option too, for times that you’re not in a Git repo.
+vim.keymap.set("n", "<Leader>f", function ()
+    vim.cmd.Files()
+end)
 
 vim.keymap.set("n", "<Leader>ns", function ()
     vim.cmd.nohlsearch()
