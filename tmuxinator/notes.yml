@@ -3,6 +3,8 @@ root: ~/
 
 windows:
   <%- if %w(home all).include? ENV['DOTFILES_ENV'] %>
+  - obsidian:
+      root: ~/Documents/Obsidian Vaults/personal
   - website:
       root: ~/code/personal/website
   - website-server:
@@ -12,3 +14,7 @@ windows:
   <%- end %>
   - dotfiles:
       root: ~/dotfiles
+  <%- if %w(home all).include? ENV['DOTFILES_ENV'] %>
+  - recipes:
+      root: ~/Documents/Food/recipes-website
+  <%- end %>
