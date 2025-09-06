@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-# e.g. TOOL_PATH=~/code/personal/git-update-messages
+# e.g. TOOL_PATH=~/code/git-update-messages
 TOOL_PATH=~/code/personal/git-update-messages
 COMMAND_PATH="bin/hooks/post-rewrite"
 
@@ -10,8 +10,9 @@ then
     exit 1
 fi
 
-export RBENV_DIR="${TOOL_PATH}"
-BUNDLER_PATH=$(rbenv which bundle)
+REPO_PATH="$(pwd)"
+# Unlike in the RVM script, we have to cd here because asdf doesn't offer a mechanism for using a .tool-versions file that's unrelated to the working directory.
+cd "${TOOL_PATH}"
 
 export BUNDLE_GEMFILE="${TOOL_PATH}/Gemfile"
-${BUNDLER_PATH} exec "${TOOL_PATH}/${COMMAND_PATH}" "$@"
+asdf exec bundle exec "${TOOL_PATH}/${COMMAND_PATH}" "${REPO_PATH}" "$@"

@@ -31,12 +31,13 @@ setopt INC_APPEND_HISTORY
 ## Package managers and tool managers
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(rbenv init -)"
-eval "$(fnm env --use-on-cd)"
+# Apparently asdf is a "one to rule them all" so I guess I need to turn these off for now whilst trying to get ably/docs repo working — TODO return to this. If I'm going to use just asdf then sort myself out a ~/.tool-versions (have just created one ad-hoc for now)
+#eval "$(rbenv init -)"
+#eval "$(fnm env --use-on-cd)"
 
-# https://asdf-vm.com/guide/getting-started.html#_3-install-asdf
-. $HOME/.asdf/asdf.sh
-fpath=(${ASDF_DIR}/completions $fpath)
+# https://asdf-vm.com/guide/upgrading-to-v0-16
+export ASDF_DATA_DIR="/Users/lawrence/.asdf"
+export PATH="$ASDF_DATA_DIR/shims:$PATH"
 
 # https://github.com/pyenv/pyenv#basic-github-checkout
 if command -v pyenv 1>/dev/null 2>&1; then

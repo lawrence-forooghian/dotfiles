@@ -91,6 +91,7 @@ cask "zoom"
 
 brew "ack"
 brew "aria2" # For faster downloading with `xcodes`
+brew "asdf"
 brew "awscli" if env.work?
 brew "cloc"
 brew "cmake" # to install Rugged
