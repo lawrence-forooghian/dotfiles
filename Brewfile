@@ -46,7 +46,6 @@ cask "cog" # open-source music player; plays directly from filesystem, including
 cask "cyberduck" # GUI for FTP uploads (built-in macOS FTP is read-only)
 cask "docker"
 cask "drawio"
-cask "epic-games" # For Unreal Engine
 cask "firefox" # disabled media.av1.enabled because M1 doesn’t have hardware support and some YouTube videos cause CPU usage to skyrocket. With this disabled YouTube uses VP9 instead (same as Safari uses)
 cask "foobar2000" # free (but not open-source) music player; unlike Cog it indexes your library and lets you search by metadata
 cask "gpg-suite"
@@ -69,11 +68,9 @@ cask "parallels"
 cask "qflipper"
 cask "qlmarkdown" # Quick Look for Markdown
 cask "sf-symbols"
-cask "skype" if env.home?
 cask "slack" if env.home?
 cask "sony-ps-remote-play"
 cask "spotify"
-cask "steam"
 cask "the-unarchiver" if env.home?
 cask "tomighty"
 cask "transmission" if env.home?
