@@ -290,7 +290,8 @@ install_homebrew_packages
 install_config_files
 set_up_asdf
 set_up_node
-set_up_vim
+# TODO: This is probably out of date, post-switch-to-NeoVim (it seems to just install the packages on startup anyway)
+# set_up_vim
 set_up_dotfiles_ruby
 set_up_git_update_messages
 create_local_gitconfig
