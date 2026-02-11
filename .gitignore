@@ -7,3 +7,6 @@ Brewfile.lock.json
 !.ackrc
 !.watchmanconfig
 !.projections.json
+
+# Alfred local (machine-specific) preferences
+Alfred.alfredpreferences/preferences/local/
