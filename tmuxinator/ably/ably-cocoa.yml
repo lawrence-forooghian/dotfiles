@@ -6,3 +6,15 @@ windows:
       panes:
         - vim
   - console:
+  - liveobjects-editor:
+      root: ~/code/work/ably/ably-liveobjects-swift-plugin
+      panes:
+        - vim
+  - liveobjects-console:
+      root: ~/code/work/ably/ably-liveobjects-swift-plugin
+  - plugin-support-editor:
+      root: ~/code/work/ably/ably-cocoa-plugin-support
+      panes:
+        - vim
+  - plugin-support-console:
+      root: ~/code/work/ably/ably-cocoa-plugin-support

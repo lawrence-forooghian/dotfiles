@@ -69,9 +69,9 @@ cask "qflipper"
 cask "qlmarkdown" # Quick Look for Markdown
 cask "sf-symbols"
 cask "slack" if env.home?
-cask "sony-ps-remote-play"
 cask "spotify"
-cask "the-unarchiver" if env.home?
+# This has recently started showing ads, don't trust it any more
+# cask "the-unarchiver" if env.home?
 cask "tomighty"
 cask "transmission" if env.home?
 cask "transmission-remote-gui"

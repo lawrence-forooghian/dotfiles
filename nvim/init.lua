@@ -139,7 +139,20 @@ vim.keymap.set("i", "<C-[>", "")
 -- and InsertLeave may suffice
 -- TODO find vim way of doingthis
 vim.cmd("set autoread")
-vim.cmd("autocmd CursorHold,CursorHoldI,CursorMoved,InsertEnter,InsertLeave * checktime")
+--vim.cmd("autocmd CursorHold,CursorHoldI,CursorMoved,InsertEnter,InsertLeave * checktime")
+-- Suggested by Claude in https://claude.ai/share/f8bb8246-633c-4f07-a358-fad072ed1e92 so as to allow me to do q: for command-line window without triggering:
+-- Error detected while processing CursorMoved Autocommands for "*":
+-- E11: Invalid in command-line window; <CR> executes, CTRL-C quits: checktime
+vim.api.nvim_create_autocmd(
+  {"CursorHold", "CursorHoldI", "CursorMoved", "InsertEnter", "InsertLeave"},
+  {
+    callback = function()
+      if vim.fn.getcmdwintype() == "" then
+        vim.cmd("checktime")
+      end
+    end
+  }
+)
 
 -- ## External options
 

@@ -1,0 +1,8 @@
+name: ably-swift
+root: ~/code/work/ably/ably-swift
+
+windows:
+  - editor:
+      panes:
+        - vim
+  - console:

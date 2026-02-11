@@ -12,3 +12,6 @@
 
 # Created by Visual Studio Code
 .vscode
+
+# Local Claude settings (e.g. allowed commands) for a repo or a sub-project
+**/.claude/settings.local.json
