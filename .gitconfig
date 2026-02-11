@@ -6,10 +6,16 @@
 	# Email is set in ~/.gitconfig_local, e.g.
 	# email = lawrence@forooghian.com
 	useConfigOnly = true
-	signingkey = C0C4A6A46EB6AD78
+	# Added by 1Password (replaced old GPG key C0C4A6A46EB6AD78)
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINK+U2o3n6tFYAp+p9UhoUcpD7wAuUpP2jFTy83ivreV
 [rebase]
 	autoStash = true
 	autoSquash = true
+# Added by 1Password; use SSH commit signing
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 [commit]
 	verbose = true
 	gpgsign = true
