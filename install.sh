@@ -7,6 +7,18 @@ log() {
 	echo "$1" 2>&1
 }
 
+is_home() {
+	local env
+	env=$(cat ~/.dotfiles_env)
+	[[ "$env" == "home" || "$env" == "all" ]]
+}
+
+is_work() {
+	local env
+	env=$(cat ~/.dotfiles_env)
+	[[ "$env" == "work" || "$env" == "all" ]]
+}
+
 set_up_homebrew() {
 	if which brew >/dev/null; then
 		log "Homebrew is already installed."
@@ -54,7 +66,7 @@ install_config_files() {
 
 	cd ~
 
-	for i in .tmux.conf .vim .zsh_profile .zshrc .zprofile .inputrc .ackrc .gitconfig .hammerspoon; do
+	for i in .tmux.conf .vim .zsh_profile .zshrc .zprofile .inputrc .ackrc .gitconfig .hammerspoon .tool-versions; do
 		if [[ -e $i ]]; then
 			log "~/$i already exists."
 		else
@@ -102,15 +114,27 @@ install_config_files() {
 	log "Configuring Git’s global core.excludesfile to be ~/dotfiles/global.gitignore."
 	git config --global core.excludesfile ~/dotfiles/global.gitignore
 
-	popd .
+	popd
+}
+
+set_up_asdf() {
+	export ASDF_DATA_DIR="$HOME/.asdf"
+	export PATH="$ASDF_DATA_DIR/shims:$PATH"
+
+	for plugin in nodejs ruby yarn; do
+		if asdf plugin list 2>/dev/null | grep -q "\\b${plugin}\\b"; then
+			log "asdf plugin ${plugin} is already installed."
+		else
+			log "Installing asdf plugin ${plugin}."
+			asdf plugin add $plugin
+		fi
+	done
+
+	log "Installing asdf tool versions from ~/.tool-versions."
+	asdf install
 }
 
 set_up_node() {
-	eval "$(fnm env)"
-
-	log "Installing latest Node.js LTS."
-	fnm install --lts
-
 	for package in typescript wait-on npm-merge-driver; do
 		log "Globally installing NPM package $package."
 		npm install --location=global $package
@@ -139,29 +163,14 @@ set_up_vim() {
 	vim -c 'CocInstall -sync coc-tsserver coc-prettier coc-eslint coc-sourcekit' -c 'qa'
 }
 
-install_ruby_version() {
-	ruby_version=$(cat .ruby-version)
-	# We do this check since replying no to the below makes it exit with 1:
-	# rbenv: /Users/lawrence/.rbenv/versions/2.7.0 already exists continue with
-	# installation? (y/N)
-	if rbenv versions | grep $ruby_version; then
-		log "Ruby version ${ruby_version} is already installed."
-	else
-		log "Installing Ruby version ${ruby_version}."
-		rbenv install
-	fi
-}
-
 set_up_dotfiles_ruby() {
 	pushd .
 
-	log "Setting up dotfiles’s Ruby version and gems."
+	log "Setting up dotfiles's Ruby version and gems."
 	cd ~/dotfiles
 
-	install_ruby_version
-
 	bundle install
-	rbenv rehash
+	asdf reshim ruby
 
 	popd
 }
@@ -172,16 +181,16 @@ set_up_git_update_messages() {
 	if [[ -e ~/code/personal/git-update-messages ]]; then
 		log "~/code/personal/git-update-messages already exists."
 	else
-		mkdir -p ~/code
-		cd ~/code
+		mkdir -p ~/code/personal
+		cd ~/code/personal
 		log "Cloning git-update-messages."
 		# We clone with HTTPS because SSH key might not have been set up yet.
 		git clone https://github.com/lawrence-forooghian/git-update-messages.git
 	fi
 
-	log "Setting up git-update-messages’s Ruby version and gems."
+	log "Setting up git-update-messages's Ruby version and gems."
 	cd ~/code/personal/git-update-messages
-	install_ruby_version
+	asdf install
 	bundle install
 
 	popd
@@ -272,26 +281,6 @@ install_icloud_photos_downloader() {
 	pip install ${package_name}
 }
 
-# TODO update: This is outdated post v0.16.0 of asdf (which I have installed with Homebrew)
-# install_asdf() {
-# 	if [[ -e ~/.asdf ]]; then
-# 		log "asdf is already installed."
-# 	else
-# 		log "Installing asdf."
-# 
-# 		git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.1
-# 	fi
-# 
-# 	if asdf plugin list | grep '\bjava\b'
-# 	then
-# 		log "asdf Java plugin is already installed."
-# 	else
-# 		log "Installing asdf Java plugin."
-# 
-# 		asdf plugin add java https://github.com/halcyon/asdf-java.git
-# 	fi
-# }
-
 # First we install Homebrew, which gives us the developer tools and Git.
 set_up_homebrew
 install_rosetta
@@ -299,6 +288,7 @@ get_dotfiles
 create_dotfiles_env
 install_homebrew_packages
 install_config_files
+set_up_asdf
 set_up_node
 set_up_vim
 set_up_dotfiles_ruby
@@ -307,8 +297,9 @@ create_local_gitconfig
 change_shell
 install_xcode
 launch_hammerspoon
-install_python_version_for_icloud_photos_downloader
-install_icloud_photos_downloader
-install_asdf
+if is_home; then
+	install_python_version_for_icloud_photos_downloader
+	install_icloud_photos_downloader
+fi
 
 echo "Now follow the steps in the additional_steps file."

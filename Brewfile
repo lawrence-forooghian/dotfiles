@@ -11,14 +11,10 @@ class DotfilesEnv
   # for personal + work
 
   def home?
-    return true
-
     env == 'home' || env == 'all'
   end
 
   def work?
-    return true
-
     env == 'work' || env == 'all'
   end
 end
@@ -34,7 +30,7 @@ tap "teamookla/speedtest"
 
 cask "1password"
 cask "alfred"
-cask "android-studio" # For Ably Android stuff
+cask "android-studio" if env.work? # For Ably Android stuff
 cask "anki" if env.home?
 cask "arduino" if env.home?
 cask "assinador-serpro" if env.home?
@@ -93,7 +89,6 @@ brew "cmake" # to install Rugged
 brew "exiftool" # if env.home? https://exiftool.org/forum/index.php?topic=8652.0
 brew "ffmpeg" if env.home? # Allows youtube-dl to merge best quality audio and video
 brew "fluidsynth" if env.home? # For Haskell School of Music book
-brew "fnm"
 brew "gh"
 brew "ghcup" if env.home? # Haskell version manager (for Haskell School of Music book)
 brew "git" # More up to date than the Apple version
@@ -126,7 +121,6 @@ brew "q" # SQL-like querying of CSV
 # - removing passwords on PDFs: `qpdf --decrypt --replace-input --password=<password> 2020-04.pdf`
 # - merging PDFs: `qpdf --empty --pages *.pdf -- merged.pdf`
 brew "qpdf" if env.home?
-brew "rbenv"
 brew "reattach-to-user-namespace"
 brew "rename" if env.home? # Used this to rename wedding pics to zero-pad them - https://stackoverflow.com/a/5418035
 brew "robotsandpencils/made/xcodes" # TODO fix – You need Xcode installed to install xcodes on M1: https://github.com/RobotsAndPencils/homebrew-made/issues/3, so to bootstrap things on a new machine I downloaded the xcodes binary from GitHub, put it in ~/dotfiles/bin, installed Xcode, then removed from ~/dotfiles/bin and installed using Homebrew.
