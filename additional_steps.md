@@ -21,6 +21,7 @@ Steps that need to be performed after `install.sh`. Some of these could probably
 - Set Dock to auto-hide
 - Remove default stuff from Dock
 - Exclude Terminal from Spotlight -> Privacy
+    - You have to drag the Terminal app onto the list
 - Disable saving of passwords in Safari (under AutoFill)
 - Menu bar icons to turn on:
   - Bluetooth
