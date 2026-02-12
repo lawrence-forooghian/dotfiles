@@ -111,8 +111,15 @@ install_config_files() {
 
 	cd ~
 
-	log "Configuring Git’s global core.excludesfile to be ~/dotfiles/global.gitignore."
+	log "Configuring Git's global core.excludesfile to be ~/dotfiles/global.gitignore."
 	git config --global core.excludesfile ~/dotfiles/global.gitignore
+
+	if [[ -e ~/.claude ]]; then
+		log "~/.claude already exists."
+	else
+		log "Creating symlink ~/.claude."
+		ln -s dotfiles/claude ~/.claude
+	fi
 
 	popd
 }
