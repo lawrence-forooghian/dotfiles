@@ -71,7 +71,7 @@ return {
     { 'neoclide/coc.nvim', branch = 'release', config = function ()
         -- These will be automatically installed by coc.nvim on startup if missing
         -- (asynchronously, like lazy.nvim's own plugin installation).
-        vim.g.coc_global_extensions = {'coc-tsserver', 'coc-prettier', 'coc-eslint', 'coc-sourcekit'}
+        vim.g.coc_global_extensions = {'coc-tsserver', 'coc-sourcekit'}
         vim.cmd.runtime("coc_config.vim")
       end
     },
