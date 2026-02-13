@@ -148,28 +148,6 @@ set_up_node() {
 	done
 }
 
-set_up_vim() {
-	if [[ -e ~/.vim/autoload/plug.vim ]]; then
-		log "vim-plug is already installed."
-	else
-		log "Installing vim-plug."
-
-		curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-			https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	fi
-
-	log "Installing vim-plug packages."
-	# The set nocompatible is required for the nerdcommenter package to be
-	# initialised properly (normally we’d rely on vimrc to provide it)
-	vim -u NONE -c 'set nocompatible' -c 'source ~/.vim/plugins.vim' -c PlugUpdate -c qa
-
-	log "Installing CoC packages."
-	# I would have preferred to use g:coc_global_extensions but since that just
-	# takes effect on startup it means it doesn’t run synchronously and there’s
-	# no way to quit once it’s complete, so hard to use in a script.
-	vim -c 'CocInstall -sync coc-tsserver coc-prettier coc-eslint coc-sourcekit' -c 'qa'
-}
-
 set_up_dotfiles_ruby() {
 	pushd .
 
@@ -297,8 +275,6 @@ install_homebrew_packages
 install_config_files
 set_up_asdf
 set_up_node
-# TODO: This is probably out of date, post-switch-to-NeoVim (it seems to just install the packages on startup anyway)
-# set_up_vim
 set_up_dotfiles_ruby
 set_up_git_update_messages
 create_local_gitconfig
@@ -309,5 +285,12 @@ if is_home; then
 	install_python_version_for_icloud_photos_downloader
 	install_icloud_photos_downloader
 fi
+
+# There used to be a set_up_vim step here that installed vim-plug plugins and
+# coc.nvim extensions synchronously. After switching to Neovim + lazy.nvim,
+# both plugins and coc extensions (via g:coc_global_extensions) are installed
+# asynchronously on first startup. This means Vim stuff won't be fully set up
+# when this script finishes — it'll install on the first Neovim launch. That's
+# fine; we'll live with it for now.
 
 echo "Now follow the steps in the additional_steps file."
