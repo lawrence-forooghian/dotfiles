@@ -1,0 +1,8 @@
+name: sdk-workspace
+root: ~/code/work/ably/sdk-workspace
+
+windows:
+  - editor:
+      panes:
+        - vim
+  - console:
