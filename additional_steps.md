@@ -76,7 +76,11 @@ Steps that need to be performed after `install.sh`. Some of these could probably
 ## Setup of credentials
 
 - [Generate SSH key and add to GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent); generate using 1Password
-- Switch the origin on ~/dotfiles and ~/code/personal/git-update-messages to use SSH, not HTTPS
+- Fix HTTPS remote URLs so we can push to our repos
+  - Both ~/dotfiles and ~/code/personal/git-update-messages are cloned via HTTPS in install.sh (because the SSH key isn't set up yet at that point), which means we can't push to them.
+  - For ~/dotfiles: we have to clone via HTTPS (it's needed before SSH is available), so after generating the SSH key, manually switch the remote: `git remote set-url origin git@github.com:lawrence-forooghian/dotfiles.git`
+  - For ~/code/personal/git-update-messages: consider deferring the clone until after SSH key setup so it can be cloned via SSH from the start. Alternatively, could move `set_up_git_update_messages` later in install.sh and prompt for SSH key setup first, or just switch the remote URL after the fact like dotfiles.
+  - TODO: Improve install.sh to automate this — e.g. add a post-SSH-setup step that switches remotes, or split the script into pre-SSH and post-SSH phases.
 - Import GPG key to my GPG keychain (`gpg --import` with the `private.key` stored in 1Password)
 - Add Brazil digital certificate to keychain
 
