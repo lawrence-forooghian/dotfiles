@@ -15,9 +15,8 @@ bindkey "^R" history-incremental-search-backward
 # https://dougblack.io/words/zsh-vi-mode.html
 export KEYTIMEOUT=1
 
-# Set prompts - nabbed from http://www.edsel.nu/?p=203 until I get round to making one
-autoload colors; colors
-export PS1="%B[%{$fg[white]%}%n%{$reset_color%}%b@%B%{$fg[white]%}%m%b%{$reset_color%}:%~%B]%b "
+# Set prompt to [working directory]
+export PS1="[%~] "
 
 # Set up history.
 export HISTSIZE=10000
