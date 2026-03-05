@@ -11,3 +11,10 @@ alias tnr="${DOTFILES_DIR}/bin/dotfiles-bundle-exec tmuxinator start --attach fa
 
 # To help me switching over
 alias vim="nvim"
+
+# Ably SDK workspace
+if [[ "$DOTFILES_ENV" == "work" ]]; then
+  ABLY_WORKSPACE=~/code/work/ably/sdk-workspace/scripts/workspace
+  sdk-workspace() { "$ABLY_WORKSPACE" "$@"; }
+  eval "$("$ABLY_WORKSPACE" completions sdk-workspace)"
+fi
