@@ -1,6 +1,0 @@
-{
-    // Disable sometimes-irritating bundled sources, described here: https://github.com/neoclide/coc.nvim/wiki/Completion-with-sources#bundled-sources
-    "coc.source.around.enable": false,
-    "coc.source.buffer.enable": false,
-    "coc.source.file.enable": false,
-}

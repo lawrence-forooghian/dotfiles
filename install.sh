@@ -286,11 +286,11 @@ if is_home; then
 	install_icloud_photos_downloader
 fi
 
-# There used to be a set_up_vim step here that installed vim-plug plugins and
-# coc.nvim extensions synchronously. After switching to Neovim + lazy.nvim,
-# both plugins and coc extensions (via g:coc_global_extensions) are installed
-# asynchronously on first startup. This means Vim stuff won't be fully set up
-# when this script finishes — it'll install on the first Neovim launch. That's
-# fine; we'll live with it for now.
+# There used to be a set_up_vim step here that installed vim-plug plugins
+# synchronously. After switching to Neovim + lazy.nvim, plugins (and LSP
+# servers via mason.nvim) are installed asynchronously on first startup.
+# This means Vim stuff won't be fully set up when this script finishes —
+# it'll install on the first Neovim launch. That's fine; we'll live with
+# it for now.
 
 echo "Now follow the steps in the additional_steps file."
