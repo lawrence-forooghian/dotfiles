@@ -73,6 +73,7 @@ cask "xcodes-app"
 cask "zoom"
 
 brew "ack"
+brew "aha" # Converts ANSI to HTML — used for generating PDFs from Git diffs for review on iPad
 brew "aria2" # For faster downloading with `xcodes`
 brew "asdf"
 brew "awscli" if env.work?
@@ -100,6 +101,7 @@ brew "displayplacer" if env.home?
 brew "jq" # At least, it does pretty-printing of JSON
 brew "libyaml" # Appears to be needed for asdf's installation of Ruby to succeed
 brew "mediainfo" if env.home? # Print information about media files e.g. the Dolby Vision profile
+brew mint if env.work? # Used in some of the Ably Swift SDKs
 brew "mp4v2" if env.home? # For converting Audible books
 brew "msgpack-tools" # msgpack2json, json2msgpack
 brew "ncdu"
