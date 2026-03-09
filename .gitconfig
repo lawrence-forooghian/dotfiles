@@ -43,3 +43,6 @@
 	defaultBranch = main
 [advice]
 	skippedCherryPicks = false
+[format]
+	# Shows committer and author, each with date
+	pretty = fuller
