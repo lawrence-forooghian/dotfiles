@@ -57,7 +57,7 @@ cask "parallels" if env.home?
 cask "qflipper" if env.home?
 cask "qlmarkdown" # Quick Look for Markdown
 cask "sf-symbols"
-cask "slack"
+cask "slack" if env.work?
 cask "spotify"
 # This has recently started showing ads, don't trust it any more
 # cask "the-unarchiver" if env.home?
