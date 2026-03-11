@@ -74,6 +74,7 @@ cask "zoom"
 
 brew "ack"
 brew "aha" # Converts ANSI to HTML — used for generating PDFs from Git diffs for review on iPad
+brew "weasyprint" # HTML to PDF — used by topdf alias
 brew "aria2" # For faster downloading with `xcodes`
 brew "asdf"
 brew "awscli" if env.work?
