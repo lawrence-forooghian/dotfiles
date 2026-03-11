@@ -32,6 +32,17 @@ return {
     -- I am using this for :GBrowse and :Ggrep
     { "tpope/vim-fugitive" },
     { "tpope/vim-rhubarb" },
+    {
+      "daliusd/ghlite.nvim",
+      opts = {},
+      keys = {
+        -- Open the diff for the current PR to review changes
+        { '<leader>prd', '<cmd>GHLitePRDiff<cr>', desc = 'PR diff' },
+        -- Leave a review comment on the line under the cursor (or visual selection) in a diff
+        { '<leader>prc', '<cmd>GHLitePRAddComment<cr>', desc = 'PR comment' },
+        { '<leader>prc', '<cmd>GHLitePRAddComment<cr>', mode = 'v', desc = 'PR comment' },
+      },
+    },
 
     -- Info
     { 'vim-airline/vim-airline' },
