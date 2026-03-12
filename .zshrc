@@ -14,6 +14,11 @@ bindkey -v
 bindkey "^R" history-incremental-search-backward
 # https://dougblack.io/words/zsh-vi-mode.html
 export KEYTIMEOUT=1
+# Allow editing the current command line in $EDITOR with Esc-v.
+# This overrides visual mode in vicmd, but I didn't even know that existed.
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
 
 # Set prompt to [working directory]
 export PS1="[%~] "
