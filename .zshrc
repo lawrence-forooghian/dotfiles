@@ -41,6 +41,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 export ASDF_DATA_DIR="/Users/lawrence/.asdf"
 export PATH="$ASDF_DATA_DIR/shims:$PATH"
 
+# Go
+export PATH="${HOME}/go/bin:$PATH"
+
 # https://github.com/pyenv/pyenv#basic-github-checkout
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init --path)"
