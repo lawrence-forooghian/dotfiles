@@ -8,6 +8,7 @@
 - When writing a reference to a Git commit SHA (e.g. a cross-reference inside another Git commit message), always use the **7-character** prefix of the SHA.
 - Wrap Git commit message bodies at 72 characters.
 - When planning sequences of commits, prioritise human reviewability. Consider using a sequence of groundwork commits where this would be useful. The easier to understand each of these commits is, the better. A mechanical, brainless refactor commit is the easiest kind of commit to review, so consider using as many as possible. It's better to have lots of simple commits than a small number of complicated commits.
+- When a commit message references a URL (e.g. documentation, issues, discussions), use numbered references in the body (e.g. `[1]` inline, then `[1] https://example.com` listed at the end). Place these references after the body text but before any trailers (such as `Co-Authored-By` or `Signed-off-by`).
 
 ## Language
 
