@@ -47,3 +47,21 @@ alias grr="cd \`git rev-parse --show-toplevel\`"
 alias gs='git status'
 alias gsh='git show'
 alias gsu='git submodule update --init --recursive'
+
+## GitHub
+
+# "GitHub PR description" — convert a commit message into a PR description,
+# i.e. unwrap hard-wrapped lines, add backticks around code identifiers, and
+# convert [1]-style numbered references into inline Markdown links. Uses an
+# LLM because identifying code identifiers and distinguishing references from
+# other bracket syntax (e.g. array indices) are both fuzzy tasks.
+# Usage: gh-pr-desc <commit-sha>
+gh-pr-desc() {
+  local msg
+  msg=$(git log -1 --format='%B' "${1:?Usage: gh-pr-desc <commit-sha>}")
+  if [ -z "$msg" ]; then
+    echo "No commit message found" >&2
+    return 1
+  fi
+  echo "$msg" | claude --print -p "Reformat this Git commit message for use as a GitHub pull request description. Do not change the wording; only apply the following formatting transformations: unwrap hard-wrapped lines into flowing paragraphs, collapse loose lists (blank lines between items) into tight lists, add backticks around code identifiers (function names, variables, file paths, CLI flags, etc.) where appropriate, and convert numbered references (e.g. [1]) into inline links using the URLs listed at the end of the message. For URLs that GitHub auto-links with nice formatting (e.g. issues, PRs, commits), use the bare URL. For other URLs, use a Markdown link with descriptive text. Remove the reference list at the end. After the transformed text, add a section headed '---' then 'Formatting notes:' briefly listing the decisions you made (e.g. which words you backticked, how you handled each reference)."
+}
