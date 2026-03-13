@@ -65,3 +65,19 @@ gh-pr-desc() {
   fi
   echo "$msg" | claude --print -p "Reformat this Git commit message for use as a GitHub pull request description. Do not change the wording; only apply the following formatting transformations: unwrap hard-wrapped lines into flowing paragraphs, collapse loose lists (blank lines between items) into tight lists, add backticks around code identifiers (function names, variables, file paths, CLI flags, etc.) where appropriate, and convert numbered references (e.g. [1]) into inline links using the URLs listed at the end of the message. For URLs that GitHub auto-links with nice formatting (e.g. issues, PRs, commits), use the bare URL. For other URLs, use a Markdown link with descriptive text. Remove the reference list at the end. After the transformed text, add a section headed '---' then 'Formatting notes:' briefly listing the decisions you made (e.g. which words you backticked, how you handled each reference)."
 }
+
+# "GitHub pull request commit" — go to a specific commit _within the context of a pull request_ (so that comments on it end up on the PR)
+# e.g. `ghprc 2d93846a3d0eb373b74c8b2418ee8e00966aff1a`
+# although it's unclear to me if this is a good way to leave comments or if they end up getting removed or something
+gh-pr-browse-commit() {
+  local sha="$1" pr
+  pr=$(gh pr view --json number -q .number 2>/dev/null)
+  if [ -z "$pr" ]; then
+    echo "No PR found for current branch"
+    return 1
+  fi
+  local repo
+  repo=$(gh repo view --json nameWithOwner -q .nameWithOwner)
+  open "https://github.com/${repo}/pull/${pr}/changes/${sha}"
+}
+
