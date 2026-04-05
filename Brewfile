@@ -65,6 +65,7 @@ cask "transmission-remote-gui" if env.home?
 cask "tunnelblick" if env.home?
 cask "visual-studio-code" if env.work? # Playing around with JS, not committed to sorting out tooling yet
 cask "vlc" if env.home?
+cask "voiceink"
 cask "whatsapp" if env.home?
 cask "wireshark-app"
 cask "xact" if env.home? # for e.g. converting to FLAC, adding tags
