@@ -51,7 +51,6 @@ cask "microsoft-office" if env.home?
 cask "mitmproxy"
 cask "netnewswire" if env.home?
 cask "nmap" if env.home? # Network scanner; e.g. what devices are on network? OpenWRT recommends this for finding your router when you don’t know its IP
-cask "nordvpn" if env.home?
 cask "obsidian"
 cask "parallels" if env.home?
 cask "qflipper" if env.home?
