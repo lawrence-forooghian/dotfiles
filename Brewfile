@@ -51,6 +51,7 @@ cask "microsoft-office" if env.home?
 cask "mitmproxy"
 cask "netnewswire" if env.home?
 cask "nmap" if env.home? # Network scanner; e.g. what devices are on network? OpenWRT recommends this for finding your router when you don’t know its IP
+cask "obs" # Useful for recording a single window for demos etc (the built-in one recording tool either does full screen or fiddly dragging of a selection rectangle)
 cask "obsidian"
 cask "parallels" if env.home?
 cask "qflipper" if env.home?
