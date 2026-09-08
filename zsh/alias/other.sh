@@ -9,7 +9,6 @@ alias less='less -R' # colors
 topdf() { aha --word-wrap | weasyprint --stylesheet "${DOTFILES_DIR}/zsh/topdf.css" - "${1:?Usage: some-command | topdf output.pdf}"; }
 
 alias notes='tnr notes && tmux at -t notes'
-alias ably='tnr ably/ably-cocoa && tnr ably/ably-js && tnr ably/ably-extras && tnr ably/ably-chat && tnr ably/ably-swift && tnr ably/sdk-workspace && tmux at -t ably-js'
 
 # For starting multiple sessions in one go.
 alias tnr="${DOTFILES_DIR}/bin/dotfiles-bundle-exec tmuxinator start --attach false"
