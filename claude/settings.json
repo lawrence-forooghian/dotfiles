@@ -1,33 +1,15 @@
 {
   "permissions": {
-    "allow": [
-      "Bash",
-      "mcp__claude_ai_Ably_MCP_Slim_Mode__searchAblyTools"
-    ],
     "defaultMode": "auto"
   },
-  "model": "sonnet",
   "enabledPlugins": {
-    "swift-lsp@claude-plugins-official": true,
-    "ably-skills@ably-os": true
+    "swift-lsp@claude-plugins-official": true
   },
-  "extraKnownMarketplaces": {
-    "ably-os": {
-      "source": {
-        "source": "git",
-        "url": "https://github.com/ably/ably-os.git"
-      },
-      "autoUpdate": true
-    }
-  },
-  "effortLevel": "high",
-  "tui": "default",
   "voice": {
     "enabled": true,
     "mode": "hold"
   },
   "autoMemoryEnabled": false,
-  "skipDangerousModePermissionPrompt": true,
   "editorMode": "vim",
-  "voiceEnabled": true
+  "agentPushNotifEnabled": true
 }
