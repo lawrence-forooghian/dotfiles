@@ -26,7 +26,7 @@ cask "alfred"
 cask "android-studio" if env.work? # For Ably Android stuff
 cask "anki" if env.home?
 cask "arduino" if env.home?
-cask "assinador-serpro" if env.home?
+# cask "assinador-serpro" if env.home? # This cask has been disabled for some reason and not updated since 4.3.3 (4.5.0 is now available)
 cask "ArtemYurov/tomobar/tomobar" # Replacement for Tomighty, which is not Gatekeepered
 cask "backblaze-downloader" if env.home?
 cask "calibre" if env.home? # For some reason this is downloading _really_ slowly
