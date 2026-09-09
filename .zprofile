@@ -9,3 +9,6 @@ export PATH="$PATH:/Users/lawrence/.local/bin"
 # MacPorts Installer addition on 2024-05-27_at_10:43:53: adding an appropriate PATH variable for use with MacPorts.
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
+
+# Added by Obsidian
+export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
