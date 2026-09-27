@@ -6,10 +6,18 @@
 	# Email is set in ~/.gitconfig_local, e.g.
 	# email = lawrence@forooghian.com
 	useConfigOnly = true
-	signingkey = C0C4A6A46EB6AD78
+    # See "Use SSH key for signing commits" below.
+	signingkey = ~/.ssh/id_ed25519.pub
 [rebase]
 	autoStash = true
 	autoSquash = true
+[gpg]
+    # Use SSH key for signing commits (I was previously using GPG, and then
+    # this mysteriously broke one day with "signing failed: Inappropriate ioctl
+    # for device". I didn't figure out why. But I think that SSH is maybe a
+    # better idea anyway because it means not having to transfer my personal
+    # GPG key onto my work machine, or set up a new GPG key on it.)
+	format = ssh
 [commit]
 	verbose = true
 	gpgsign = true
