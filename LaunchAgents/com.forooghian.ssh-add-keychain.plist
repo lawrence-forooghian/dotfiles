@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+	Loads the SSH identities whose passphrases are stored in the Keychain into
+	ssh-agent at login.
+
+	Without this, ssh-agent has no identities after a reboot. Making an SSH
+	connection fixes that as a side effect (because of UseKeychain and
+	AddKeysToAgent in ssh_config), but signing a Git commit with an SSH key
+	doesn't, so a signed commit made before any SSH connection (e.g. from a GUI
+	app such as Obsidian) prompts for the key's passphrase. A shell startup
+	file wouldn't help here, since the GUI app may be opened before any
+	terminal.
+
+	Based on https://gist.github.com/karimknaebel/9b2744bd2e783ff66847135335b00fa8
+
+	To unload: launchctl bootout gui/$(id -u)/com.forooghian.ssh-add-keychain
+-->
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.forooghian.ssh-add-keychain</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/bin/ssh-add</string>
+		<string>--apple-load-keychain</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+</dict>
+</plist>

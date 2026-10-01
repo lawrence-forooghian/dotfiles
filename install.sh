@@ -7,6 +7,10 @@ log() {
 	echo "$1" 2>&1
 }
 
+# The labels of the LaunchAgents to install. Each has a corresponding
+# LaunchAgents/<label>.plist in this repo.
+launch_agent_labels=(com.forooghian.ssh-add-keychain)
+
 is_home() {
 	local env
 	env=$(cat ~/.dotfiles_env)
@@ -134,7 +138,45 @@ install_config_files() {
 
 	cd ~
 
+	if [[ -e Library/LaunchAgents ]]; then
+		log "~/Library/LaunchAgents already exists."
+	else
+		log "Creating ~/Library/LaunchAgents."
+		mkdir Library/LaunchAgents
+	fi
+
+	cd Library/LaunchAgents
+
+	for label in "${launch_agent_labels[@]}"; do
+		i=$label.plist
+		if [[ -e $i ]]; then
+			log "~/Library/LaunchAgents/$i already exists."
+		else
+			log "Creating symlink ~/Library/LaunchAgents/$i."
+			ln -s ../../dotfiles/LaunchAgents/$i $i
+		fi
+	done
+
+	cd ~
+
 	popd
+}
+
+# Loads the LaunchAgents that install_config_files symlinked into
+# ~/Library/LaunchAgents, so that they take effect without needing to log out
+# and back in. (launchd loads them itself at each subsequent login.)
+load_launch_agents() {
+	local domain
+	domain="gui/$(id -u)"
+
+	for label in "${launch_agent_labels[@]}"; do
+		if launchctl print "$domain/$label" >/dev/null 2>&1; then
+			log "LaunchAgent $label is already loaded."
+		else
+			log "Loading LaunchAgent $label."
+			launchctl bootstrap "$domain" ~/Library/LaunchAgents/$label.plist
+		fi
+	done
 }
 
 set_up_asdf() {
@@ -286,6 +328,7 @@ get_dotfiles
 create_dotfiles_env
 install_homebrew_packages
 install_config_files
+load_launch_agents
 set_up_asdf
 set_up_node
 set_up_dotfiles_ruby
