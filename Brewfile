@@ -23,7 +23,6 @@ env = DotfilesEnv.new
 
 cask "1password"
 cask "alfred"
-cask "android-studio" if env.work? # For Ably Android stuff
 cask "anki" if env.home?
 cask "arduino" if env.home?
 # cask "assinador-serpro" if env.home? # This cask has been disabled for some reason and not updated since 4.3.3 (4.5.0 is now available)
@@ -103,7 +102,6 @@ brew "displayplacer" if env.home?
 brew "jq" # At least, it does pretty-printing of JSON
 brew "libyaml" # Appears to be needed for asdf's installation of Ruby to succeed
 brew "mediainfo" if env.home? # Print information about media files e.g. the Dolby Vision profile
-brew mint if env.work? # Used in some of the Ably Swift SDKs
 brew "mp4v2" if env.home? # For converting Audible books
 brew "msgpack-tools" # msgpack2json, json2msgpack
 brew "ncdu"
@@ -128,7 +126,6 @@ brew "tesseract-lang" if env.home? # All languages for OCRmyPDF
 brew "tmux"
 brew "tree"
 brew "vapor"
-brew "xcbeautify" # Used by ably-cocoa build
 brew "ykman" # YubiKey Manager CLI
 brew "yt-dlp" if env.home?
 brew "yq" # jq but for YAML
