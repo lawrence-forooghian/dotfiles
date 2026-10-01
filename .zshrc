@@ -66,8 +66,4 @@ export PATH="${HOME}/dotfiles/bin:$PATH"
 export TMUXINATOR_CONFIG="${DOTFILES_DIR}/tmuxinator"
 source "${DOTFILES_DIR}/vendor/tmuxinator.zsh"
 
-# From https://developer.android.com/studio/command-line/variables
-export ANDROID_HOME=~/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools
-
 [ -f "/Users/lawrence/.ghcup/env" ] && source "/Users/lawrence/.ghcup/env" # ghcup-env
