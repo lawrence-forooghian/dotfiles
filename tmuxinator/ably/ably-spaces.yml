@@ -1,8 +1,0 @@
-name: ably-spaces
-root: ~/code/work/ably/spaces
-
-windows:
-  - editor:
-      panes:
-          - vim
-  - console:
