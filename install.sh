@@ -335,7 +335,9 @@ set_up_dotfiles_ruby
 set_up_git_update_messages
 create_local_gitconfig
 change_shell
-install_xcode
+if is_home; then
+    install_xcode
+fi
 launch_hammerspoon
 if is_home; then
 	install_python_version_for_icloud_photos_downloader
