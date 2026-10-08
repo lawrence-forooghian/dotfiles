@@ -33,6 +33,8 @@ setopt INC_APPEND_HISTORY
 
 # brew bundle is very quiet otherwise
 export HOMEBREW_VERBOSE=1
+# Install casks to user-local Applications dir instead of global, for machines (e.g. dxw) where main user is not an admin
+export HOMEBREW_CASK_OPTS=--appdir=~/Applications
 # Note that (amongst other things e.g. setting up $PATH) this makes compinit aware of completions for Homebrew-installed stuff so needs to come before compinit below.
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
