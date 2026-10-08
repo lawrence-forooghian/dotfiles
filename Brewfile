@@ -31,7 +31,6 @@ cask "firefox" # disabled media.av1.enabled because M1 doesn’t have hardware s
 cask "hammerspoon"
 cask "iterm2"
 cask "obsidian"
-cask "qlmarkdown" # Quick Look for Markdown
 cask "xcodes-app"
 cask "zoom"
 
