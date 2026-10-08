@@ -45,7 +45,6 @@ brew "libyaml" # Appears to be needed for asdf's installation of Ruby to succeed
 brew "msgpack-tools" # msgpack2json, json2msgpack
 brew "neovim"
 brew "q" # SQL-like querying of CSV
-brew "reattach-to-user-namespace"
 brew "tmux"
 brew "tree"
 brew "yq" # jq but for YAML
