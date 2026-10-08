@@ -1,0 +1,2 @@
+# Read .nvmrc, .ruby-version etc files, instead of only .tool-versions
+legacy_version_file = yes
