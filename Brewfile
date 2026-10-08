@@ -4,7 +4,7 @@ class DotfilesEnv
   def initialize
     # ENV doesn't seem to have DOTFILES_ENV, it seems to be some environment
     # massaged by Homebrew
-    @env = File.read("/Users/lawrence/.dotfiles_env").chomp
+    @env = File.read(File.join(Dir.home, ".dotfiles_env")).chomp
   end
 
   # The 'all' env is used for when I’m contracting and using a single machine

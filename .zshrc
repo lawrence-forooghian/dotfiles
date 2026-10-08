@@ -38,7 +38,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Replaced rbenv and fnm with asdf.
 
 # https://asdf-vm.com/guide/upgrading-to-v0-16
-export ASDF_DATA_DIR="/Users/lawrence/.asdf"
+export ASDF_DATA_DIR="$HOME/.asdf"
 export PATH="$ASDF_DATA_DIR/shims:$PATH"
 
 # Go
@@ -66,4 +66,4 @@ export PATH="${HOME}/dotfiles/bin:$PATH"
 export TMUXINATOR_CONFIG="${DOTFILES_DIR}/tmuxinator"
 source "${DOTFILES_DIR}/vendor/tmuxinator.zsh"
 
-[ -f "/Users/lawrence/.ghcup/env" ] && source "/Users/lawrence/.ghcup/env" # ghcup-env
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env

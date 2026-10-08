@@ -1,6 +1,6 @@
 [core]
-	excludesfile = /Users/lawrence/dotfiles/global.gitignore
-	hooksPath=/Users/lawrence/dotfiles/git-hooks
+	excludesfile = ~/dotfiles/global.gitignore
+	hooksPath=~/dotfiles/git-hooks
 [user]
 	name = Lawrence Forooghian
 	# Email is set in ~/.gitconfig_local, e.g.

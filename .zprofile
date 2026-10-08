@@ -1,6 +1,6 @@
 
 # Created by `pipx` on 2024-03-26 14:12:09
-export PATH="$PATH:/Users/lawrence/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 ##
 # Your previous /Users/lawrence/.zprofile file was backed up as /Users/lawrence/.zprofile.macports-saved_2024-05-27_at_10:43:53
