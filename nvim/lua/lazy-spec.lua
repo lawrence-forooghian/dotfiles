@@ -23,7 +23,7 @@ return {
     { "preservim/nerdtree" },
     { "mileszs/ack.vim" },
     { "vim-scripts/a.vim" },
-    -- TODO currently the first time you invoke fzf it asks whether you want to install it; figure out how to reproduce fzf#install of vim
+    -- The actual fzf binary is installed via Homebrew instead of allowing this plugin to prompt you to install it, so that it gets upgraded with `brew upgrade`
     { "junegunn/fzf" },
     -- Handy commands on top of the core fzf integration — e.g. for listing buffers, or doing git ls-files
     { "junegunn/fzf.vim" },

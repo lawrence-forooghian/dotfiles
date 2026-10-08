@@ -33,6 +33,7 @@ brew "ack"
 brew "asdf"
 brew "bitwise" # Handy for viewing numbers in binary, with easy access to the index of each bit (useful for e.g. bitfields). There are a bunch of tools for doing something similar, including macOS’s built-in Calculator app in Programmer mode; see https://news.ycombinator.com/item?id=34577788
 brew "cmake" # to install Rugged
+brew "fzf" # Used by the NeoVim fzf plugin; see nvim/lua/lazy-spec.lua
 brew "gh"
 brew "git" # More up to date than the Apple version
 brew "git-absorb"
