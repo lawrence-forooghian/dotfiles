@@ -23,39 +23,28 @@ env = DotfilesEnv.new
 
 # Installed on all machines
 
-cask "1password"
 cask "alfred"
 cask "ArtemYurov/tomobar/tomobar" # Replacement for Tomighty, which is not Gatekeepered
 cask "docker-desktop"
-cask "firefox" # disabled media.av1.enabled because M1 doesn’t have hardware support and some YouTube videos cause CPU usage to skyrocket. With this disabled YouTube uses VP9 instead (same as Safari uses)
 cask "hammerspoon"
-cask "iterm2"
 cask "obsidian"
-cask "xcodes-app"
-cask "zoom"
 
 brew "ack"
-brew "aria2" # For faster downloading with `xcodes`
 brew "asdf"
 brew "bitwise" # Handy for viewing numbers in binary, with easy access to the index of each bit (useful for e.g. bitfields). There are a bunch of tools for doing something similar, including macOS’s built-in Calculator app in Programmer mode; see https://news.ycombinator.com/item?id=34577788
-brew "cloc"
 brew "cmake" # to install Rugged
 brew "gh"
 brew "git" # More up to date than the Apple version
 brew "git-absorb"
 brew "gnu-sed" # I don’t want to try and learn two seds right now
-brew "imagemagick"
 brew "inetutils" # ftp, telnet
 brew "ipcalc" # handy calculator for e.g. deciphering CIDR notation
 brew "jq" # At least, it does pretty-printing of JSON
 brew "libyaml" # Appears to be needed for asdf's installation of Ruby to succeed
 brew "msgpack-tools" # msgpack2json, json2msgpack
-brew "ncdu"
 brew "neovim"
-brew "pyenv"
 brew "q" # SQL-like querying of CSV
 brew "reattach-to-user-namespace"
-brew "xcodes" # TODO: Check what is the right one — this is the only one I found that didn't require me to install xcode first (different to the one on their GitHub, i.e. xcodesorg/xcodes
 brew "tmux"
 brew "tree"
 brew "yq" # jq but for YAML
@@ -63,6 +52,7 @@ brew "yq" # jq but for YAML
 # Installed on home machines only
 
 if env.home?
+  cask "1password"
   cask "anki"
   cask "arduino"
   # cask "assinador-serpro" # This cask has been disabled for some reason and not updated since 4.3.3 (4.5.0 is now available)
@@ -72,12 +62,14 @@ if env.home?
   cask "cog" # open-source music player; plays directly from filesystem, including from zipped albums; seems alright and maintained
   cask "cyberduck" # GUI for FTP uploads (built-in macOS FTP is read-only)
   cask "drawio"
+  cask "firefox" # disabled media.av1.enabled because M1 doesn’t have hardware support and some YouTube videos cause CPU usage to skyrocket. With this disabled YouTube uses VP9 instead (same as Safari uses)
   cask "foobar2000" # free (but not open-source) music player; unlike Cog it indexes your library and lets you search by metadata
   cask "gpg-suite"
   cask "hex-fiend" # Hex editor, also gives `hexf` CLI tool
   cask "horos" # DICOM viewer (medical exams)
   cask "iina" # Like VLC but more Mac-like (PIP etc)
   cask "inkscape"
+  cask "iterm2"
   cask "keyboardcleantool"
   cask "libreoffice"
   cask "mactex"
@@ -99,8 +91,12 @@ if env.home?
   cask "whatsapp"
   cask "wireshark-app"
   cask "xact" # for e.g. converting to FLAC, adding tags
+  cask "xcodes-app"
+  cask "zoom"
 
   brew "aha" # Converts ANSI to HTML — used for generating PDFs from Git diffs for review on iPad
+  brew "aria2" # For faster downloading with `xcodes`
+  brew "cloc"
   brew "weasyprint" # HTML to PDF — used by topdf alias
   brew "exiftool" # https://exiftool.org/forum/index.php?topic=8652.0
   brew "ffmpeg" # Allows youtube-dl to merge best quality audio and video
@@ -110,12 +106,15 @@ if env.home?
   brew "gramps" # Family tree; after this, install the Graph View addon because it lets you see the whole tree and not just the ancestors of a single person (which is what the default Pedigree view gives you)
   brew "gnu-typist"
   brew "graphviz"
+  brew "imagemagick"
   brew "iperf" # Measuring transfer speed between two hosts (the other running an iperf server)
   brew "displayplacer"
   brew "mediainfo" # Print information about media files e.g. the Dolby Vision profile
   brew "mp4v2" # For converting Audible books
+  brew "ncdu"
   brew "ocrmypdf"
   brew "pandoc" # Used for my CV
+  brew "pyenv"
   brew "teamookla/speedtest/speedtest"
   # Used for:
   # - removing passwords on PDFs: `qpdf --decrypt --replace-input --password=<password> 2020-04.pdf`
@@ -125,6 +124,7 @@ if env.home?
   brew "spek" # spectrum analyser, useful for seeing if an audio file is lossless
   brew "streamlink" # For downloading e.g. HLS streams
   brew "tesseract-lang" # All languages for OCRmyPDF
+  brew "xcodes" # TODO: Check what is the right one — this is the only one I found that didn't require me to install xcode first (different to the one on their GitHub, i.e. xcodesorg/xcodes
   brew "ykman" # YubiKey Manager CLI
   brew "yt-dlp"
 
