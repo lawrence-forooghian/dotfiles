@@ -64,9 +64,19 @@ hs.hotkey.bind("ctrl", "Space", function()
     end
 end)
 
--- And now, replace Caffeine:
+-- And now, replace Caffeine (home machines only):
 
-local caffeine = hs.menubar.new()
+local function isHomeEnv()
+    local f = io.open(os.getenv("HOME") .. "/.dotfiles_env", "r")
+    if not f then
+        return false
+    end
+    local env = f:read("*l")
+    f:close()
+    return env == "home" or env == "all"
+end
+
+local caffeine = isHomeEnv() and hs.menubar.new() or nil
 local SLEEP_TYPE = "displayIdle"
 local CAFFEINATE_SETTINGS_KEY = "lawrence.caffeinate.displayIdle"
 
