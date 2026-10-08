@@ -1,5 +1,6 @@
 Gemfile.lock
 Brewfile.lock.json
+nvim/lazy-lock.json
 
 .vim/autoload/plug.vim
 .vim/plugged
