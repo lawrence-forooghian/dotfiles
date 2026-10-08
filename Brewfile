@@ -145,8 +145,5 @@ end
 # Installed on work machines only
 
 if env.work?
-  cask "slack"
-  cask "visual-studio-code" # Playing around with JS, not committed to sorting out tooling yet
-
-  # brew "postgresql@14"
+  cask "visual-studio-code"
 end
