@@ -194,7 +194,7 @@ set_up_asdf() {
 }
 
 set_up_node() {
-	for package in typescript wait-on npm-merge-driver; do
+	for package in wait-on npm-merge-driver; do
 		log "Globally installing NPM package $package."
 		npm install --location=global $package
 	done
