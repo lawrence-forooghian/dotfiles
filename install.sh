@@ -183,7 +183,7 @@ set_up_asdf() {
 	export ASDF_DATA_DIR="$HOME/.asdf"
 	export PATH="$ASDF_DATA_DIR/shims:$PATH"
 
-	for plugin in nodejs ruby yarn; do
+	for plugin in nodejs ruby; do
 		if asdf plugin list 2>/dev/null | grep -q "\\b${plugin}\\b"; then
 			log "asdf plugin ${plugin} is already installed."
 		else
