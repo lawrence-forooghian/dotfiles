@@ -115,23 +115,23 @@ install_config_files() {
 
 	cd ~
 
-	if [[ -e .claude ]]; then
-		log "~/.claude already exists."
-	else
-		log "Creating ~/.claude."
-		mkdir .claude
-	fi
-
-	cd .claude
-
-	for i in CLAUDE.md settings.json; do
-		if [[ -e $i ]]; then
-			log "~/.claude/$i already exists."
-		else
-			log "Creating symlink ~/.claude/$i."
-			ln -s ../dotfiles/claude/$i $i
-		fi
-	done
+#	if [[ -e .claude ]]; then
+#		log "~/.claude already exists."
+#	else
+#		log "Creating ~/.claude."
+#		mkdir .claude
+#	fi
+#
+#	cd .claude
+#
+#	for i in CLAUDE.md settings.json; do
+#		if [[ -e $i ]]; then
+#			log "~/.claude/$i already exists."
+#		else
+#			log "Creating symlink ~/.claude/$i."
+#			ln -s ../dotfiles/claude/$i $i
+#		fi
+#	done
 
 	cd ~
 
