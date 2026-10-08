@@ -6,9 +6,6 @@ export EDITOR=nvim
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
 
-# brew bundle is very quiet otherwise
-export HOMEBREW_VERBOSE=1
-
 # Other shell niceties
 bindkey -v
 bindkey "^R" history-incremental-search-backward
@@ -34,7 +31,10 @@ setopt INC_APPEND_HISTORY
 
 ## Package managers and tool managers
 
+# brew bundle is very quiet otherwise
+export HOMEBREW_VERBOSE=1
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Replaced rbenv and fnm with asdf.
 
 # https://asdf-vm.com/guide/upgrading-to-v0-16
