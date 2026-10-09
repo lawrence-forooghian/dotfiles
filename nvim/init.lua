@@ -92,6 +92,22 @@ vim.opt.backspace = { "indent", "eol", "start" }
 -- Handy hint for debugging this that I saw on the Internet: `:verbose set tw?` tells you what was the last script that set this option.
 vim.g.editorconfig = false
 
+-- Shorter updatetime (default 4000ms) makes CursorHold fire quickly; this was
+-- in my old coc config.
+vim.opt.updatetime = 300
+
+-- Always show the signcolumn, otherwise it shifts the text each time
+-- diagnostics appear/become resolved
+vim.opt.signcolumn = "yes"
+
+-- Pop up the diagnostic message under the cursor when it rests there (coc.nvim
+-- used to do this by default).
+vim.api.nvim_create_autocmd("CursorHold", {
+    callback = function ()
+        vim.diagnostic.open_float(nil, { focusable = false, scope = "cursor" })
+    end
+})
+
 -- ## Keyboard mappings
 
 -- Make it easy to close the window
