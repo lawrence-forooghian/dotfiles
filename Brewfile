@@ -27,6 +27,7 @@ cask "alfred"
 cask "ArtemYurov/tomobar/tomobar" # Replacement for Tomighty, which is not Gatekeepered
 cask "docker-desktop"
 cask "hammerspoon"
+cask "font-meslo-lg-nerd-font" # Nerd Font replacement for Menlo; this is needed for the symbols in Neovim's LSP completion popup menu
 cask "obsidian"
 
 brew "ack"
