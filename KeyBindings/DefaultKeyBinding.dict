@@ -1,0 +1,4 @@
+{
+	/* Make Option-Space insert a regular space instead of a non-breaking space. */
+	"~ " = ("insertText:", " ");
+}

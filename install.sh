@@ -156,6 +156,24 @@ install_config_files() {
 
 	cd ~
 
+	if [[ -e Library/KeyBindings ]]; then
+		log "~/Library/KeyBindings already exists."
+	else
+		log "Creating ~/Library/KeyBindings."
+		mkdir Library/KeyBindings
+	fi
+
+	# Makes Option-Space insert a regular space rather than a non-breaking one — these are annoying because they sometimes cause a non-breaking space to be inserting after doing e.g. Option-3 to insert a Markdown heading and then typing a space.
+	# https://superuser.com/a/142573
+	if [[ -e Library/KeyBindings/DefaultKeyBinding.dict ]]; then
+		log "~/Library/KeyBindings/DefaultKeyBinding.dict already exists."
+	else
+		log "Creating symlink ~/Library/KeyBindings/DefaultKeyBinding.dict."
+		ln -s ../../dotfiles/KeyBindings/DefaultKeyBinding.dict Library/KeyBindings/DefaultKeyBinding.dict
+	fi
+
+	cd ~
+
 	popd
 }
 
