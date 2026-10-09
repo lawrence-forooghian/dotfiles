@@ -5,6 +5,14 @@ return {
       -- https://github.com/chriskempson/base16-vim/pull/236 demonstrates how to defer setting the colorscheme until this plugin is installed:
       config = function()
         vim.cmd('source ~/.vim/choose_base16_colorscheme.vim')
+
+        -- The theme's default selected-item colour in the completion menu is
+        -- hard to see. Re-apply on ColorScheme since the theme resets it.
+        local function highlight_menu_selection()
+          vim.cmd('hi BlinkCmpMenuSelection ctermbg=237 guibg=#13354A')
+        end
+        highlight_menu_selection()
+        vim.api.nvim_create_autocmd('ColorScheme', { callback = highlight_menu_selection })
       end
     },
 
