@@ -145,5 +145,9 @@ end
 # Installed on work machines only
 
 if env.work?
+  # Used for GitHub Copilot which dxw and MoJ use
   cask "visual-studio-code"
+
+  # Used by HMPPS TypeScript precommit hooks
+  brew "gitleaks"
 end
