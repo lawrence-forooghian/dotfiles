@@ -40,6 +40,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # https://asdf-vm.com/guide/upgrading-to-v0-16
 export ASDF_DATA_DIR="$HOME/.asdf"
 export PATH="$ASDF_DATA_DIR/shims:$PATH"
+# Support partial Node version numbers e.g. "24" in .nvmrc (see https://github.com/asdf-vm/asdf-nodejs#partial-and-codename-versions). This is needed for hmpps-template-typescript.
+export ASDF_NODEJS_LEGACY_FILE_DYNAMIC_STRATEGY=latest_available
 
 # Go
 export PATH="${HOME}/go/bin:$PATH"
